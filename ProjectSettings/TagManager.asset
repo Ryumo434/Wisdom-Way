@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Water
+    uniqueID: 1049709001
+    locked: 0
+  - name: Ground
+    uniqueID: 1376028217
+    locked: 0
+  - name: Path
+    uniqueID: 2653734527
+    locked: 0
+  - name: Buildings
+    uniqueID: 2830103109
+    locked: 0
+  - name: Vegetation
+    uniqueID: 709715489
+    locked: 0
+  - name: Player
+    uniqueID: 2783947361
+    locked: 0
