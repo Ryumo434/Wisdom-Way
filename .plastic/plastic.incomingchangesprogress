@@ -1,0 +1,20 @@
+[
+  {
+    "MountId": "56e62dd7-241f-41e9-8c6b-dd4ca4513e62",
+    "AncestorCsetIds": [
+      1
+    ],
+    "SourceCsetId": 3,
+    "DestinationCsetId": 1,
+    "FileConflicts": [
+      {
+        "Path": "/ProjectSettings/GraphicsSettings.asset",
+        "ItemId": 138,
+        "ParentItemId": 129,
+        "BaseRevId": 109,
+        "SourceRevId": 155,
+        "DestinationRevId": 109
+      }
+    ]
+  }
+]
