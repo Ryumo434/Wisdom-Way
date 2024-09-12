@@ -1457,8 +1457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slashAnimPrefab: {fileID: 5215211901127070564, guid: bbc1153f33cf70d4ca1af21a8d6d8f56, type: 3}
   slashAnimSpawnPoint: {fileID: 953201821}
-  weaponCollider: {fileID: 0}
-  swordAttackCD: 0.5
+  swordAttackCD: 0.3
 --- !u!95 &853535658
 Animator:
   serializedVersion: 5
@@ -1562,7 +1561,7 @@ Transform:
   m_GameObject: {fileID: 953201820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.977, y: 0.428, z: 0}
+  m_LocalPosition: {x: 0.237, y: 0.428, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
