@@ -30614,8 +30614,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 655645745}
-  - component: {fileID: 655645746}
   - component: {fileID: 655645747}
+  - component: {fileID: 655645748}
   m_Layer: 0
   m_Name: Weapon Collider
   m_TagString: Untagged
@@ -30632,13 +30632,26 @@ Transform:
   m_GameObject: {fileID: 655645744}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4452572, y: 0.44575262, z: -1.0188471}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 733822158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &655645746
+--- !u!114 &655645747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655645744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b2171b68a55a0469ea465345c8e226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
+--- !u!60 &655645748
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30682,25 +30695,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: 0.24819177, y: -0.033625335}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 1.1017491, y: -0.8000001}
-      - {x: 1.2666483, y: 0.7237949}
+    - - {x: 1.5654345, y: 1.199888}
+      - {x: 1.1229448, y: 1.6643615}
+      - {x: 0.5022888, y: 1.9608514}
+      - {x: -0.27965164, y: 1.8273036}
+      - {x: 0.7268557, y: 0.4837995}
+      - {x: -0.15665507, y: -0.8556256}
+      - {x: 0.8981929, y: -0.65348935}
+      - {x: 1.4733496, y: -0.2963215}
+      - {x: 1.673491, y: 0.25075668}
   m_UseDelaunayMesh: 0
---- !u!114 &655645747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655645744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b2171b68a55a0469ea465345c8e226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 1
 --- !u!1001 &655735541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31930,7 +31934,7 @@ Transform:
   m_GameObject: {fileID: 853535655}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: -0.7200667, w: -0.6939049}
-  m_LocalPosition: {x: 0.7, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0.53, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
