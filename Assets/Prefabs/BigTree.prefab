@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3693889240162254912}
   - component: {fileID: 1218293165421515772}
   - component: {fileID: 8427204907102022824}
-  - component: {fileID: 1047430138878825355}
-  - component: {fileID: 4805959178834743782}
+  - component: {fileID: 1450335344808477470}
+  - component: {fileID: 5881982150056475263}
   m_Layer: 0
-  m_Name: Tree1
+  m_Name: BigTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 525621a509ba1834a9e0b014c2d608e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82a503791e261c043b19944423b6ab67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,10 +119,10 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001210554, y: -0.13775463}
-  m_Size: {x: 1.2818633, y: 0.91054034}
+  m_Offset: {x: -0.008843539, y: 0.023106102}
+  m_Size: {x: 1.4226176, y: 0.88373613}
   m_Direction: 1
---- !u!114 &1047430138878825355
+--- !u!114 &1450335344808477470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transparencyAmount: 0.8
   fadeTime: 0.4
---- !u!58 &4805959178834743782
+--- !u!58 &5881982150056475263
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,6 +168,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12878895, y: 1.5533514}
+  m_Offset: {x: -0.005084038, y: 1.7440602}
   serializedVersion: 2
-  m_Radius: 1.3019619
+  m_Radius: 1.2474686
