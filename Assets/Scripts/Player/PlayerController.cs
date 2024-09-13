@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool FacingLeft { get { return facingLeft; } }
+    public bool FacingLeft {  get { return facingLeft; } set { facingLeft = value; } }
+    
     public static PlayerController Instance;
 
     [SerializeField] private float moveSpeed = 1f;
