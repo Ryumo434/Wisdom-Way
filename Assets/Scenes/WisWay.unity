@@ -37144,7 +37144,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.08, y: 0.08}
       - {x: -0.2307855, y: -0.014165139}
-      - {x: -0.24452882, y: -0.27004218}
+      - {x: -0.24452882, y: -0.27876315}
       - {x: 0.21496907, y: -0.2781874}
       - {x: 0.21496908, y: -0.2781875}
       - {x: 0.20568645, y: 0.005086288}
@@ -37247,7 +37247,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.87, y: 29.48, z: 0}
-  m_LocalScale: {x: 7, y: 6, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
