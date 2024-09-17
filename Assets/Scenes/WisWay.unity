@@ -37090,6 +37090,7 @@ GameObject:
   - component: {fileID: 357081327}
   - component: {fileID: 357081326}
   - component: {fileID: 357081325}
+  - component: {fileID: 357081329}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -37251,6 +37252,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &357081329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357081324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8918db8a68ff2489d1f2df7f2c8a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PressE: {fileID: 1730562083}
+  Panel: {fileID: 1693007144}
+  NPCText: {fileID: 985741488}
 --- !u!1001 &357967265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42104,7 +42120,7 @@ GameObject:
   - component: {fileID: 985741489}
   - component: {fileID: 985741488}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NPCText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86618,6 +86634,7 @@ GameObject:
   - component: {fileID: 1730562084}
   - component: {fileID: 1730562086}
   - component: {fileID: 1730562085}
+  - component: {fileID: 1730562087}
   m_Layer: 5
   m_Name: PressE
   m_TagString: Untagged
@@ -86741,6 +86758,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730562083}
   m_CullTransparentMesh: 1
+--- !u!114 &1730562087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730562083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8918db8a68ff2489d1f2df7f2c8a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PressE: {fileID: 1730562083}
+  Panel: {fileID: 1693007144}
+  NPCText: {fileID: 985741488}
 --- !u!1001 &1735706683
 PrefabInstance:
   m_ObjectHideFlags: 0
