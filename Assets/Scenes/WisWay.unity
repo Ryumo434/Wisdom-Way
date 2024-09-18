@@ -41520,6 +41520,7 @@ MonoBehaviour:
   moveSpeed: 5
   dashSpeed: 4
   myTrailRenderer: {fileID: 2005473381}
+  canMove: 1
 --- !u!4 &745631404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3693889240162254912, guid: 1f872cff73304f14aa52fc0ca1a3e74f, type: 3}
@@ -45430,7 +45431,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1025160586
 RectTransform:
