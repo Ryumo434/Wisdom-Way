@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     private bool facingLeft = false;
     private bool isDashing = false;
+
+    public bool canMove = true;
+
     private void Awake()
     {
         Instance = this;
@@ -63,11 +66,13 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetFloat("moveY", movement.y);
     }
 
-   
-
     private void Move()
     {
-        rb.MovePosition(rb.position + movement *(moveSpeed * Time.fixedDeltaTime));
+        // Bewege den Spieler nur, wenn canMove auf true gesetzt ist
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        }
     }
 
     private void AdjustPlayerFacingDirection()
