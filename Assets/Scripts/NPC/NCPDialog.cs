@@ -17,11 +17,10 @@ public class NCPDialog : MonoBehaviour
     private int currentTextIndex = 0;  // Index für den aktuellen Text
     private string[] dialoge = new string[]  // Liste der Dialoge
     {
-        "Hallo, Reisender!       (press E)",
-        "Wie kann ich dir helfen?",
-        "Die Sonne scheint heute besonders hell.",
-        "Hab einen schönen Tag!",
-        "Du wirst sterben <3"
+        "Hallo, Reisender!",
+        "Ich spüre Energie",
+        "Der Turm verbirgt ein Geheimnis...",
+        "Finde es heraus!",
     };
 
 
