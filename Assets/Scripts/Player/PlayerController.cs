@@ -67,12 +67,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move()
-    {
-        // Bewege den Spieler nur, wenn canMove auf true gesetzt ist
-        if (canMove)
-        {
-            rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
-        }
+    { 
+      rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));  
     }
 
     private void AdjustPlayerFacingDirection()

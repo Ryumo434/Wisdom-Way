@@ -65,7 +65,7 @@ public class NCPDialog : MonoBehaviour
                 PressE.SetActive(false);
                 NPCText.text = dialoge[currentTextIndex];  // Zeigt den ersten Text an
                 Debug.Log("Erster Text angezeigt");
-                PlayerController.Instance.canMove = false;
+                Time.timeScale = 0f;
             }
             else
             {
@@ -78,7 +78,7 @@ public class NCPDialog : MonoBehaviour
                     Panel.SetActive(false);  // Schließt das Panel
                     currentTextIndex = 0;  // Setzt den Textindex zurück
                     Debug.Log("Dialog beendet, Panel geschlossen.");
-                    PlayerController.Instance.canMove = true;
+                    Time.timeScale = 1f;
                     
                 }
                 else
