@@ -21,6 +21,7 @@ public class NCPDialog : MonoBehaviour
         "Ich spüre Energie",
         "Der Turm verbirgt ein Geheimnis...",
         "Finde es heraus!",
+        "Viel Glück kleiner!",
     };
 
 
