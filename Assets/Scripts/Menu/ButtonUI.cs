@@ -18,6 +18,7 @@ public class ButtonUI : MonoBehaviour
 
     private IEnumerator FadeOutAndLoadScene(string sceneName)
     {
+        
         float startVolume = backgroundMusic.volume;
 
         // Verringere die Lautstärke allmählich
@@ -32,6 +33,6 @@ public class ButtonUI : MonoBehaviour
         backgroundMusic.Stop();
 
         // Wechsle die Szene
-        SceneManager.LoadScene(sceneName);
+       SceneManager.LoadScene(sceneName);
     }
 }

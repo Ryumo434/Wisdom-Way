@@ -226,7 +226,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d4ae9434c94c3149a209a4411e7a364, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.651
+  m_Volume: 0.601
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 287615326}
-  fadeDuration: 3
+  fadeDuration: 1
   newGameLevel: WisWay
 --- !u!114 &1385166698
 MonoBehaviour:
