@@ -11658,7 +11658,8 @@ MonoBehaviour:
   moveSpeed: 5
   dashSpeed: 4
   myTrailRenderer: {fileID: 2005473381}
-  canMove: 1
+  weaponCollider: {fileID: 655645745}
+  SlashSpawnPoint: {fileID: 953201821}
 --- !u!1 &789350061
 GameObject:
   m_ObjectHideFlags: 0
@@ -11944,8 +11945,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashAnimPrefab: {fileID: 5215211901127070564, guid: bbc1153f33cf70d4ca1af21a8d6d8f56, type: 3}
-  slashAnimSpawnPoint: {fileID: 953201821}
-  weaponCollider: {fileID: 655645745}
   swordAttackCD: 0.3
 --- !u!95 &853535658
 Animator:
