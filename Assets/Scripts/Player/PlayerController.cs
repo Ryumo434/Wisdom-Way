@@ -1,35 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
-    public bool FacingLeft {  get { return facingLeft; } set { facingLeft = value; } }
-    
-    public static PlayerController Instance;
+    public bool FacingLeft { get { return facingLeft; } }
+
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
+    [SerializeField] private Transform SlashSpawnPoint;
 
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator myAnimator;
-    private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer mySpriteRender;
     private float startingMoveSpeed;
 
     private bool facingLeft = false;
     private bool isDashing = false;
-    private void Awake()
+
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
+
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRender = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -55,6 +56,16 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
+
+    public Transform GetSlashSpawnPoint()
+    {
+        return SlashSpawnPoint;
+    }
+
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
@@ -63,11 +74,9 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetFloat("moveY", movement.y);
     }
 
-   
-
     private void Move()
     {
-        rb.MovePosition(rb.position + movement *(moveSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
     private void AdjustPlayerFacingDirection()
@@ -77,15 +86,14 @@ public class PlayerController : MonoBehaviour
 
         if (mousePos.x < playerScreenPoint.x)
         {
-            mySpriteRenderer.flipX = true;
+            mySpriteRender.flipX = true;
             facingLeft = true;
         }
         else
         {
-            mySpriteRenderer.flipX = false;
+            mySpriteRender.flipX = false;
             facingLeft = false;
         }
-
     }
 
     private void Dash()
@@ -94,7 +102,6 @@ public class PlayerController : MonoBehaviour
         {
             isDashing = true;
             moveSpeed *= dashSpeed;
-            //Trailrenderer zieht "schweif" hinter objekten mit "emitting" stellt man ein ob diese dann true/false sind
             myTrailRenderer.emitting = true;
             StartCoroutine(EndDashRoutine());
         }
@@ -102,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator EndDashRoutine()
     {
-        float dashTime = 0.2f;
+        float dashTime = .2f;
         float dashCD = .25f;
         yield return new WaitForSeconds(dashTime);
         moveSpeed = startingMoveSpeed;
