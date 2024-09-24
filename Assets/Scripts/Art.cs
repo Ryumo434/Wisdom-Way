@@ -11,6 +11,8 @@ public class ArtTrigger : MonoBehaviour
 
     [SerializeField] private GameObject darkBackground;
     [SerializeField] private GameObject MonalisaCap;
+    [SerializeField] private GameObject mona;
+    [SerializeField] private GameObject alskdjf;
 
     private bool isPlayerInTrigger = false;
     private bool lastPlayerInTriggerState = false;
@@ -42,7 +44,7 @@ public class ArtTrigger : MonoBehaviour
         {
             // Setze die Variable auf True
             darkBackground.SetActive(true);
-            
+
             if (gameObject.CompareTag("Trigger1"))
             {
                 isPlayerInTrigger = true;
@@ -52,11 +54,13 @@ public class ArtTrigger : MonoBehaviour
             else if (gameObject.CompareTag("Trigger2"))
             {
                 isPlayerInTrigger = true;
+                mona.SetActive(true);
                 Debug.Log("trigger2");
             } 
             else if (gameObject.CompareTag("Trigger3"))
             {
                 isPlayerInTrigger = true;
+                alskdjf.SetActive(true);
                 Debug.Log("trigger3");
             }
         }
@@ -72,6 +76,8 @@ public class ArtTrigger : MonoBehaviour
             isPlayerInTrigger = false;
             darkBackground.SetActive(false);
             MonalisaCap.SetActive(false);
+            mona.SetActive(false);
+            alskdjf.SetActive(false);
         }
     }
 }
