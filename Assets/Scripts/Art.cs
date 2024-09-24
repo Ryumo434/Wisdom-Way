@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ArtTrigger : MonoBehaviour
@@ -7,6 +8,9 @@ public class ArtTrigger : MonoBehaviour
     [SerializeField] private GameObject Trigger1;
     [SerializeField] private GameObject Trigger2;
     [SerializeField] private GameObject Trigger3;
+
+    [SerializeField] private GameObject darkBackground;
+    [SerializeField] private GameObject MonalisaCap;
 
     private bool isPlayerInTrigger = false;
     private bool lastPlayerInTriggerState = false;
@@ -37,10 +41,12 @@ public class ArtTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Setze die Variable auf True
+            darkBackground.SetActive(true);
             
             if (gameObject.CompareTag("Trigger1"))
             {
                 isPlayerInTrigger = true;
+                MonalisaCap.SetActive(true);
                 Debug.Log("trigger1");
             }
             else if (gameObject.CompareTag("Trigger2"))
@@ -64,6 +70,8 @@ public class ArtTrigger : MonoBehaviour
         {
             // Setze die Variable auf False
             isPlayerInTrigger = false;
+            darkBackground.SetActive(false);
+            MonalisaCap.SetActive(false);
         }
     }
 }
