@@ -119,5 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2443d8bc210ced648aed48cb24e446d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 740360ca4f762454887cd0771e332f62, type: 2}
   slashAnimPrefab: {fileID: 5215211901127070564, guid: bbc1153f33cf70d4ca1af21a8d6d8f56, type: 3}
   swordAttackCD: 0.5

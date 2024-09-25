@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour, IWeapon
 {
+    [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private GameObject slashAnimPrefab;
     /*[SerializeField]*/
     private Transform slashAnimSpawnPoint;
@@ -29,6 +30,11 @@ public class Sword : MonoBehaviour, IWeapon
 
     }
 
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
+
     private void Update()
     {
         MouseFollowWithOffset();
@@ -41,15 +47,10 @@ public class Sword : MonoBehaviour, IWeapon
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;
-        StartCoroutine(AttackCDRoutine());
+
     }
 
-    private IEnumerator AttackCDRoutine()
-    {
-        yield return new WaitForSeconds(swordAttackCD);
-        // DoneAttackingAnimEvent(); // Ensure collider is disabled after cooldown
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
-    }
+
 
     public void DoneAttackingAnimEvent()
     {
