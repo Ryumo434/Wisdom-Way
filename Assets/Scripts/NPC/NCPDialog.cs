@@ -9,6 +9,7 @@ public class NCPDialog : MonoBehaviour
     // Panel, das im Canvas aktiviert werden soll
     [SerializeField] private GameObject PressE;
     [SerializeField] private GameObject Panel;
+    [SerializeField] private GameObject darkBackground;
     [SerializeField] public TextMeshProUGUI NPCText;
 
     // Variable zum Speichern, ob der Spieler den Trigger betritt
