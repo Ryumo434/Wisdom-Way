@@ -37766,6 +37766,7 @@ MonoBehaviour:
   PressE: {fileID: 1730562083}
   Panel: {fileID: 1693007144}
   darkBackground: {fileID: 0}
+  ActivateWeapon: {fileID: 129715467}
   NPCText: {fileID: 985741488}
 --- !u!1001 &357967265
 PrefabInstance:
@@ -89008,6 +89009,7 @@ MonoBehaviour:
   PressE: {fileID: 1730562083}
   Panel: {fileID: 1693007144}
   darkBackground: {fileID: 1984105894}
+  ActivateWeapon: {fileID: 0}
   NPCText: {fileID: 985741488}
 --- !u!1001 &1735706683
 PrefabInstance:

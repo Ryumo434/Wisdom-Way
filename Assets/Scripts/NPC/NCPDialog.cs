@@ -10,6 +10,7 @@ public class NCPDialog : MonoBehaviour
     [SerializeField] private GameObject PressE;
     [SerializeField] private GameObject Panel;
     [SerializeField] private GameObject darkBackground;
+    [SerializeField] private GameObject ActivateWeapon;    
     [SerializeField] public TextMeshProUGUI NPCText;
 
     // Variable zum Speichern, ob der Spieler den Trigger betritt
@@ -65,6 +66,7 @@ public class NCPDialog : MonoBehaviour
             {
                 Panel.SetActive(true);
                 PressE.SetActive(false);
+                ActivateWeapon.SetActive(false);
                 NPCText.text = dialoge[currentTextIndex];  // Zeigt den ersten Text an
                 Debug.Log("Erster Text angezeigt");
                 Time.timeScale = 0f;
@@ -119,6 +121,7 @@ public class NCPDialog : MonoBehaviour
             // Deaktiviert das Panel
             PressE.SetActive(false);
             Panel.SetActive(false);
+            ActivateWeapon.SetActive(true);
             currentTextIndex = 0;
         }
     }
