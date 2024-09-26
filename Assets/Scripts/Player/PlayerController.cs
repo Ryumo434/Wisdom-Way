@@ -16,12 +16,13 @@ public class PlayerController : Singleton<PlayerController>
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
-    private Animator myAnimator;
+    private Animator myAnimatorPlayer;
     private SpriteRenderer mySpriteRender;
     private float startingMoveSpeed;
 
     private bool facingLeft = false;
     private bool isDashing = false;
+    private bool isDragging = false;
 
     protected override void Awake()
     {
@@ -29,7 +30,7 @@ public class PlayerController : Singleton<PlayerController>
 
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
+        myAnimatorPlayer = GetComponent<Animator>();
         mySpriteRender = GetComponent<SpriteRenderer>();
     }
 
@@ -70,8 +71,9 @@ public class PlayerController : Singleton<PlayerController>
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
-        myAnimator.SetFloat("moveX", movement.x);
-        myAnimator.SetFloat("moveY", movement.y);
+        myAnimatorPlayer.SetFloat("moveX", movement.x);
+        myAnimatorPlayer.SetFloat("moveY", movement.y);
+        myAnimatorPlayer.SetBool("isDragging", isDragging);
     }
 
     private void Move()
@@ -116,5 +118,15 @@ public class PlayerController : Singleton<PlayerController>
         myTrailRenderer.emitting = false;
         yield return new WaitForSeconds(dashCD);
         isDashing = false;
+    }
+
+    public void activateDraggingAnimation()
+    {
+        isDragging = true;
+    }
+
+    public void deactivateDraggingAnimation()
+    {
+        isDragging = false;
     }
 }
