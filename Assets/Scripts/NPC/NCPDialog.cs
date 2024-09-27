@@ -19,12 +19,15 @@ public class NCPDialog : MonoBehaviour
     private int currentTextIndex = 0;  // Index für den aktuellen Text
     private string[] dialoge = new string[]  // Liste der Dialoge
     {
-        "Hallo, Reisender!",
-        "Ich spüre Energie",
-        "Der Turm verbirgt ein Geheimnis...",
-        "Finde es heraus!",
-        "Viel Glück kleiner!",
+        "Sei gegrüßt, Reisender!",
+        "Hier wird dein Blick getestet.",
+        "Finde das echte Gemälde",
+        "unter den zwei Fälschungen.",
+        "Folge dem Pfad des Gemäldes,",
+        "um zur nächsten Prüfung zu gelangen.",
+        "Viel Erfolg!"
     };
+
 
 
     // Update wird einmal pro Frame aufgerufen
