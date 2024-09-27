@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4538940241638243451}
   - component: {fileID: 5025367211662173367}
   - component: {fileID: 3448385434596946092}
+  - component: {fileID: -2880093203866798992}
   m_Layer: 0
   m_Name: Blue Slime
   m_TagString: Untagged
@@ -243,3 +244,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
+--- !u!114 &-2880093203866798992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257066035347847948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf339a94fae7f848aeb787c4f8f0c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ChaseSpeed: 2.5
+  ChaseDistance: 4
