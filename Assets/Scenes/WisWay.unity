@@ -91493,6 +91493,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: UICanvas
+      value: 
+      objectReference: {fileID: 1060326537}
+    - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: ActivateWeapon
+      value: 
+      objectReference: {fileID: 129715467}
+    - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: darkBackground
+      value: 
+      objectReference: {fileID: 1971742719}
+    - target: {fileID: 3633802953353811771, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -332.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633802953353811771, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -168.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3758082459431523905, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -332.74
@@ -91603,11 +91623,11 @@ PrefabInstance:
       objectReference: {fileID: 1709360204}
     - target: {fileID: 7604125089921830786, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8921645560532954659, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
