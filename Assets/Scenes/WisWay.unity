@@ -38786,6 +38786,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68f02d18d02d2704ba729f6ee363756f, type: 3}
+--- !u!1 &506428041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4203740313106500942, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+  m_PrefabInstance: {fileID: 4378856504602179043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &506614073
 GameObject:
   m_ObjectHideFlags: 0
@@ -91354,6 +91359,7 @@ MonoBehaviour:
   ActivateWeapon: {fileID: 129715467}
   NPCText: {fileID: 985741488}
   UICanvas: {fileID: 1060326537}
+  Canvas: {fileID: 506428041}
 --- !u!1001 &4106841677520386071
 PrefabInstance:
   m_ObjectHideFlags: 0
