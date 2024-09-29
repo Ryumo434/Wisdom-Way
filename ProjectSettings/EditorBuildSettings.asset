@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/WisWay.unity
     guid: c52551703de62eb42933386794baa494
   - enabled: 1
-    path: Assets/Scenes/Dungeon_E1.unity
+    path: Assets/Scenes/Dungeon_GeE3.unity
     guid: e59d99fb41b78cf459a35a4d0a37adb4
   - enabled: 1
     path: Assets/Scenes/Dungeon_E2.unity
