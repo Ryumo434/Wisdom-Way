@@ -32866,6 +32866,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3693889240162254912, guid: 68f02d18d02d2704ba729f6ee363756f, type: 3}
   m_PrefabInstance: {fileID: 330338854}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &321787884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4203740313106500942, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+  m_PrefabInstance: {fileID: 236742405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &324146600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44861,6 +44866,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1576056331}
     - target: {fileID: 25539603469828222, guid: 88d07d61262696346afc5f5f313cb580, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 321787884}
+    - target: {fileID: 25539603469828222, guid: 88d07d61262696346afc5f5f313cb580, type: 3}
       propertyPath: PressE
       value: 
       objectReference: {fileID: 634193977}
@@ -44875,7 +44884,7 @@ PrefabInstance:
     - target: {fileID: 25539603469828222, guid: 88d07d61262696346afc5f5f313cb580, type: 3}
       propertyPath: ActivateWeapon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 850995293}
     - target: {fileID: 25539603469828222, guid: 88d07d61262696346afc5f5f313cb580, type: 3}
       propertyPath: darkBackground
       value: 
@@ -45635,6 +45644,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3693889240162254912, guid: 722bbf704be01c94ab00b47c71326928, type: 3}
   m_PrefabInstance: {fileID: 1430932610}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &850995293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953783644277286742, guid: 5b8fa6eb9813bc543b046f5aa5236e1e, type: 3}
+  m_PrefabInstance: {fileID: 2014302494}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &858385216 stripped
 Transform:
@@ -60087,7 +60101,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8398285, y: 18.45778, z: 0.053459167}
+  m_LocalPosition: {x: 2.8396378, y: 18.45778, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
