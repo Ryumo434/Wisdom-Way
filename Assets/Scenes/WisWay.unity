@@ -91430,6 +91430,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 506428041}
+    - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: UICanvas
       value: 
       objectReference: {fileID: 1060326537}
