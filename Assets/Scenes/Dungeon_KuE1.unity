@@ -4257,13 +4257,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 321787884}
+    - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: UICanvas
       value: 
       objectReference: {fileID: 1060326537}
     - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: ActivateWeapon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 850995293}
     - target: {fileID: 2315182027682124855, guid: 129f3d3c88bf8704fa3a7314e0beb30a, type: 3}
       propertyPath: darkBackground
       value: 
