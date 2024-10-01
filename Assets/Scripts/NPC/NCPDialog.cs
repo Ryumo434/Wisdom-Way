@@ -14,6 +14,8 @@ public class NCPDialog : MonoBehaviour
 
     private bool isPlayerInTrigger = false;
     private int currentTextIndex = 0;
+    private string[] currentDialogue;
+
     private string[] dialoge = new string[]
     {
         "Sei gegrüßt, Reisender!",
@@ -25,17 +27,34 @@ public class NCPDialog : MonoBehaviour
         "Viel Erfolg!"
     };
 
-     // Methode, um sicherzustellen, dass das Objekt nicht zerstört wird
+    private string[] dialoge2 = new string[]
+    {
+        "Jetzt erwartet dich...",
+        "die naechste Herrausforderung.",
+        "hier wird dein Blick getestet",
+        "Viel Erfolg!"
+    };
+
+    private string[] dialoge3 = new string[]
+    {
+        "aaaaaaaaaaaaaaaaaa!",
+        "aaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaa",
+        "unter den zwei Fälschungen.",
+        "Folge dem Pfad des Gemäldes,",
+        "um zur nächsten Prüfung zu gelangen.",
+        "Viel Erfolg!"
+    };
+
     void Awake()
     {
-        // Schütze das Hauptobjekt und alle UI-Elemente vor Zerstörung beim Szenenwechsel
-        DontDestroyOnLoad(this.gameObject);       // NPC-Dialog-Objekt selbst
-        DontDestroyOnLoad(PressE);               // PressE UI-Element
-        DontDestroyOnLoad(Panel);                // Panel UI-Element
-        DontDestroyOnLoad(darkBackground);       // darkBackground UI-Element
-        DontDestroyOnLoad(ActivateWeapon);       // ActivateWeapon UI-Element
-        DontDestroyOnLoad(UICanvas);             // UICanvas (kann redundant mit Canvas sein)
-        DontDestroyOnLoad(Canvas);               // Das übergeordnete Canvas
+        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(PressE);
+        DontDestroyOnLoad(Panel);
+        DontDestroyOnLoad(darkBackground);
+        DontDestroyOnLoad(ActivateWeapon);
+        DontDestroyOnLoad(UICanvas);
+        DontDestroyOnLoad(Canvas);
     }
 
     void Update()
@@ -47,6 +66,9 @@ public class NCPDialog : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isPlayerInTrigger)
         {
+            // Call method to load correct dialogue
+            AssignDialogueBasedOnNPC();
+
             if (!Panel.activeInHierarchy)
             {
                 Panel.SetActive(true);
@@ -54,13 +76,13 @@ public class NCPDialog : MonoBehaviour
                 ActivateWeapon.SetActive(false);
                 UICanvas.SetActive(false);
                 darkBackground.SetActive(true);
-                NPCText.text = dialoge[currentTextIndex];
+                NPCText.text = currentDialogue[currentTextIndex];
                 Time.timeScale = 0f;
             }
             else
             {
                 currentTextIndex++;
-                if (currentTextIndex >= dialoge.Length)
+                if (currentTextIndex >= currentDialogue.Length)
                 {
                     Panel.SetActive(false);
                     currentTextIndex = 0;
@@ -70,9 +92,33 @@ public class NCPDialog : MonoBehaviour
                 }
                 else
                 {
-                    NPCText.text = dialoge[currentTextIndex];
+                    NPCText.text = currentDialogue[currentTextIndex];
                 }
             }
+        }
+    }
+
+    // Method to assign dialogue based on NPC GameObject
+    private void AssignDialogueBasedOnNPC()
+    {
+        // Assuming the NPC GameObject has a unique name or tag
+        string npcName = gameObject.name;  // Get the name of the current NPC GameObject
+
+        if (npcName == "NPC1")
+        {
+            currentDialogue = dialoge2;
+        }
+        else if (npcName == "NPC2")
+        {
+            currentDialogue = dialoge3;
+        }
+        else if (npcName == "NPC")
+        {
+            currentDialogue = dialoge;
+        }
+        else
+        {
+            currentDialogue = dialoge;  // Default dialogue if no specific NPC is matched
         }
     }
 
