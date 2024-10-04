@@ -8,6 +8,17 @@ TagManager:
   - Trigger2
   - Trigger3
   - Trigger
+  - Luecke3
+  - Ans3
+  - Ans5
+  - Ans2
+  - Luecke2
+  - Ans1
+  - Luecke1
+  - Ans4
+  - tempWall
+  - tempWall1
+  - tempWall2
   layers:
   - Default
   - TransparentFX
