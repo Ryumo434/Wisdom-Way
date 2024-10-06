@@ -29,10 +29,10 @@ public class NCPDialog : MonoBehaviour
 
     private string[] dialoge2 = new string[]
     {
-        "Jetzt erwartet dich...",
-        "die naechste Herrausforderung.",
-        "hier wird dein Blick getestet",
-        "Viel Erfolg!"
+        "Hallo mein kleiner...",
+        "Ich frage mich",
+        "wer der Erschafer dies Wunderwerkes war...",
+        "Leonardo da ... war sein Name."
     };
 
     private string[] dialoge3 = new string[]
