@@ -53,14 +53,16 @@ public class TriggerQuestion : MonoBehaviour
             barrier.SetActive(false);
             questionPanel.SetActive(false);  // Fragepanel ausblenden
             Time.timeScale = 1f;  // Zeit fortsetzen
+            isQuestionActive = false;  // Quiz ist beendet
         }
         else
         {
             // Falsche Eingabe in der Konsole ausgeben
             Debug.Log("Falsche Eingabe: " + inputText);
             Debug.Log("Falsch");
+            // Frage aktiv lassen, damit Spieler mit ESC das Quiz schließen kann
+            isQuestionActive = true;  // Quiz bleibt aktiv, damit ESC funktioniert
         }
-        isQuestionActive = false;  // Frage nicht mehr aktiv
     }
 
     // Update-Methode, um Eingaben zu erkennen
@@ -72,7 +74,7 @@ public class TriggerQuestion : MonoBehaviour
             // Zeit fortsetzen und das Panel schließen, wenn ESC gedrückt wird
             Time.timeScale = 1f;
             questionPanel.SetActive(false);
-            isQuestionActive = false;
+            isQuestionActive = false;  // Quiz wird geschlossen
         }
     }
 
@@ -87,13 +89,15 @@ public class TriggerQuestion : MonoBehaviour
             barrier.SetActive(false);
             questionPanel.SetActive(false);  // Fragepanel ausblenden
             Time.timeScale = 1f;  // Zeit fortsetzen
+            isQuestionActive = false;  // Quiz ist beendet
         }
         else
         {
             // Falsche Eingabe in der Konsole ausgeben
             Debug.Log("Falsche Eingabe: " + answerInputField.text);
             Debug.Log("Falsch");
+            // Frage aktiv lassen, damit Spieler mit ESC das Quiz schließen kann
+            isQuestionActive = true;  // Quiz bleibt aktiv, damit ESC funktioniert
         }
-        isQuestionActive = false;
     }
 }
