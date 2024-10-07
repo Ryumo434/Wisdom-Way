@@ -5,27 +5,41 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth = 3;
+    [SerializeField] private int currentHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private float knockBackThrust = 15f;
 
-    private int currentHealth;
+    [SerializeField] private FloatingHealthbar healthbar;
+
+    //private int currentHealth;
     private Knockback knockback;
     private Flash flash;
 
     private void Awake()
     {
-        flash = GetComponent<Flash>();  
-        knockback = GetComponent<Knockback>(); 
+        flash = GetComponent<Flash>();
+        knockback = GetComponent<Knockback>();
+
+        //healthbar = GetComponentInChildren<FloatingHealthbar>(); // Hier wird die Healthbar gefunden.
+        /*
+        if (healthbar == null)
+        {
+            Debug.LogError("FloatingHealthbar not found on the enemy object or its children!");
+        }*/
+
     }
 
     private void Start()
     {
         currentHealth = startingHealth;
+        // healthbar.UpdateHealthBar(currentHealth, startingHealth);
     }
 
     public void TakeDamage(int damage)
     {   // ist dasselbe wie "currentHealth = currentHealth - damage;"
         currentHealth -= damage;
+        healthbar.UpdateHealthBar(currentHealth, startingHealth);
+
         knockback.GetknockedBack(PlayerController.Instance.transform, knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
@@ -46,4 +60,6 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }
