@@ -47,14 +47,14 @@ public class NCPDialog : MonoBehaviour
     };
 
     void Awake()
-    {
+    { /*
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(PressE);
         DontDestroyOnLoad(Panel);
         DontDestroyOnLoad(darkBackground);
-        DontDestroyOnLoad(ActivateWeapon);
+        //DontDestroyOnLoad(ActivateWeapon);
         DontDestroyOnLoad(UICanvas);
-        DontDestroyOnLoad(Canvas);
+        DontDestroyOnLoad(Canvas)*/
     }
 
     void Update()
