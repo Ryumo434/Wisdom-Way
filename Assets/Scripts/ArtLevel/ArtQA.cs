@@ -6,12 +6,12 @@ public class TriggerQuestion : MonoBehaviour
     public GameObject questionPanel;  // Das Panel, das die Frage und das InputField enthält
     public TMP_InputField answerInputField;  // Das TMP_InputField von TextMeshPro
     public GameObject barrier;  // Das GameObject, das deaktiviert werden soll
-    private string correctAnswer = "test";  // Die richtige Antwort
+    private string correctAnswer = "leonardo da vinci";  // Die richtige Antwort
     private bool isQuestionActive = false;  // Überprüfen, ob die Frage aktiv ist
 
     private void Start()
     {
-        // Hier abonnieren wir das onEndEdit-Event des TMP_InputField
+        // Abonniere das onEndEdit-Event des TMP_InputField
         answerInputField.onEndEdit.AddListener(OnSubmit);  
     }
 
@@ -40,14 +40,14 @@ public class TriggerQuestion : MonoBehaviour
         }
     }
 
-    // Diese Methode wird vom Button oder bei Eingabe von "Enter" aufgerufen
+    // Diese Methode wird aufgerufen, wenn der Spieler Enter drückt oder das InputField verlässt
     private void OnSubmit(string inputText)
     {
         // Ausgabe des eingegebenen Textes in der Konsole
         Debug.Log("Eingegebener Text: " + inputText);
-        
-        // Optionale Überprüfung, ob die Eingabe korrekt ist
-        if (inputText.ToLower() == correctAnswer)
+
+        // Bereinige die Eingabe und die richtige Antwort (entferne Leerzeichen und vergleiche case-insensitive)
+        if (inputText.Trim().ToLower() == correctAnswer.Trim().ToLower())
         {
             // Deaktiviert die Barriere, wenn die Antwort korrekt ist
             barrier.SetActive(false);
@@ -56,6 +56,8 @@ public class TriggerQuestion : MonoBehaviour
         }
         else
         {
+            // Falsche Eingabe in der Konsole ausgeben
+            Debug.Log("Falsche Eingabe: " + inputText);
             Debug.Log("Falsch");
         }
         isQuestionActive = false;  // Frage nicht mehr aktiv
@@ -78,7 +80,8 @@ public class TriggerQuestion : MonoBehaviour
     public void CheckAnswer()
     {
         // Vergleicht die Antwort aus dem InputField mit der richtigen Antwort
-        if (answerInputField.text.ToLower() == correctAnswer)
+        // Bereinige die Eingabe und die richtige Antwort (entferne Leerzeichen und vergleiche case-insensitive)
+        if (answerInputField.text.Trim().ToLower() == correctAnswer.Trim().ToLower())
         {
             // Deaktiviert die Barriere, wenn die Antwort korrekt ist
             barrier.SetActive(false);
@@ -87,6 +90,8 @@ public class TriggerQuestion : MonoBehaviour
         }
         else
         {
+            // Falsche Eingabe in der Konsole ausgeben
+            Debug.Log("Falsche Eingabe: " + answerInputField.text);
             Debug.Log("Falsch");
         }
         isQuestionActive = false;
