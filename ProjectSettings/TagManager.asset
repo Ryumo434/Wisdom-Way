@@ -20,6 +20,9 @@ TagManager:
   - tempWall1
   - tempWall2
   - tempWall3
+  - torch1
+  - torch2
+  - torch3
   layers:
   - Default
   - TransparentFX
