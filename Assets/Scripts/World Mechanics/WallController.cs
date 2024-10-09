@@ -5,6 +5,7 @@ public class WallController : MonoBehaviour
     public string wallTag; // Der Tag der Wand, die gesteuert werden soll
     public string alignment;
     public bool isOpen = false;
+    public int openingOffset = 3;
     public float openSpeed = 2f;
 
     private GameObject wall; // Referenz auf die Wand
@@ -26,11 +27,11 @@ public class WallController : MonoBehaviour
 
         if (alignment == "vertikal")
         {
-            openPosition = wall.transform.position - new Vector3(0, 6, 0); // Verschiebe die Wand nach unten
+            openPosition = wall.transform.position - new Vector3(0, openingOffset/*6*/, 0); // Verschiebe die Wand nach unten
         }
         else if (alignment == "horizontal")
         {
-            openPosition = wall.transform.position - new Vector3(3, 0, 0); // Verschiebe die Wand nach links
+            openPosition = wall.transform.position - new Vector3(openingOffset/*3*/, 0, 0); // Verschiebe die Wand nach links
         }
         else
         {

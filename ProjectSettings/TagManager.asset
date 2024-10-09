@@ -19,6 +19,7 @@ TagManager:
   - tempWall
   - tempWall1
   - tempWall2
+  - tempWall3
   layers:
   - Default
   - TransparentFX
