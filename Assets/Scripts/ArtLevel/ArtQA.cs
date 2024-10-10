@@ -80,26 +80,26 @@ public class TriggerQuestion : MonoBehaviour
 
     // Methode wird vom Button aufgerufen, um manuell zu prüfen
     public void CheckAnswer()
-{
-    // Bereinige die Eingabe und die richtige Antwort (entferne Leerzeichen und vergleiche case-insensitive)
-    string cleanedInput = answerInputField.text.Trim().ToLower().Replace(" ", "");
-    string cleanedAnswer = correctAnswer.Trim().ToLower().Replace(" ", "");
+    {
+        // Bereinige die Eingabe und die richtige Antwort (entferne Leerzeichen und vergleiche case-insensitive)
+        string cleanedInput = answerInputField.text.Trim().ToLower().Replace(" ", "");
+        string cleanedAnswer = correctAnswer.Trim().ToLower().Replace(" ", "");
 
-    if (cleanedInput == cleanedAnswer)
-    {
-        // Deaktiviert die Barriere, wenn die Antwort korrekt ist
-        barrier.SetActive(false);
-        questionPanel.SetActive(false);  // Fragepanel ausblenden
-        Time.timeScale = 1f;  // Zeit fortsetzen
-        isQuestionActive = false;  // Quiz ist beendet
+        if (cleanedInput == cleanedAnswer)
+        {
+            // Deaktiviert die Barriere, wenn die Antwort korrekt ist
+            barrier.SetActive(false);
+            questionPanel.SetActive(false);  // Fragepanel ausblenden
+            Time.timeScale = 1f;  // Zeit fortsetzen
+            isQuestionActive = false;  // Quiz ist beendet
+        }
+        else
+        {
+            // Falsche Eingabe in der Konsole ausgeben
+            Debug.Log("Falsche Eingabe: " + answerInputField.text);
+            Debug.Log("Falsch");
+            // Frage aktiv lassen, damit Spieler mit ESC das Quiz schließen kann
+            isQuestionActive = true;  // Quiz bleibt aktiv, damit ESC funktioniert
+        }
     }
-    else
-    {
-        // Falsche Eingabe in der Konsole ausgeben
-        Debug.Log("Falsche Eingabe: " + answerInputField.text);
-        Debug.Log("Falsch");
-        // Frage aktiv lassen, damit Spieler mit ESC das Quiz schließen kann
-        isQuestionActive = true;  // Quiz bleibt aktiv, damit ESC funktioniert
-    }
-}
 }
