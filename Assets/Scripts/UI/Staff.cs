@@ -1,10 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using UnityEngine;
 
 public class Staff : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo weaponInfo;
+    [SerializeField] private GameObject magicLaser;
+    [SerializeField] private Transform magicLaserSpawnPoint;
+
+    private Animator myAnimator;
+
+    readonly int ATTACK_HASH = Animator.StringToHash("Attack");
+
+    private void Awake()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -13,7 +25,18 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        Debug.Log("Staff Attack");
+        myAnimator.SetTrigger(ATTACK_HASH);
+    }
+
+    public void SpawnStaffProjectileAnimEvent()
+    {
+        GameObject newLaser = Instantiate(magicLaser, magicLaserSpawnPoint.position, Quaternion.identity);
+        newLaser.GetComponent<MagicLaser>().UpdateLaserRange(weaponInfo.weaponRange);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 
 
@@ -36,8 +59,5 @@ public class Staff : MonoBehaviour, IWeapon
         }
     }
 
-    public WeaponInfo GetWeaponInfo()
-    {
-        return weaponInfo;
-    }
+
 }
