@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Threading;
 
 public class QuizManagerTMP : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class QuizManagerTMP : MonoBehaviour
     public TextMeshProUGUI buttonTextD;
     public GameObject quizTrigger;
     [SerializeField] private WallController wallController;
+    [SerializeField] private GameObject barrier;
 
     public float fadeDuration = 1f;
 
@@ -50,6 +52,17 @@ public class QuizManagerTMP : MonoBehaviour
         {"Was ist das gr??te Organ des menschlichen K?rpers?", "Herz", "Leber", "Lunge", "Haut"},
         {"Welches Gas ist am h?ufigsten in der Erdatmosph?re?", "Sauerstoff", "Stickstoff", "Kohlenstoffdioxid", "Wasserstoff"}
     };
+
+    private string[,] ArtQuizData = new string[,]
+    {
+        {"Ich schnitt mir ein Ohr ab, doch meine Bilder sind weltberühmt. Wer bin ich?", "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Gustav Klimt", "1"},
+        {"Ich erscheine oft in Kunstwerken, stehe für Frieden. Was bin ich?", "Taube", "Waschbär", "Schlange", "Eule","1"},
+        {"Welche Kunstrichtung ist für ihre intensiven Farbflächen und geometrischen Formen bekannt?", "Kubismus", "Impressionismus", "Romantik", "Barock","1"},
+        {"Welche Statue der Antike ist bekannt dafür, dass ihr die Arme fehlen?", "Venus von Milo", "David von Michelangelo", "Nike von Samothrake", "Der Denker","1"},
+        {"Welcher Künstler ist als Mitbegründer der Pop-Art bekannt?", "Andy Warhol", "Salvador Dalí", "Rembrandt", "Claude Monet","1"}
+    };
+
+
 
     void Start()
     {
@@ -92,6 +105,11 @@ public class QuizManagerTMP : MonoBehaviour
                 quizData = historyQuizData;
                 Debug.Log("History Quiz geladen: " + quizData.Length + " Fragen");
             }
+            else if (gameObject.name == "ArtQuiz")
+            {
+                quizData = ArtQuizData;
+                Debug.Log("Art Quiz geladen: " + quizData.Length + " Fragen");
+            }
 
             if (quizData != null && quizData.GetLength(0) > 0)
             {
@@ -127,6 +145,7 @@ public class QuizManagerTMP : MonoBehaviour
         if ((answerIndex + 1).ToString() == quizData[currentQuestionIndex, 5])
         {
             Debug.Log("Antwort ist RICHTIG! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1]);
+            barrier.SetActive(false);
         } else
         {
             string correctAnswerIndexString = quizData[currentQuestionIndex, 5];
