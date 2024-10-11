@@ -8,6 +8,7 @@ public class ActiveInventory : MonoBehaviour
 
     private PlayerControls playerControls;
 
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -52,7 +53,7 @@ public class ActiveInventory : MonoBehaviour
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
         }
 
-        if (!transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>())
+        if (transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo() == null)
         {
             ActiveWeapon.Instance.WeaponNull();
             return;
