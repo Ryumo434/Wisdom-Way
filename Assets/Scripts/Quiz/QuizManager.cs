@@ -145,7 +145,6 @@ public class QuizManagerTMP : MonoBehaviour
         if ((answerIndex + 1).ToString() == quizData[currentQuestionIndex, 5])
         {
             Debug.Log("Antwort ist RICHTIG! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1]);
-            barrier.SetActive(false);
         } else
         {
             string correctAnswerIndexString = quizData[currentQuestionIndex, 5];
@@ -166,6 +165,7 @@ public class QuizManagerTMP : MonoBehaviour
             quizTrigger.SetActive(false);
             quizPanel.SetActive(false);
             Time.timeScale = 1;
+            barrier.SetActive(false);
             wallController.OpenWall();
         }
     }
