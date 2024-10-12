@@ -38,6 +38,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void TakeDamage(int damageAmount)
     {
+        ScreenShakeManager.Instance.ShakeScreen();
+
         canTakeDamage = false;
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
