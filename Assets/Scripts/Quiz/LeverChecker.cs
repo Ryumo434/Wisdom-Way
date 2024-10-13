@@ -8,11 +8,13 @@ public class LeverChecker : MonoBehaviour
     public int[] leverPositioning = { 0, 0, 0, 0 };
     public int[] rightLeverPositioning = { 1, 0, 0, 1 };
     [SerializeField] GameObject bridge;
+    [SerializeField] GameObject brokenBridge;
     [SerializeField] GameObject barrier;
 
     void Start()
     {
         bridge.SetActive(false);
+        brokenBridge.SetActive(true);
         barrier.SetActive(true);
     }
 
@@ -23,6 +25,7 @@ public class LeverChecker : MonoBehaviour
         if (leverPositioning.SequenceEqual(rightLeverPositioning))
         {
             bridge.SetActive(true);
+            brokenBridge.SetActive(false);
             barrier.SetActive(false);
         }
     }
