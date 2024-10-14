@@ -38,12 +38,11 @@ public class NCPDialog : MonoBehaviour
 
     private string[] dialoge3 = new string[]
     {
-        "aaaaaaaaaaaaaaaaaa!",
-        "aaaaaaaaaaaaaaaaaa",
-        "aaaaaaaaaaaaaaaaaaaaa",
-        "unter den zwei Fälschungen.",
-        "Folge dem Pfad des Gemäldes,",
-        "um zur nächsten Prüfung zu gelangen.",
+        "Du hast die Aufgaben geschafft,",
+        "nun wird als letztes",
+        "dein schafer Blick geprueft.",
+        "Finde das echte Gemaelde",
+        "und  entflamme die Fackel.",
         "Viel Erfolg!"
     };
 
