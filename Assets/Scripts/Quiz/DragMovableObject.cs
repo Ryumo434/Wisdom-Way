@@ -6,27 +6,23 @@ public class DragMovableObject : MonoBehaviour
     [SerializeField] private GameObject PressE;
     [SerializeField] private GameObject hotbar;
     [SerializeField] private GameObject weapon;
-    [SerializeField] private Transform player;
     [SerializeField] private Transform movableObject;
-    [SerializeField] private FixedJoint2D joint;
+    private FixedJoint2D joint;
     private Rigidbody2D rb;
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
 
     private bool isPlayerInTrigger;
 
     void Start()
     {
-        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         FreezePositionInXY();
 
         if (hotbar != null) hotbar.SetActive(true);
         if (weapon != null) weapon.SetActive(true);
 
-        if (joint != null)
-        {
-            joint.enabled = false;
-        }
+        // Den Spieler in der aktuellen Szene finden und den FixedJoint zuweisen
+        AssignPlayerAndJoint();
 
         // Verhindere, dass dieses GameObject beim Szenenwechsel zerstört wird
         DontDestroyOnLoad(gameObject);
@@ -35,27 +31,36 @@ public class DragMovableObject : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Wird aufgerufen, wenn eine neue Szene geladen wird
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // Diese Methode weist den Spieler und den Joint zu
+    private void AssignPlayerAndJoint()
     {
-        // Finde den Spieler und den Joint in der neuen Szene
         GameObject playerObject = GameObject.FindWithTag("Player");
 
         if (playerObject != null)
         {
             playerController = playerObject.GetComponent<PlayerController>();
-
-            // Versuche den FixedJoint2D zu finden
             joint = playerObject.GetComponent<FixedJoint2D>();
 
-            // Falls der Joint nicht existiert, fügen wir ihn hinzu
-            if (joint == null)
+            if (joint != null)
             {
-                Debug.LogWarning("FixedJoint2D nicht gefunden auf dem Spieler, füge Joint hinzu.");
-                joint = playerObject.AddComponent<FixedJoint2D>();
-                joint.enabled = false; // Deaktiviere ihn erstmal
+                joint.enabled = false; // Standardmäßig deaktiviert, bis es gebraucht wird
+            }
+            else
+            {
+                Debug.LogWarning("FixedJoint2D nicht auf dem Spieler gefunden.");
             }
         }
+        else
+        {
+            Debug.LogWarning("Player nicht gefunden.");
+        }
+    }
+
+    // Wird aufgerufen, wenn eine neue Szene geladen wird
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Weisen den Spieler und den Joint neu zu, nachdem die Szene geladen wurde
+        AssignPlayerAndJoint();
     }
 
     void Update()
@@ -124,20 +129,28 @@ public class DragMovableObject : MonoBehaviour
     // Methoden zum Verbinden und Trennen des Joints
     private void AttachToPlayer()
     {
-        if (joint != null) // Sicherstellen, dass der Joint nach Szenenwechsel existiert
+        if (joint != null) // Sicherstellen, dass der Joint existiert
         {
             joint.enableCollision = true;
             joint.enabled = true;
             joint.connectedBody = rb;
         }
+        else
+        {
+            Debug.LogWarning("AttachToPlayer: FixedJoint2D ist null.");
+        }
     }
 
     private void DetachFromPlayer()
     {
-        if (joint != null) // Sicherstellen, dass der Joint nach Szenenwechsel existiert
+        if (joint != null) // Sicherstellen, dass der Joint existiert
         {
             joint.enabled = false;
             joint.connectedBody = null;
+        }
+        else
+        {
+            Debug.LogWarning("DetachFromPlayer: FixedJoint2D ist null.");
         }
     }
 
