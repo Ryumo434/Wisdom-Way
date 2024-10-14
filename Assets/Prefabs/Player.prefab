@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8742728434872485823}
   - component: {fileID: 1222232819459938995}
   - component: {fileID: 6267937548790771554}
+  - component: {fileID: 3520525903143106397}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -266,6 +267,25 @@ MonoBehaviour:
   fullStaminaImage: {fileID: 21300000, guid: 9872977d098208346982ba7bf6b9459c, type: 3}
   emptyStaminaImage: {fileID: 21300000, guid: 43cb7063877b1784e838152084a851d4, type: 3}
   timeBetweenStaminaRefresh: 3
+--- !u!255 &3520525903143106397
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409897726939706553}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 11.79, y: 25.21}
+  m_DampingRatio: 0
+  m_Frequency: 0
 --- !u!1 &4779139451238709038
 GameObject:
   m_ObjectHideFlags: 0

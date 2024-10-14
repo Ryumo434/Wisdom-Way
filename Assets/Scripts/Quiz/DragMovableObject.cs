@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Für Szenenwechsel-Events
 
 public class DragMovableObject : MonoBehaviour
 {
@@ -9,20 +10,52 @@ public class DragMovableObject : MonoBehaviour
     [SerializeField] private Transform movableObject;
     [SerializeField] private FixedJoint2D joint;
     private Rigidbody2D rb;
-    PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     private bool isPlayerInTrigger;
-    
 
     void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         FreezePositionInXY();
-        hotbar.SetActive(true);
-        weapon.SetActive(true);
 
-        joint.enabled = false;
+        if (hotbar != null) hotbar.SetActive(true);
+        if (weapon != null) weapon.SetActive(true);
+
+        if (joint != null)
+        {
+            joint.enabled = false;
+        }
+
+        // Verhindere, dass dieses GameObject beim Szenenwechsel zerstört wird
+        DontDestroyOnLoad(gameObject);
+
+        // Abonniere das Event, das aufgerufen wird, wenn eine Szene geladen wird
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // Wird aufgerufen, wenn eine neue Szene geladen wird
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Finde den Spieler und den Joint in der neuen Szene
+        GameObject playerObject = GameObject.FindWithTag("Player");
+
+        if (playerObject != null)
+        {
+            playerController = playerObject.GetComponent<PlayerController>();
+
+            // Versuche den FixedJoint2D zu finden
+            joint = playerObject.GetComponent<FixedJoint2D>();
+
+            // Falls der Joint nicht existiert, fügen wir ihn hinzu
+            if (joint == null)
+            {
+                Debug.LogWarning("FixedJoint2D nicht gefunden auf dem Spieler, füge Joint hinzu.");
+                joint = playerObject.AddComponent<FixedJoint2D>();
+                joint.enabled = false; // Deaktiviere ihn erstmal
+            }
+        }
     }
 
     void Update()
@@ -50,9 +83,10 @@ public class DragMovableObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
-            hotbar.SetActive(false);
-            weapon.SetActive(false);
-            PressE.SetActive(true);
+
+            if (hotbar != null) hotbar.SetActive(false);
+            if (weapon != null) weapon.SetActive(false);
+            if (PressE != null) PressE.SetActive(true);
         }
     }
 
@@ -62,9 +96,10 @@ public class DragMovableObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-            hotbar.SetActive(true);
-            weapon.SetActive(true);
-            PressE.SetActive(false);
+
+            if (hotbar != null) hotbar.SetActive(true);
+            if (weapon != null) weapon.SetActive(true);
+            if (PressE != null) PressE.SetActive(false);
         }
     }
 
@@ -89,15 +124,26 @@ public class DragMovableObject : MonoBehaviour
     // Methoden zum Verbinden und Trennen des Joints
     private void AttachToPlayer()
     {
-        joint.enableCollision = true;
-        joint.enabled = true;
-        joint.connectedBody = rb;
+        if (joint != null) // Sicherstellen, dass der Joint nach Szenenwechsel existiert
+        {
+            joint.enableCollision = true;
+            joint.enabled = true;
+            joint.connectedBody = rb;
+        }
     }
 
     private void DetachFromPlayer()
     {
-        
-        joint.enabled = false;
-        joint.connectedBody = null;
+        if (joint != null) // Sicherstellen, dass der Joint nach Szenenwechsel existiert
+        {
+            joint.enabled = false;
+            joint.connectedBody = null;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Event abmelden, wenn das GameObject zerstört wird
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
