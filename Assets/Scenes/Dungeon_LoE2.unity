@@ -34929,7 +34929,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.507166, y: 18.078989, z: 0.053459167}
+  m_LocalPosition: {x: 9.473234, y: 18.15495, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36359,11 +36359,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.79
+      value: 7.64
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.93
+      value: 26.54
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36399,11 +36399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124052460989906752, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.58
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 1124052460989906752, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_Name
@@ -36415,15 +36415,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5807275801048672919, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: transitionName
-      value: WEntry
+      value: LEntry
       objectReference: {fileID: 0}
     - target: {fileID: 6216806308430422832, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: sceneToLoad
-      value: WisWay
+      value: Dungeon_GeE1
       objectReference: {fileID: 0}
     - target: {fileID: 6216806308430422832, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: sceneTransitionName
-      value: EEntry
+      value: GEntry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
