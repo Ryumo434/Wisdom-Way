@@ -382,7 +382,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 7
   m_LinearDrag: 20
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -463,6 +463,4 @@ MonoBehaviour:
   PressE: {fileID: 502620815657891979}
   hotbar: {fileID: 0}
   weapon: {fileID: 0}
-  player: {fileID: 0}
   movableObject: {fileID: 1834433009346238924}
-  joint: {fileID: 0}
