@@ -23,6 +23,8 @@ TagManager:
   - torch1
   - torch2
   - torch3
+  - torch4
+  - torch5
   layers:
   - Default
   - TransparentFX
