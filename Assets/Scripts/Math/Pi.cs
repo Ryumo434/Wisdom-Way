@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Pi : MonoBehaviour
 {
+    PlayerHealth playerHealth;
     public CheckArray checkArray;
     public GameObject text1;
     public GameObject text2;
@@ -142,15 +143,25 @@ public class Pi : MonoBehaviour
                 Debug.Log("JaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAA");
                 checkArray.CorrectOrder = true;
             } else {
-                torch1.SetActive(false);
-                torch2.SetActive(false);
-                torch3.SetActive(false);
-                torch4.SetActive(false);
-                torch5.SetActive(false);
-                ResetSelectedOrder();
-                checkArray.currentTorchIndex = 0;
+                StartCoroutine(DeactivateTorchesAfterDelay());
+                //Schaden
+                //playerHealth.currentHealth -= 1;
             }
         }
+    }
+
+    IEnumerator DeactivateTorchesAfterDelay()
+    {
+        // 1. Warte 2 Sekunden
+        yield return new WaitForSeconds(1f);
+
+        torch1.SetActive(false);
+        torch2.SetActive(false);
+        torch3.SetActive(false);
+        torch4.SetActive(false);
+        torch5.SetActive(false);
+        ResetSelectedOrder();
+        checkArray.currentTorchIndex = 0;
     }
 
     public bool CompareArrays(int[] array1, int[] array2)
