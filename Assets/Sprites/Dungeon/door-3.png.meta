@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9dd443af3c5704231aa032ea1a940124
+guid: eae0dee39831049ae9a907c6d0024951
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fencegate_0
+      name: door-3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f324f8fe3f950427c86b44072f510d1e
-      internalID: 702693038
+      spriteID: d590a0e65e96845f8b2fffb095031ac1
+      internalID: -954950435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_1
+      name: door-3_1
       rect:
         serializedVersion: 2
         x: 16
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5df04322c6384a87b448222a40d81c9
-      internalID: -680353796
+      spriteID: 4462ef822d1874f80b053c2cd8de33df
+      internalID: 1291318987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_2
+      name: door-3_2
       rect:
         serializedVersion: 2
         x: 32
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bbd3634eab9f4cf0b70364f337dcbc2
-      internalID: -1837472443
+      spriteID: bd057ca58d4904df8bdcf0d1af351e3c
+      internalID: 1817277245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_3
+      name: door-3_3
       rect:
         serializedVersion: 2
         x: 48
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 730c2f3f3e67e41c8a14bbeaae7316af
-      internalID: -2031795126
+      spriteID: 16b191653c9c048cf964b67c3b19a8a6
+      internalID: 1960629638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_4
+      name: door-3_4
       rect:
         serializedVersion: 2
         x: 64
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5a6241f191304d2f86dbdeb67cfbed1
-      internalID: -2030961241
+      spriteID: 072cdf765f4cf466f87ddfd311daacae
+      internalID: -1243238361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_5
+      name: door-3_5
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5073a7c10584dd48d9dc51178f2f78
-      internalID: 1099394809
+      spriteID: 8fb119f514af94036a1c23c4b35f5558
+      internalID: 1544917884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_6
+      name: door-3_6
       rect:
         serializedVersion: 2
         x: 16
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30a38584bd4fb4dd2beb5241cb4c0ccd
-      internalID: 655120730
+      spriteID: f318fa704ecb04583ade2cd659039536
+      internalID: -214230979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_7
+      name: door-3_7
       rect:
         serializedVersion: 2
         x: 32
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15544348bb038494ca4016a261e23be2
-      internalID: 1928406092
+      spriteID: 072d0c72a057b48b1bcebf737a0f07f7
+      internalID: -1585111872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_8
+      name: door-3_8
       rect:
         serializedVersion: 2
         x: 48
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c63301928445446383570a7f115a830
-      internalID: -141481786
+      spriteID: 06f80cd0b73e44b868b3ccf46912b59b
+      internalID: 564335123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fencegate_9
+      name: door-3_9
       rect:
         serializedVersion: 2
         x: 64
@@ -300,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 052e52b13dc564f5b92c1562f3f4b392
-      internalID: 575815667
+      spriteID: d067a3d5c5d394356af7a8318e93e44f
+      internalID: 1809887619
       vertices: []
       indices: 
       edges: []
@@ -317,16 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fencegate_0: 702693038
-      fencegate_1: -680353796
-      fencegate_2: -1837472443
-      fencegate_3: -2031795126
-      fencegate_4: -2030961241
-      fencegate_5: 1099394809
-      fencegate_6: 655120730
-      fencegate_7: 1928406092
-      fencegate_8: -141481786
-      fencegate_9: 575815667
+      door-3_0: -954950435
+      door-3_1: 1291318987
+      door-3_2: 1817277245
+      door-3_3: 1960629638
+      door-3_4: -1243238361
+      door-3_5: 1544917884
+      door-3_6: -214230979
+      door-3_7: -1585111872
+      door-3_8: 564335123
+      door-3_9: 1809887619
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

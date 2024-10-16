@@ -5,6 +5,7 @@ public class PressEProgress : MonoBehaviour
 {
     public Slider progressBar; // Referenz zum UI-Slider als Fortschrittsanzeige
     public float totalPressTimeRequired = 15f; // Gesamtzeit, die 'e' gedr?ckt werden muss
+    public GameObject canvas;
 
     private bool isPlayerInTrigger = false;
     private float ePressTime = 0f;
@@ -15,7 +16,7 @@ public class PressEProgress : MonoBehaviour
         {
             progressBar.maxValue = totalPressTimeRequired;
             progressBar.value = 0f;
-            progressBar.gameObject.SetActive(false); // Fortschrittsanzeige zu Beginn ausblenden
+            canvas.SetActive(false);
         }
     }
 
@@ -26,7 +27,7 @@ public class PressEProgress : MonoBehaviour
             isPlayerInTrigger = true;
             if (progressBar != null)
             {
-                progressBar.gameObject.SetActive(true); // Fortschrittsanzeige einblenden
+                canvas.SetActive(true);
             }
         }
     }
@@ -40,7 +41,7 @@ public class PressEProgress : MonoBehaviour
             if (progressBar != null)
             {
                 progressBar.value = 0f;
-                progressBar.gameObject.SetActive(false); // Fortschrittsanzeige ausblenden
+                canvas.SetActive(false);
             }
         }
     }
