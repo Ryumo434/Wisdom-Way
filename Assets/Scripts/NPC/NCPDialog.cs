@@ -23,7 +23,7 @@ public class NCPDialog : MonoBehaviour
         "werden dich erwarten.",
         "Bestehe jede Pruefung,",
         "und du erlangst Ruhm und Weisheit.",
-        "Doch nicht jeder siegt!",
+        "Doch nicht jeder siegt...",
         "Sei wachsam und klug.",
         "Viel Erfolg!"
     };
