@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaExit: {fileID: 1630279003}
+  AreaExit: {fileID: 558158975}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -16729,6 +16729,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a151d8b55b01659419925c11e5517114, type: 3}
+--- !u!1 &558158975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+  m_PrefabInstance: {fileID: 1255354099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &572727372
 GameObject:
   m_ObjectHideFlags: 0
@@ -17541,7 +17546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaExit: {fileID: 1630279003}
+  AreaExit: {fileID: 558158975}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -17853,11 +17858,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 78.64
+      value: 78.72
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -138.75
+      value: -138.44
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17901,7 +17906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5807275801048672919, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: transitionName
@@ -18889,7 +18894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaExit: {fileID: 1630279003}
+  AreaExit: {fileID: 558158975}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -19277,7 +19282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaExit: {fileID: 1630279003}
+  AreaExit: {fileID: 558158975}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -26930,11 +26935,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1630279003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
-  m_PrefabInstance: {fileID: 1011181601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635748740
 GameObject:
   m_ObjectHideFlags: 0
@@ -28150,7 +28150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaExit: {fileID: 1630279003}
+  AreaExit: {fileID: 558158975}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
