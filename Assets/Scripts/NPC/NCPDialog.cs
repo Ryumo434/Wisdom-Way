@@ -18,12 +18,13 @@ public class NCPDialog : MonoBehaviour
 
     private string[] dialoge = new string[]
     {
-        "Sei gegrüßt, Reisender!",
-        "Hier wird dein Blick getestet.",
-        "Finde das echte Gemälde",
-        "unter den zwei Fälschungen.",
-        "Folge dem Pfad des Gemäldes,",
-        "um zur nächsten Prüfung zu gelangen.",
+        "Willkommen, tapferer Reisender!",
+        "Vier Herausforderungen,",
+        "werden dich erwarten.",
+        "Bestehe jede Pruefung,",
+        "und du erlangst Ruhm und Weisheit.",
+        "Doch nicht jeder siegt!",
+        "Sei wachsam und klug.",
         "Viel Erfolg!"
     };
 
