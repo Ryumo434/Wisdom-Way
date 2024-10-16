@@ -6,6 +6,7 @@ using UnityEngine;
 public class Pi : MonoBehaviour
 {
     PlayerHealth playerHealth;
+    [SerializeField] private GameObject AreaExit;
     public CheckArray checkArray;
     public GameObject text1;
     public GameObject text2;
@@ -142,6 +143,7 @@ public class Pi : MonoBehaviour
             {
                 Debug.Log("JaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAA");
                 checkArray.CorrectOrder = true;
+                AreaExit.SetActive(true);
             } else {
                 StartCoroutine(DeactivateTorchesAfterDelay());
                 //Schaden
@@ -198,5 +200,6 @@ public class Pi : MonoBehaviour
     void Start()
     {
         checkArray = FindObjectOfType<CheckArray>();
+        AreaExit.SetActive(false);
     }
 }

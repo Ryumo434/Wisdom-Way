@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AreaExit: {fileID: 1630279003}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -17540,6 +17541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AreaExit: {fileID: 1630279003}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -17896,6 +17898,10 @@ PrefabInstance:
     - target: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_Name
       value: AreaExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5807275801048672919, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: transitionName
@@ -18883,6 +18889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AreaExit: {fileID: 1630279003}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -19270,6 +19277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AreaExit: {fileID: 1630279003}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
@@ -26922,6 +26930,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1630279003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+  m_PrefabInstance: {fileID: 1011181601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635748740
 GameObject:
   m_ObjectHideFlags: 0
@@ -28137,6 +28150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036ab04d317b0a5459a7a69551475fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AreaExit: {fileID: 1630279003}
   checkArray: {fileID: 0}
   text1: {fileID: 711633424}
   text2: {fileID: 1812050976}
