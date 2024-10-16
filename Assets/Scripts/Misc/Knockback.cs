@@ -17,8 +17,10 @@ public class Knockback : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void GetknockedBack(Transform damageSource, float knockBackThrust)
+    public void GetKnockedBack(Transform damageSource, float knockBackThrust)
     {
+        if (PlayerHealth.Instance.isDead) { return; }
+
         GettingKnockedBack = true;
         //.normalized sorgt dafür dass der Vektor auf die Länge 1 angepasst wird aber dennoch in diesselbe Richtung zeigt. Wird verwendet wenn die Richtung des Vektors gebraucht wird aber nicht seine grösse
         Vector2 difference = (transform.position - damageSource.position).normalized * knockBackThrust * rb.mass;

@@ -41,11 +41,18 @@ public class PlayerController : Singleton<PlayerController>
         playerControls.Combat.Dash.performed += _ => Dash();
 
         startingMoveSpeed = moveSpeed;
+
+        ActiveInventory.Instance.EquipStartingWeapon();
     }
 
     private void OnEnable()
     {
         playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 
     private void Update()
@@ -64,10 +71,7 @@ public class PlayerController : Singleton<PlayerController>
         return weaponCollider;
     }
 
-    public Transform GetSlashSpawnPoint()
-    {
-        return SlashSpawnPoint;
-    }
+   
 
     private void PlayerInput()
     {
@@ -80,12 +84,14 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
-        if (knockback.GettingKnockedBack) { return; }
+        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
     private void AdjustPlayerFacingDirection()
     {
+        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
+
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 

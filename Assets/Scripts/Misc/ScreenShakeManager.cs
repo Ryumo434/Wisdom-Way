@@ -16,6 +16,7 @@ public class ScreenShakeManager : Singleton<ScreenShakeManager>
 
     public void ShakeScreen()
     {
+        if (PlayerHealth.Instance.isDead) { return; }
         source.GenerateImpulse();
     }
 
