@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool isDead { get; private set; }
+    //public int enemyDamage { get; set; }
 
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
@@ -37,16 +38,17 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
         UpdateHealthSlider();
     }
-
+    /*
     private void OnCollisionStay2D(Collision2D other)
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
 
         if (enemy)
         {
-            TakeDamage(1, other.transform);
+            TakeDamage(EnemyDamage.Instance.enemyDamage, other.transform);
         }
-    }
+    }*/
+    
 
     public void HealPlayer()
     {
