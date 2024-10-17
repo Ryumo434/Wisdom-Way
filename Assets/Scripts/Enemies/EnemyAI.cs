@@ -5,6 +5,10 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float roamChangeDirFloat = 2f;
+    [SerializeField] public int enemyDamage;
+
+    
+    
    private enum State
     {
         Roaming
@@ -15,13 +19,16 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+        
         enemyPathFinding = GetComponent<EnemyPathFinding>();
+        //playerHealth = GetComponent<PlayerHealth>();
 
         state = State.Roaming;
     }
 
     private void Start()
     {
+       
         StartCoroutine(RoamingRoutine());
     }
 
@@ -36,9 +43,26 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
+
     private Vector2 GetRoamingPosition()
     {
         return new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f)).normalized;
+    }
+
+
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+
+        //EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
+        //PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+        PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        
+        if (playerHealth)
+        {
+            playerHealth.TakeDamage(enemyDamage, other.transform);
+        }
     }
 }
 

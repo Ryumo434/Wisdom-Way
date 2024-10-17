@@ -6,6 +6,7 @@ public class KeyUsage : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private KeyController keyController;
+    [SerializeField] private GameObject inventoryField;
 
     private bool isPlayerInTrigger = false;
 
@@ -24,6 +25,7 @@ public class KeyUsage : MonoBehaviour
             if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
             {
                 keyController.playerHasKey = true;
+                inventoryField.SetActive(true);
             }
         }
     }
@@ -37,6 +39,7 @@ public class KeyUsage : MonoBehaviour
             if (keyController.playerHasKey && prefab.name == "useKey")
             {
                 keyController.door.SetActive(false);
+                inventoryField.SetActive(false);
             }
         }
     }
