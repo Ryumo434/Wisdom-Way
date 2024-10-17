@@ -14525,11 +14525,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.8
+      value: 13.01
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.13
+      value: 50.21
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14565,11 +14565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1124052460989906752, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1124052460989906752, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.56
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3742918377385807115, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_Name
@@ -16984,6 +16984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 801161161}
   keyController: {fileID: 1690516791}
+  inventoryField: {fileID: 2095516160}
 --- !u!1 &814507829
 GameObject:
   m_ObjectHideFlags: 0
@@ -17621,6 +17622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 921557247}
   keyController: {fileID: 1690516791}
+  inventoryField: {fileID: 2095516160}
 --- !u!1 &921652694
 GameObject:
   m_ObjectHideFlags: 0
@@ -63904,7 +63906,7 @@ GameObject:
   - component: {fileID: 1743738284}
   - component: {fileID: 1743738285}
   m_Layer: 5
-  m_Name: Heart Slider
+  m_Name: Health Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64818,7 +64820,7 @@ RectTransform:
   m_GameObject: {fileID: 2095516160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 60382984}
@@ -64848,7 +64850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e99c577d95312f3488f51d285211612b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8238858a081564c629827908059c0934, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -65688,12 +65690,12 @@ SceneRoots:
   - {fileID: 485130624}
   - {fileID: 1707925390}
   - {fileID: 8863474416798035655}
+  - {fileID: 452285320}
   - {fileID: 4733598486882330398}
   - {fileID: 1958112709}
   - {fileID: 1859980457}
   - {fileID: 1244067143}
   - {fileID: 1690516792}
-  - {fileID: 452285320}
   - {fileID: 318706105}
   - {fileID: 1162223740}
   - {fileID: 2100067843}
