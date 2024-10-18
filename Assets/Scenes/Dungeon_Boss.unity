@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  ChaseSpeed: 3
+  ChaseSpeed: 0
   ChaseDistance: 5
 --- !u!114 &245371660
 MonoBehaviour:
