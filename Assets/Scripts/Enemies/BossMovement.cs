@@ -13,6 +13,8 @@ public class BossMovement : MonoBehaviour
     private Vector2 movement;
     private Animator bossAnimation;
     private Transform player;
+
+    private bool isMoving;
     
 
     private void Awake()
@@ -29,6 +31,7 @@ public class BossMovement : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         movement = direction * moveSpeed;
+        bossAnimation.SetBool("isMoving", true);
 
         if (movement.x < 0)
         {
@@ -38,8 +41,8 @@ public class BossMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false; // Flip nach rechts
         }
-        //sqrMagnitude gibt die quadratische Länge des Vektors zurück (0 = Idle, > 0 = Run)
-        bossAnimation.SetFloat("speed", movement.sqrMagnitude);
+
+
     }
 
     private void FixedUpdate()

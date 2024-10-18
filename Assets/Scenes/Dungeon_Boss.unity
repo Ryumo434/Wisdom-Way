@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  ChaseSpeed: 0
+  ChaseSpeed: 4
   ChaseDistance: 5
 --- !u!114 &245371660
 MonoBehaviour:
@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df02677b8537a7a42a8b1e78a249aee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 100
   currentHealth: 3
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 15
