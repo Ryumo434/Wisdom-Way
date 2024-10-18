@@ -39,7 +39,7 @@ public class Sword : MonoBehaviour, IWeapon
     {
         MouseFollowWithOffset();
     }
-
+     
     public void Attack()
     {
 
@@ -49,7 +49,7 @@ public class Sword : MonoBehaviour, IWeapon
         slashAnim.transform.parent = this.transform.parent;
 
     }
-
+      
 
 
     public void DoneAttackingAnimEvent()

@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float roamChangeDirFloat = 2f;
     [SerializeField] public int enemyDamage;
+    //[SerializeField] Transform enemyTransform;
 
     
     
@@ -59,7 +60,7 @@ public class EnemyAI : MonoBehaviour
         
         if (playerHealth)
         {
-            playerHealth.TakeDamage(enemyDamage, other.transform);
+            playerHealth.TakeDamage(enemyDamage, this.transform);
         }
     }
 }

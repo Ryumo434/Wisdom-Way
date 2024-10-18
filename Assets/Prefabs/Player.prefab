@@ -251,7 +251,6 @@ MonoBehaviour:
   maxHealth: 20
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
-  healthSlider: {fileID: 0}
 --- !u!114 &6267937548790771554
 MonoBehaviour:
   m_ObjectHideFlags: 0

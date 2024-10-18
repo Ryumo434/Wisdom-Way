@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 245371654}
   - component: {fileID: 245371653}
   - component: {fileID: 245371657}
+  - component: {fileID: 245371658}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -901,7 +902,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1018,6 +1019,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0.03787931, y: 0.693828}
   m_Size: {x: 1.019038, y: 1.6548755}
   m_Direction: 0
+--- !u!114 &245371658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245371652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf339a94fae7f848aeb787c4f8f0c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ChaseSpeed: 3
+  ChaseDistance: 5
 --- !u!1 &297358265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2500,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506614073}
   m_CullTransparentMesh: 1
+--- !u!1001 &528015419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0436897
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.795334
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2194465
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 488681313971422505, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3274216628452557419, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3274216628452557419, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807423794291172552, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
+      propertyPath: m_Name
+      value: Blue Slime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f46b94b469c1574487cf6c7d8cdf96c, type: 3}
 --- !u!1 &534380951
 GameObject:
   m_ObjectHideFlags: 0
@@ -19207,3 +19288,4 @@ SceneRoots:
   - {fileID: 8863474416798035655}
   - {fileID: 4315143752852259778}
   - {fileID: 1206477351}
+  - {fileID: 528015419}

@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
   enemyDamage: 1
+  enemyTransform: {fileID: 488681313971422505}
 --- !u!114 &8002280258697586202
 MonoBehaviour:
   m_ObjectHideFlags: 0
