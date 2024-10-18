@@ -77642,6 +77642,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1521649240}
+    - target: {fileID: 1644146704184415481, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
+      propertyPath: quizManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2409897726939706553, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -78071,6 +78075,14 @@ PrefabInstance:
     - target: {fileID: 1169424090691194569, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3296742
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8022695
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size

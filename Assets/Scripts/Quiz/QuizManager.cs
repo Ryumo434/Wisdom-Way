@@ -17,10 +17,10 @@ public class QuizManagerTMP : MonoBehaviour
     public TextMeshProUGUI buttonTextC;
     public TextMeshProUGUI buttonTextD;
     public GameObject quizTrigger;
-    public bool isQuizPlaying = false;
     [SerializeField] private WallController wallController;
     [SerializeField] private GameObject barrier;
     [SerializeField] private PlayerHealth health;
+    [SerializeField] private PlayerController playerController;
 
     public float fadeDuration = 1f;
 
@@ -125,7 +125,7 @@ public class QuizManagerTMP : MonoBehaviour
                 StartCoroutine(FadeInButtons());
                 currentQuestionIndex = 0;
                 LoadQuestion(currentQuestionIndex);
-                isQuizPlaying = true;
+                playerController.isQuizPlaying = true;
             }
             else
             {
@@ -178,7 +178,7 @@ public class QuizManagerTMP : MonoBehaviour
             quizTrigger.SetActive(false);
             quizPanel.SetActive(false);
             barrier.SetActive(false);
-            isQuizPlaying = false;
+            playerController.isQuizPlaying = false;
             wallController.OpenWall();
         }
     }
