@@ -10,6 +10,8 @@ public class BossMovement : MonoBehaviour
     private Vector2 moveDir;
     private Knockback knockback;
     private SpriteRenderer spriteRenderer;
+    private Vector2 movement;
+    
 
     private void Awake()
     {
@@ -18,23 +20,27 @@ public class BossMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        if (movement.x < 0)
+        {
+            spriteRenderer.flipX = true;  // Flip nach links
+        }
+        else if (movement.x > 0)
+        {
+            spriteRenderer.flipX = false; // Flip nach rechts
+        }
+    }
+
     private void FixedUpdate()
     {
         if (knockback.GettingKnockedBack) { return; }
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
-        if (moveDir.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
-        }
     }
 
-    public void MoveTo(Vector2 targetPosition)
-    {
-        moveDir = targetPosition;
-    }
+   
 }

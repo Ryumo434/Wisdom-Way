@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class BossAI : MonoBehaviour
 {
     [SerializeField] private float roamChangeDirFloat = 2f;
     [SerializeField] public int enemyDamage;
     //[SerializeField] Transform enemyTransform;
+    BossMovement bossMovement;
 
-    
-    
-   private enum State
+
+    private enum State
     {
         Roaming
     }
@@ -20,14 +20,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        
-        enemyPathFinding = GetComponent<EnemyPathFinding>();
-
-        if (enemyPathFinding == null)
-        {
-            BossMovement bossMovement;
+            
             bossMovement = GetComponent<BossMovement>();
-        }
+        
         //playerHealth = GetComponent<PlayerHealth>();
 
         state = State.Roaming;
@@ -35,7 +30,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-       
+
         StartCoroutine(RoamingRoutine());
     }
 
@@ -45,14 +40,14 @@ public class EnemyAI : MonoBehaviour
         while (state == State.Roaming)
         {
             Vector2 roamPosition = GetRoamingPosition();
-            enemyPathFinding.MoveTo(roamPosition);
+            //bossMovement.MoveTo(roamPosition);
             yield return new WaitForSeconds(roamChangeDirFloat);
         }
     }
 
     private Vector2 GetRoamingPosition()
     {
-        return new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f)).normalized;
+        return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
 
@@ -63,12 +58,10 @@ public class EnemyAI : MonoBehaviour
         //EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
         //PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-        
+
         if (playerHealth)
         {
             playerHealth.TakeDamage(enemyDamage, this.transform);
         }
     }
 }
-
-

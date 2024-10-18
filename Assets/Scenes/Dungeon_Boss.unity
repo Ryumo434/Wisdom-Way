@@ -900,8 +900,8 @@ GameObject:
   - component: {fileID: 245371658}
   - component: {fileID: 245371660}
   - component: {fileID: 245371662}
-  - component: {fileID: 245371659}
   - component: {fileID: 245371661}
+  - component: {fileID: 245371664}
   - component: {fileID: 245371663}
   m_Layer: 0
   m_Name: Boss
@@ -1075,20 +1075,6 @@ MonoBehaviour:
   player: {fileID: 0}
   ChaseSpeed: 3
   ChaseDistance: 5
---- !u!114 &245371659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245371652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f162075ce06f1614f949282cd23b571d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roamChangeDirFloat: 2
-  enemyDamage: 1
 --- !u!114 &245371660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,7 +1131,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07714e8537cc834c8c7b979cc4dc9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
+--- !u!114 &245371664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245371652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0c7d50ff5dce9439efa25b39d175f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roamChangeDirFloat: 2
+  enemyDamage: 1
 --- !u!1 &297358265
 GameObject:
   m_ObjectHideFlags: 0
