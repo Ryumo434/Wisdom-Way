@@ -31,7 +31,7 @@ public class BossMovement : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         movement = direction * moveSpeed;
-        bossAnimation.SetBool("isMoving", true);
+        
 
         if (movement.x < 0)
         {
