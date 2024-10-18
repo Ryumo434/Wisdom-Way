@@ -12,6 +12,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
     [SerializeField] private Transform SlashSpawnPoint;
+    [SerializeField] private QuizManagerTMP quizManager;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -84,7 +85,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
-        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead) { return; }
+        if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead || quizManager.isQuizPlaying) { return; }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 

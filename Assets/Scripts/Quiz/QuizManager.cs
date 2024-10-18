@@ -17,8 +17,10 @@ public class QuizManagerTMP : MonoBehaviour
     public TextMeshProUGUI buttonTextC;
     public TextMeshProUGUI buttonTextD;
     public GameObject quizTrigger;
+    public bool isQuizPlaying = false;
     [SerializeField] private WallController wallController;
     [SerializeField] private GameObject barrier;
+    [SerializeField] private PlayerHealth health;
 
     public float fadeDuration = 1f;
 
@@ -38,16 +40,16 @@ public class QuizManagerTMP : MonoBehaviour
 
     private string[,] historyQuizData = new string[,]
     {
-    {"Wer war der berühmte Pharao, dessen Grab im Tal der Könige entdeckt wurde?", "Ramses II", "Tutanchamun", "Cheops", "Echnaton", "2"},
-    {"Wer gilt als Begründer des Mongolischen Reiches?", "Kublai Khan", "Genghis Khan", "Tamerlan", "Attila", "2"},
-    {"In welchem Jahr wurde die Berliner Mauer gebaut?", "1948", "1950", "1961", "1989", "3"},
-    {"Welches alte Reich war für die hängenden Gärten von Babylon berühmt?", "Ägypten", "Mesopotamien", "Persien", "Assyrien", "2"},
-    {"Wann fand die Französische Revolution statt?", "1776", "1789", "1812", "1848", "2"},
-    {"Wer war der Führer der Sowjetunion während des Zweiten Weltkriegs?", "Wladimir Lenin", "Josef Stalin", "Nikita Chruschtschow", "Leonid Breschnew", "2"},
-    {"In welchem Jahr landeten die ersten Menschen auf dem Mond?", "1965", "1969", "1972", "1980", "2"},
-    {"Welches antike Volk baute die berühmten Pyramiden von Gizeh?", "Die Römer", "Die Griechen", "Die Ägypter", "Die Mesopotamier", "3"},
-    {"Wer war der Gründer des Osmanischen Reiches?", "Mehmed II", "Osman I", "Süleyman der Prächtige", "Selim I", "2"},
-    {"Welches Dokument wurde 1215 in England unterzeichnet und gilt als ein Grundstein der modernen Demokratie?", "Bill of Rights", "Magna Carta", "Vertrag von Versailles", "Habeas Corpus", "2"}
+        {"Wer war der berühmte Pharao, dessen Grab im Tal der Könige entdeckt wurde?", "Ramses II", "Tutanchamun", "Cheops", "Echnaton", "2"},
+        {"Wer gilt als Begründer des Mongolischen Reiches?", "Kublai Khan", "Genghis Khan", "Tamerlan", "Attila", "2"},
+        {"In welchem Jahr wurde die Berliner Mauer gebaut?", "1948", "1950", "1961", "1989", "3"},
+        {"Welches alte Reich war für die hängenden Gärten von Babylon berühmt?", "Ägypten", "Mesopotamien", "Persien", "Assyrien", "2"},
+        {"Wann fand die Französische Revolution statt?", "1776", "1789", "1812", "1848", "2"},
+        {"Wer war der Führer der Sowjetunion während des Zweiten Weltkriegs?", "Wladimir Lenin", "Josef Stalin", "Nikita Chruschtschow", "Leonid Breschnew", "2"},
+        {"In welchem Jahr landeten die ersten Menschen auf dem Mond?", "1965", "1969", "1972", "1980", "2"},
+        {"Welches antike Volk baute die berühmten Pyramiden von Gizeh?", "Die Römer", "Die Griechen", "Die Ägypter", "Die Mesopotamier", "3"},
+        {"Wer war der Gründer des Osmanischen Reiches?", "Mehmed II", "Osman I", "Süleyman der Prächtige", "Selim I", "2"},
+        {"Welches Dokument wurde 1215 in England unterzeichnet und gilt als ein Grundstein der modernen Demokratie?", "Bill of Rights", "Magna Carta", "Vertrag von Versailles", "Habeas Corpus", "2"}
     };
 
     private string[,] scienceQuizData = new string[,]
@@ -123,6 +125,7 @@ public class QuizManagerTMP : MonoBehaviour
                 StartCoroutine(FadeInButtons());
                 currentQuestionIndex = 0;
                 LoadQuestion(currentQuestionIndex);
+                isQuizPlaying = true;
             }
             else
             {
@@ -134,14 +137,12 @@ public class QuizManagerTMP : MonoBehaviour
 
     public void SelectAnswer(int answerIndex)
     {
-        // Debugging, um zu ?berpr?fen, ob quizData korrekt gesetzt ist
         if (quizData == null)
         {
             Debug.LogError("quizData ist null!");
             return;
         }
 
-        // Debugging, um zu ?berpr?fen, ob currentQuestionIndex g?ltig ist
         if (currentQuestionIndex >= quizData.GetLength(0))
         {
             Debug.LogError("currentQuestionIndex ist au?erhalb des Bereichs!");
@@ -156,6 +157,12 @@ public class QuizManagerTMP : MonoBehaviour
             string correctAnswerIndexString = quizData[currentQuestionIndex, 5];
             int correctAnswerIndex = int.Parse(correctAnswerIndexString);
             Debug.Log("Antwort ist FALSCH! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1] + "Richtige Antwort w?re: " + quizData[currentQuestionIndex, correctAnswerIndex]);
+
+            //Player kriegt 2 schaden
+            if (health)
+            {
+                health.QuizTakeDamage(2, this.transform);
+            }
         }
 
     
@@ -170,8 +177,8 @@ public class QuizManagerTMP : MonoBehaviour
             Debug.Log("Quiz abgeschlossen");
             quizTrigger.SetActive(false);
             quizPanel.SetActive(false);
-            Time.timeScale = 1;
             barrier.SetActive(false);
+            isQuizPlaying = false;
             wallController.OpenWall();
         }
     }
@@ -200,7 +207,6 @@ public class QuizManagerTMP : MonoBehaviour
 
             yield return null;
         }
-        Time.timeScale = 0;
     }
 
     private void SetAlpha(TextMeshProUGUI tmpText, float alpha)

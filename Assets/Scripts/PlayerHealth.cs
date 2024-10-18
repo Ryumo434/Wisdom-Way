@@ -73,6 +73,14 @@ public class PlayerHealth : Singleton<PlayerHealth>
         CheckIfPlayerDeath();
     }
 
+    public void QuizTakeDamage(int damageAmount, Transform hitTransform)
+    {
+        ScreenShakeManager.Instance.ShakeScreen();
+        currentHealth -= damageAmount;
+        UpdateHealthSlider();
+        CheckIfPlayerDeath();
+    }
+
     private void CheckIfPlayerDeath()
     {
         if (currentHealth <= 0 && !isDead)
