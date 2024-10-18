@@ -46737,6 +46737,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -70599,7 +70609,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 2296
+  - m_RefCount: 2297
     m_Data: {fileID: 11400000, guid: 77998aa47f7254e4aaf76c1f326e1d72, type: 2}
   - m_RefCount: 37
     m_Data: {fileID: 11400000, guid: c9a8a107f573a704085890bbff4efe5c, type: 2}
@@ -70628,7 +70638,7 @@ Tilemap:
   - m_RefCount: 270
     m_Data: {fileID: 11400000, guid: 3f98d614e2c5ac644b45a5d25b6090a0, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2296
+  - m_RefCount: 2297
     m_Data: {fileID: 21300000, guid: 9769d6545ca712f4a808c9048874b3b0, type: 3}
   - m_RefCount: 37
     m_Data: {fileID: 915216371, guid: 5834751cda02fa54c966ef13757e2f43, type: 3}
@@ -70671,7 +70681,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: -339914287, guid: 2ba7d6198c90368489a84f4b6e8c68cf, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2618
+  - m_RefCount: 2619
     m_Data:
       e00: 1
       e01: 0
@@ -70690,7 +70700,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2618
+  - m_RefCount: 2619
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -77627,10 +77637,6 @@ PrefabInstance:
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1222232819459938995, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
-      propertyPath: maxHealth
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1222232819459938995, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: healthSlider
