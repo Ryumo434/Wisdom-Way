@@ -3,11 +3,35 @@ using UnityEngine;
 
 public class TriggerQuestion : MonoBehaviour
 {
-    public GameObject questionPanel;  // Das Panel, das die Frage und das InputField enthält
-    public TMP_InputField answerInputField;  // Das TMP_InputField von TextMeshPro
-    public GameObject barrier;  // Das GameObject, das deaktiviert werden soll
+    public static TriggerQuestion instance;  // Singleton-Instance
+
+    [SerializeField] public GameObject questionPanel;  // Das Panel, das die Frage und das InputField enthält
+    [SerializeField] public GameObject answerInputFieldObject;  // Das TMP_InputField von TextMeshPro
+    [SerializeField] public GameObject barrier;  // Das GameObject, das deaktiviert werden soll
+
     private string correctAnswer = "leonardo da vinci";  // Die richtige Antwort
     private bool isQuestionActive = false;  // Überprüfen, ob die Frage aktiv ist
+    [SerializeField] private TMP_InputField answerInputField;  // Das TMP_InputField von TextMeshPro
+
+    private void Awake()
+    {
+        // Singleton-Pattern um sicherzustellen, dass nur eine Instanz existiert
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);  // Behalte das GameObject über Szenenwechsel hinweg
+        }
+        else
+        {
+            Destroy(gameObject);  // Zerstöre doppelte Instanzen
+        }
+
+        // Stelle sicher, dass wichtige UI-Elemente nicht zerstört werden
+        DontDestroyOnLoad(questionPanel);
+        DontDestroyOnLoad(answerInputFieldObject);
+        DontDestroyOnLoad(answerInputField.gameObject);
+        DontDestroyOnLoad(barrier);
+    }
 
     private void Start()
     {
@@ -23,6 +47,7 @@ public class TriggerQuestion : MonoBehaviour
         {
             // Frage anzeigen und Zeit anhalten
             questionPanel.SetActive(true);
+            answerInputFieldObject.SetActive(true);
             Time.timeScale = 0f;  // Zeit anhalten
             isQuestionActive = true;
         }
@@ -35,6 +60,7 @@ public class TriggerQuestion : MonoBehaviour
         {
             // Frage verbergen und Zeit fortsetzen
             questionPanel.SetActive(false);
+            answerInputFieldObject.SetActive(false);
             Time.timeScale = 1f;  // Zeit fortsetzen
             isQuestionActive = false;
         }
@@ -52,6 +78,7 @@ public class TriggerQuestion : MonoBehaviour
             // Deaktiviert die Barriere, wenn die Antwort korrekt ist
             barrier.SetActive(false);
             questionPanel.SetActive(false);  // Fragepanel ausblenden
+            answerInputFieldObject.SetActive(false);
             Time.timeScale = 1f;  // Zeit fortsetzen
             isQuestionActive = false;  // Quiz ist beendet
         }
