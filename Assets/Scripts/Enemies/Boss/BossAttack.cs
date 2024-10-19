@@ -6,6 +6,7 @@ public class BossAttack : MonoBehaviour
 {
 
     private Animator bossAnimator;
+    [SerializeField] private int attackDamage;
     
 
     private void Awake()
@@ -20,7 +21,7 @@ public class BossAttack : MonoBehaviour
         if (playerHealth)
         {
             //bossAnimator.SetBool("Attack1", true);
-            playerHealth.TakeDamage(2, this.transform);
+            playerHealth.TakeDamage(attackDamage, this.transform);
         }
         
     }

@@ -83,6 +83,7 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
@@ -95,16 +96,9 @@ public class BossAI : MonoBehaviour
 
     }
 
-    /*
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+    */
 
-        if (playerHealth)
-        {
-            bossAnimator.SetBool("Attack1", false);
-        }
-    }*/
+
 
     void EnableAttackCollider()
     {
