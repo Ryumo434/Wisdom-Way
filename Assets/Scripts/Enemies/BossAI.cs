@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BossAI : MonoBehaviour
@@ -8,6 +9,11 @@ public class BossAI : MonoBehaviour
     [SerializeField] public int enemyDamage;
     //[SerializeField] Transform enemyTransform;
     BossMovement bossMovement;
+    private Animator bossAnimator;
+    GameObject AttackObject;
+    private PolygonCollider2D attackCollider;
+    //private GameObject attackZone;
+    
 
 
     private enum State
@@ -21,7 +27,19 @@ public class BossAI : MonoBehaviour
     private void Awake()
     {
             
-            bossMovement = GetComponent<BossMovement>();
+        bossMovement = GetComponent<BossMovement>();
+        bossAnimator = GetComponent<Animator>();
+
+        AttackObject = transform.GetChild(0).gameObject;
+
+        if (AttackObject == null)
+        {
+            Debug.Log(" Kind Objekt nicht gefunden");
+        }
+
+        attackCollider = AttackObject.GetComponent<PolygonCollider2D>();
+        attackCollider.enabled = false;
+        
         
         //playerHealth = GetComponent<PlayerHealth>();
 
@@ -64,4 +82,40 @@ public class BossAI : MonoBehaviour
             playerHealth.TakeDamage(enemyDamage, this.transform);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+        if (playerHealth)
+        {
+            bossAnimator.SetBool("Attack1", true);
+            //playerHealth.TakeDamage(2, this.transform);
+        }
+
+    }
+
+    /*
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+        if (playerHealth)
+        {
+            bossAnimator.SetBool("Attack1", false);
+        }
+    }*/
+
+    void EnableAttackCollider()
+    {
+        attackCollider.enabled = true;
+    }
+
+    void DisableAttackCollider()
+    {
+        attackCollider.enabled = false;
+        bossAnimator.SetBool("Attack1", false);
+    }
+
+
 }

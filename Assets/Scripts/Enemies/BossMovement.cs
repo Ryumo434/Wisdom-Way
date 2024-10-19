@@ -15,7 +15,12 @@ public class BossMovement : MonoBehaviour
     private Transform player;
 
     private bool isMoving;
-    
+
+    GameObject AttackObject;
+    private PolygonCollider2D attackCollider;
+
+    private BoxCollider2D boxCollider2D;
+
 
     private void Awake()
     {
@@ -24,7 +29,24 @@ public class BossMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bossAnimation = GetComponent<Animator>();
 
+       
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+
+        AttackObject = transform.GetChild(0).gameObject;
+
+        if (AttackObject == null)
+        {
+            Debug.Log(" Kind Objekt nicht gefunden");
+        }
+
+        attackCollider = AttackObject.GetComponent<PolygonCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+
+
+
+
     }
 
     private void Update()
@@ -36,15 +58,21 @@ public class BossMovement : MonoBehaviour
         if (movement.x < 0)
         {
             spriteRenderer.flipX = true;  // Flip nach links
+            AttackObject.transform.localScale = new Vector3(-1f, 0.32f, 1f);
+           
+
         }
         else if (movement.x > 0)
         {
             spriteRenderer.flipX = false; // Flip nach rechts
+            AttackObject.transform.localScale = new Vector3(-1f, 0.32f, 1f);
+
         }
 
 
     }
 
+    
     private void FixedUpdate()
     {
         if (knockback.GettingKnockedBack) { return; }

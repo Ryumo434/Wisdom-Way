@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 245371664}
   - component: {fileID: 245371663}
   - component: {fileID: 245371665}
+  - component: {fileID: 245371666}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1019,7 +1020,7 @@ Transform:
   m_GameObject: {fileID: 245371652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7398233, y: 17.204182, z: 0.6235733}
+  m_LocalPosition: {x: 7.38, y: 17.36, z: 0.6235733}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1131,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
-  enemyDamage: 1
+  enemyDamage: 3
 --- !u!114 &245371665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1148,51 @@ MonoBehaviour:
   player: {fileID: 0}
   ChaseSpeed: 4
   ChaseDistance: 7
+--- !u!61 &245371666
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245371652}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.6803945, y: 2.2135234}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.35}
+    oldSize: {x: 7.8125, y: 7.8125}
+    newSize: {x: 15.625, y: 15.625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.2111852, y: 4.078291}
+  m_EdgeRadius: 0
 --- !u!1 &297358265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,6 +3799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 992973523}
   - component: {fileID: 992973524}
+  - component: {fileID: 992973525}
   m_Layer: 0
   m_Name: 'Attack Collider '
   m_TagString: Untagged
@@ -3819,16 +3866,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.5654345, y: 1.199888}
-      - {x: 1.1229448, y: 1.6643615}
-      - {x: 0.5022888, y: 1.9608514}
-      - {x: -0.27965164, y: 1.8273036}
-      - {x: 0.7268557, y: 0.4837995}
-      - {x: -0.15665507, y: -0.8556256}
-      - {x: 0.8981929, y: -0.65348935}
-      - {x: 1.4733496, y: -0.2963215}
-      - {x: 1.673491, y: 0.25075668}
+    - - {x: 3.4253626, y: 1.7982996}
+      - {x: 3.249732, y: 2.6104991}
+      - {x: 2.5880713, y: 3.745715}
+      - {x: 1.7185031, y: 3.9381}
+      - {x: 0.5162374, y: 0.5364537}
+      - {x: 0.25615203, y: -0.015367392}
+      - {x: 1.6825969, y: -0.08742392}
+      - {x: 2.2173204, y: -0.06989506}
+      - {x: 3.4431417, y: 0.80873495}
   m_UseDelaunayMesh: 0
+--- !u!114 &992973525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992973522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22ba60107c28644b9a956bbc012401f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1022159429
 GameObject:
   m_ObjectHideFlags: 0
@@ -14702,11 +14761,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.05
+      value: -12.11
       objectReference: {fileID: 0}
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.69
+      value: 24.51
       objectReference: {fileID: 0}
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14747,6 +14806,10 @@ PrefabInstance:
     - target: {fileID: 2409897726939706553, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742728434872485823, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
+      propertyPath: knockBackTime
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20213,19 +20276,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3211908
+      value: -4.6139
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6642504
+      value: 17.51165
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6011653195004245938, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -59.55911
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011653195004245938, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -169.97946
+      value: -157.15945
       objectReference: {fileID: 0}
     - target: {fileID: 6585836901339399413, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
