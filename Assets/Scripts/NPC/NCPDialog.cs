@@ -46,18 +46,7 @@ public class NCPDialog : MonoBehaviour
         "und  entflamme die Fackel.",
         "Viel Erfolg!"
     };
-
-    void Awake()
-    { /*
-        DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(PressE);
-        DontDestroyOnLoad(Panel);
-        DontDestroyOnLoad(darkBackground);
-        //DontDestroyOnLoad(ActivateWeapon);
-        DontDestroyOnLoad(UICanvas);
-        DontDestroyOnLoad(Canvas)*/
-    }
-
+    
     void Update()
     {
         EisPressed();
