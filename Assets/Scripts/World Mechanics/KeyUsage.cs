@@ -6,13 +6,34 @@ public class KeyUsage : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private KeyController keyController;
-    [SerializeField] private GameObject inventoryField;
 
     private bool isPlayerInTrigger = false;
+    private GameObject itemGameObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject inventory3 = GameObject.Find("Inventory (3)");
+
+        if (inventory3 != null)
+        {
+            Transform item = inventory3.transform.Find("Item");
+
+            if (item != null)
+            {
+                itemGameObject = item.gameObject;
+                Debug.Log("Item gefunden: " + item.gameObject.name);
+            }
+            else
+            {
+                Debug.LogError("Item wurde nicht unter Inventory (3) gefunden.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Inventory (3) wurde nicht gefunden.");
+        }
+
         keyController.door.SetActive(true);
     }
 
@@ -24,7 +45,7 @@ public class KeyUsage : MonoBehaviour
             if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
             {
                 keyController.playerHasKey = true;
-                inventoryField.SetActive(true);
+                itemGameObject.SetActive(true);
             }
         }
     }
@@ -37,7 +58,7 @@ public class KeyUsage : MonoBehaviour
             if (keyController.playerHasKey && prefab.name == "useKey")
             {
                 keyController.door.SetActive(false);
-                inventoryField.SetActive(false);
+                itemGameObject.SetActive(false);
             }
         }
     }
