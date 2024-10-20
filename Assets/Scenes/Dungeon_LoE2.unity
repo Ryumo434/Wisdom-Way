@@ -16960,31 +16960,11 @@ Transform:
   - {fileID: 1067619341}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &801161161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6224114750692317895, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
-  m_PrefabInstance: {fileID: 893461605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &801161162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892570713196321808, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
   m_PrefabInstance: {fileID: 893461605}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &801161163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801161161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a8bdfe68b3c4bb1b07947c33a1b545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 801161161}
-  keyController: {fileID: 1690516791}
-  inventoryField: {fileID: 2095516160}
 --- !u!1 &814507829
 GameObject:
   m_ObjectHideFlags: 0
@@ -17178,6 +17158,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1690516792}
     m_Modifications:
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 1060326537}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: keyController
+      value: 
+      objectReference: {fileID: 1690516791}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: inventoryField
+      value: 
+      objectReference: {fileID: 2095516160}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: inventoryFieldName
+      value: ItemKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: inventoryFieldPrefab
+      value: 
+      objectReference: {fileID: 2095516160}
     - target: {fileID: 4892570713196321808, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.750662
@@ -17301,10 +17301,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6224114750692317895, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 801161163}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
 --- !u!1 &894013387
 GameObject:
@@ -17454,6 +17451,26 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1074873784}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 1060326537}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: keyController
+      value: 
+      objectReference: {fileID: 1690516791}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: inventoryField
+      value: 
+      objectReference: {fileID: 2095516160}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: inventoryFieldName
+      value: ItemKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663759902617474906, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
+      propertyPath: inventoryFieldPrefab
+      value: 
+      objectReference: {fileID: 2095516160}
     - target: {fileID: 4892570713196321808, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.6926155
@@ -17593,36 +17610,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6224114750692317895, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 921557251}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
---- !u!1 &921557247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6224114750692317895, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
-  m_PrefabInstance: {fileID: 921557246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &921557250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892570713196321808, guid: 1990280b4dc8443df825bd0d69992535, type: 3}
   m_PrefabInstance: {fileID: 921557246}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &921557251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921557247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a8bdfe68b3c4bb1b07947c33a1b545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 921557247}
-  keyController: {fileID: 1690516791}
-  inventoryField: {fileID: 2095516160}
 --- !u!1 &921652694
 GameObject:
   m_ObjectHideFlags: 0
@@ -63764,7 +63758,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.104265, y: 17.44648, z: 0.053459167}
+  m_LocalPosition: {x: 8.187538, y: 17.406069, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64805,7 +64799,7 @@ GameObject:
   - component: {fileID: 2095516163}
   - component: {fileID: 2095516162}
   m_Layer: 5
-  m_Name: Item
+  m_Name: ItemKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

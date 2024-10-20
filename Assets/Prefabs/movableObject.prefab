@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: -2791014221227124913}
   - component: {fileID: 5759799113152812231}
   - component: {fileID: 577122789845418835}
+  - component: {fileID: 810334997603853021}
   m_Layer: 0
   m_Name: movableObject
   m_TagString: Untagged
@@ -464,3 +465,15 @@ MonoBehaviour:
   hotbar: {fileID: 0}
   weapon: {fileID: 0}
   movableObject: {fileID: 1834433009346238924}
+--- !u!114 &810334997603853021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7425256060146294436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa98277ba03faa41aadff6c717fd34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

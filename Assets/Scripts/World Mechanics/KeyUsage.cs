@@ -14,7 +14,6 @@ public class KeyUsage : MonoBehaviour
     void Start()
     {
         keyController.door.SetActive(true);
-
     }
 
     // Update is called once per frame
@@ -32,7 +31,6 @@ public class KeyUsage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("trigger enter");
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;

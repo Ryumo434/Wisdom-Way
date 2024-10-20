@@ -84,7 +84,7 @@ public class DragMovableObject : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("trigger enter");
+
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
@@ -97,7 +97,7 @@ public class DragMovableObject : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("trigger exit");
+
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
