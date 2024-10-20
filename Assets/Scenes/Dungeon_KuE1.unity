@@ -1385,6 +1385,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
+--- !u!114 &78737901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1644146704184415481, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
+  m_PrefabInstance: {fileID: 78737900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55f0c4de36dab3449f50377667211d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &78737902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1222232819459938995, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
+  m_PrefabInstance: {fileID: 78737900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0014ab495199b0c40828c72f61397b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &81775833
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,6 +4709,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuizTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7912257719020285467, guid: 99b72e37f1e8d5b4485b7ddaad266f9f, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 78737902}
+    - target: {fileID: 7912257719020285467, guid: 99b72e37f1e8d5b4485b7ddaad266f9f, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 78737901}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29305,11 +29335,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 109.41494
+      value: 60.3
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.47
+      value: -8.7
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34562,9 +34592,17 @@ PrefabInstance:
       value: ArtQuiz
       objectReference: {fileID: 0}
     - target: {fileID: 7912257719020285467, guid: 99b72e37f1e8d5b4485b7ddaad266f9f, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 78737902}
+    - target: {fileID: 7912257719020285467, guid: 99b72e37f1e8d5b4485b7ddaad266f9f, type: 3}
       propertyPath: barrier
       value: 
       objectReference: {fileID: 690414721}
+    - target: {fileID: 7912257719020285467, guid: 99b72e37f1e8d5b4485b7ddaad266f9f, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 78737901}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60738,7 +60776,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4774246, y: 19.332691, z: 0.053459167}
+  m_LocalPosition: {x: 2.4972916, y: 19.332691, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

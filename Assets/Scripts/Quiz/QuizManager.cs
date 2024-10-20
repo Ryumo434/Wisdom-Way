@@ -70,7 +70,10 @@ public class QuizManagerTMP : MonoBehaviour
         {"Welcher Künstler ist als Mitbegründer der Pop-Art bekannt?", "Andy Warhol", "Salvador Dalí", "Rembrandt", "Claude Monet","1"}
     };
 
-
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject); // Verhindert, dass das Objekt beim Szenenwechsel zerstört wird
+    }
 
     void Start()
     {
@@ -158,11 +161,17 @@ public class QuizManagerTMP : MonoBehaviour
             int correctAnswerIndex = int.Parse(correctAnswerIndexString);
             Debug.Log("Antwort ist FALSCH! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1] + "Richtige Antwort w?re: " + quizData[currentQuestionIndex, correctAnswerIndex]);
 
-            //Player kriegt 2 schaden
-            if (health)
+
+            if (health == null)
+            {
+                FindPlayerHealth(); // Versucht, PlayerHealth erneut zu finden
+            }
+
+            if (health != null)
             {
                 health.QuizTakeDamage(2, this.transform);
             }
+
         }
 
     
@@ -225,5 +234,17 @@ public class QuizManagerTMP : MonoBehaviour
         Color textColor = buttonText.color;
         textColor.a = alpha;
         buttonText.color = textColor;
+    }
+
+    void FindPlayerHealth()
+    {
+        if (health == null)
+        {
+            health = FindObjectOfType<PlayerHealth>(); // Sucht das PlayerHealth-Objekt neu
+            if (health == null)
+            {
+                Debug.LogError("PlayerHealth-Objekt wurde nicht gefunden!");
+            }
+        }
     }
 }
