@@ -4915,7 +4915,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 537356097969223832, guid: ad48c6c98a7c65347b425a45151ceac7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 302447233}
   m_SourcePrefab: {fileID: 100100000, guid: ad48c6c98a7c65347b425a45151ceac7, type: 3}
 --- !u!1001 &296389370
 PrefabInstance:
@@ -6869,6 +6872,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 537356097969223832, guid: ad48c6c98a7c65347b425a45151ceac7, type: 3}
   m_PrefabInstance: {fileID: 285068968}
   m_PrefabAsset: {fileID: 0}
+--- !u!210 &302447233
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302447232}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &304608493
 GameObject:
   m_ObjectHideFlags: 0
@@ -8347,7 +8362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413690283}
   m_Layer: 5
-  m_Name: Heart Container
+  m_Name: Health Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60776,7 +60791,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4726562, y: 19.332611, z: 0.053459167}
+  m_LocalPosition: {x: 2.4726486, y: 19.332611, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
