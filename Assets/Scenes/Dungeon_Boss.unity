@@ -1077,7 +1077,7 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 3
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
-  knockBackThrust: 15
+  knockBackThrust: 0
   healthbar: {fileID: 468426722}
 --- !u!114 &245371661
 MonoBehaviour:
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  ChaseSpeed: 3
+  ChaseSpeed: 5
   ChaseDistance: 15
 --- !u!1 &297358265
 GameObject:
@@ -3916,8 +3916,8 @@ PolygonCollider2D:
       - {x: 2.5880713, y: 3.745715}
       - {x: 1.7185031, y: 3.9381}
       - {x: 0.5162374, y: 0.5364537}
-      - {x: 0.25615203, y: -0.015367392}
-      - {x: 1.6825969, y: -0.08742392}
+      - {x: 0.18854797, y: -0.40746993}
+      - {x: 1.7366798, y: -0.37136072}
       - {x: 2.2173204, y: -0.06989506}
       - {x: 3.4431417, y: 0.80873495}
   m_UseDelaunayMesh: 0
