@@ -10,31 +10,41 @@ public class ArtTrigger : MonoBehaviour
     [SerializeField] private GameObject Trigger3;
 
     [SerializeField] private GameObject darkBackground;
-    [SerializeField] private GameObject MonalisaCap;
-    [SerializeField] private GameObject mona;
-    [SerializeField] private GameObject alskdjf;
+    [SerializeField] private GameObject SternennachtGesicht;
+    [SerializeField] private GameObject SternennachtGetauscht;
+    [SerializeField] private GameObject Sternennacht;
     [SerializeField] private GameObject UICanvas;
 
     private bool isPlayerInTrigger = false;
     private bool lastPlayerInTriggerState = false;
 
+    void Start()
+    {
+        if (SternennachtGesicht == null || SternennachtGetauscht == null || Sternennacht == null)
+        {
+            SternennachtGesicht = GameObject.Find("SternennachtGesicht");
+            SternennachtGetauscht = GameObject.Find("SternennachtGetauscht");
+            Sternennacht = GameObject.Find("Sternennacht");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (isPlayerInTrigger != lastPlayerInTriggerState)
-    {
-        if (isPlayerInTrigger)
         {
-            Debug.Log("True");  // Spieler ist im Trigger
-        }
-        else
-        {
-            Debug.Log("False");  // Spieler ist nicht im Trigger
-        }
+            if (isPlayerInTrigger)
+            {
+                Debug.Log("True");  // Spieler ist im Trigger
+            }
+            else
+            {
+                Debug.Log("False");  // Spieler ist nicht im Trigger
+            }
 
-        // Den letzten Zustand aktualisieren
-        lastPlayerInTriggerState = isPlayerInTrigger;
-    }
+            // Den letzten Zustand aktualisieren
+            lastPlayerInTriggerState = isPlayerInTrigger;
+        }
     }
 
     // Wird ausgelöst, wenn der Collider betreten wird
@@ -50,19 +60,19 @@ public class ArtTrigger : MonoBehaviour
             if (gameObject.CompareTag("Trigger1"))
             {
                 isPlayerInTrigger = true;
-                MonalisaCap.SetActive(true);
+                SternennachtGesicht.SetActive(true);
                 Debug.Log("trigger1");
             }
             else if (gameObject.CompareTag("Trigger2"))
             {
                 isPlayerInTrigger = true;
-                mona.SetActive(true);
+                SternennachtGetauscht.SetActive(true);
                 Debug.Log("trigger2");
             } 
             else if (gameObject.CompareTag("Trigger3"))
             {
                 isPlayerInTrigger = true;
-                alskdjf.SetActive(true);
+                Sternennacht.SetActive(true);
                 Debug.Log("trigger3");
             }
         }
@@ -77,9 +87,9 @@ public class ArtTrigger : MonoBehaviour
             // Setze die Variable auf False
             isPlayerInTrigger = false;
             darkBackground.SetActive(false);
-            MonalisaCap.SetActive(false);
-            mona.SetActive(false);
-            alskdjf.SetActive(false);
+            SternennachtGesicht.SetActive(false);
+            SternennachtGetauscht.SetActive(false);
+            Sternennacht.SetActive(false);
             UICanvas.SetActive(true);
         }
     }

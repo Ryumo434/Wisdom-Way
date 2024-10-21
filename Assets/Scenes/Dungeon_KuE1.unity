@@ -1334,11 +1334,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 109.5
+      value: 109.6
       objectReference: {fileID: 0}
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.6
+      value: -26.6
       objectReference: {fileID: 0}
     - target: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26623,9 +26623,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414224262}
     - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
+      propertyPath: Sternennacht
+      value: 
+      objectReference: {fileID: 1191457550}
+    - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
       propertyPath: darkBackground
       value: 
       objectReference: {fileID: 813777082}
+    - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
+      propertyPath: SternennachtGesicht
+      value: 
+      objectReference: {fileID: 1414224262}
+    - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
+      propertyPath: SternennachtGetauscht
+      value: 
+      objectReference: {fileID: 230208365}
     - target: {fileID: 1627303855441439217, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
       propertyPath: m_Name
       value: Trigger1
@@ -39900,7 +39912,7 @@ Transform:
   m_GameObject: {fileID: 1223055418}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.0903, y: -158.38371, z: 768.7023}
+  m_LocalPosition: {x: -42.990303, y: -156.38371, z: 768.7023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60496,7 +60508,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4721909, y: 19.332611, z: 0.053459167}
+  m_LocalPosition: {x: 2.6819763, y: 19.335691, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61974,6 +61986,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2231448723477382710, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
+      propertyPath: m_Name
+      value: SternennachtGetauscht
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231448723477382710, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -62058,8 +62074,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4877303032484062346, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
+      propertyPath: m_Name
+      value: Sternennacht
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877303032484062346, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478618972005144269, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
+      propertyPath: m_Name
+      value: SternennachtGesicht
       objectReference: {fileID: 0}
     - target: {fileID: 5478618972005144269, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
       propertyPath: m_IsActive
@@ -62255,9 +62279,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414224262}
     - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
+      propertyPath: Sternennacht
+      value: 
+      objectReference: {fileID: 1191457550}
+    - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
       propertyPath: darkBackground
       value: 
       objectReference: {fileID: 368807787}
+    - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
+      propertyPath: SternennachtGesicht
+      value: 
+      objectReference: {fileID: 1414224262}
+    - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
+      propertyPath: SternennachtGetauscht
+      value: 
+      objectReference: {fileID: 230208365}
     - target: {fileID: 8006316994888660675, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 73
@@ -65461,9 +65497,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414224262}
     - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
+      propertyPath: Sternennacht
+      value: 
+      objectReference: {fileID: 1191457550}
+    - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
       propertyPath: darkBackground
       value: 
       objectReference: {fileID: 368807787}
+    - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
+      propertyPath: SternennachtGesicht
+      value: 
+      objectReference: {fileID: 1414224262}
+    - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
+      propertyPath: SternennachtGetauscht
+      value: 
+      objectReference: {fileID: 230208365}
     - target: {fileID: 807002174867897263, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
       propertyPath: m_Name
       value: Trigger3
@@ -68696,7 +68744,7 @@ Transform:
   m_GameObject: {fileID: 4220580867252625278}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.6, y: -28.97, z: 0}
+  m_LocalPosition: {x: 109.7, y: -27.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
