@@ -14981,6 +14981,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1222232819459938995, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
+      propertyPath: RespawnScene
+      value: Dungeon_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222232819459938995, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1521649240}
@@ -20647,11 +20651,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.16
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32
+      value: 34.77
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.z

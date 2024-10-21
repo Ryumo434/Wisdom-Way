@@ -9,14 +9,29 @@ public class AreaExit : MonoBehaviour
     [SerializeField] private string sceneTransitionName;
 
     private float WaitToLoadTime = 1f;
-
+    private PlayerHealth playerHealth;
+    private GameObject player;
+    
+    public void Awake()
+    {
+        player = GameObject.Find("Player");
+        playerHealth = player.GetComponent<PlayerHealth>();
+        
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.GetComponent<PlayerController>())
         {
+            
             SceneManagement.Instance.SetTransitionName(sceneTransitionName);
             UIFade.Instance.FadeToBlack();
+            //playerHealth.currentHealth = playerHealth.maxHealth;
+            
             StartCoroutine(LoadSceneRoutine());
+            playerHealth.HealPlayer();
+
         }
     }
 

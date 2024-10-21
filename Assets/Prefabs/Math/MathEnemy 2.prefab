@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
+  enemyDamage: 3
 --- !u!114 &8002280258697586202
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,18 +9,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public bool isDead { get; private set; }
     //public int enemyDamage { get; set; }
 
-    [SerializeField] private int maxHealth = 3;
+    public int maxHealth = 20;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
+    //[SerializeField] private string RespawnScene;
 
     private Slider healthSlider;
-    private int currentHealth;
+    public int currentHealth;
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
 
     const string HEALTH_SLIDER_TEXT = "Health Slider";
-    const string TOWN_TEXT = "WisWay";
+    //string TOWN_TEXT = RespawnScene;
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
     protected override void Awake()
@@ -51,12 +52,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
     
 
     public void HealPlayer()
-    {
-        if (currentHealth < maxHealth)
+    { 
+        /*
+        while (currentHealth < maxHealth)
         {
-            currentHealth += 1;
-            UpdateHealthSlider();
+            if (currentHealth < maxHealth)
+            {
+                currentHealth += 1;
+                UpdateHealthSlider();
+            }
         }
+        */
+        currentHealth = maxHealth;
+        UpdateHealthSlider();
     }
 
     public void TakeDamage(int damageAmount, Transform hitTransform)
@@ -100,7 +108,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
 
-        SceneManager.LoadScene(TOWN_TEXT);
+        string currentScene;
+        currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
+        
     }
 
     private IEnumerator DamageRecoveryRoutine()
