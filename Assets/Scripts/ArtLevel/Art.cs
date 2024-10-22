@@ -54,7 +54,7 @@ public class ArtTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Setze die Variable auf True
-            darkBackground.SetActive(true);
+            //darkBackground.SetActive(true);
             UICanvas.SetActive(false);
 
             if (gameObject.CompareTag("Trigger1"))
@@ -86,7 +86,7 @@ public class ArtTrigger : MonoBehaviour
         {
             // Setze die Variable auf False
             isPlayerInTrigger = false;
-            darkBackground.SetActive(false);
+            //darkBackground.SetActive(false);
             SternennachtGesicht.SetActive(false);
             SternennachtGetauscht.SetActive(false);
             Sternennacht.SetActive(false);
