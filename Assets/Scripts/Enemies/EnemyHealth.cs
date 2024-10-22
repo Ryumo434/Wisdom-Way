@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     //private int currentHealth;
     private Knockback knockback;
     private Flash flash;
-    private BossAI bossAI;
+    private BossAI bossAI = null;
     private Animator bossAnimator;
     public bool bossIsDead= false;
     private CapsuleCollider2D bossCollider;
@@ -34,19 +34,18 @@ public class EnemyHealth : MonoBehaviour
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
         bossAI = GetComponent<BossAI>();
-        bossAnimator = GetComponent<Animator>();    
-
-        bossCollider = GetComponent<CapsuleCollider2D>();
-        //healthbar = GetComponentInChildren<FloatingHealthbar>(); // Hier wird die Healthbar gefunden.
-        /*
-        if (healthbar == null)
+        if (bossAI != null)
         {
-            Debug.LogError("FloatingHealthbar not found on the enemy object or its children!");
-        }*/
-        bossHealthbar = GameObject.Find("BossHealthbar");
-        bossHealthbarSlider = bossHealthbar.GetComponent<Slider>();
+            bossAI = GetComponent<BossAI>();
+            bossAnimator = GetComponent<Animator>();    
 
-        bossName = GameObject.Find("BossName (TMP)");
+            bossCollider = GetComponent<CapsuleCollider2D>();
+
+            bossHealthbar = GameObject.Find("BossHealthbar");
+            bossHealthbarSlider = bossHealthbar.GetComponent<Slider>();
+
+            bossName = GameObject.Find("BossName (TMP)");
+        }
 
         Player = GameObject.Find("Player");
         playerHealth = Player.GetComponent<PlayerHealth>();
@@ -104,6 +103,7 @@ public class EnemyHealth : MonoBehaviour
             bossAnimator.SetBool("isMoving", false);
             bossAnimator.SetBool("Attack1", false);
             bossAnimator.SetBool("isDead", true);
+
             bossHealthbar.SetActive(false);
             bossName.SetActive(false);
            

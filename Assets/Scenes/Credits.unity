@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsText: {fileID: 1033660520}
-  scrollSpeed: 30
+  scrollSpeed: 20
   typeSpeed: 0.1
   fadePanel: {fileID: 1064328575}
   fadeSpeed: 1
