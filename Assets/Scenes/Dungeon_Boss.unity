@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df02677b8537a7a42a8b1e78a249aee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 50
   currentHealth: 3
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 0
@@ -1135,6 +1135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roamChangeDirFloat: 2
   enemyDamage: 3
+  bossHealthbar: {fileID: 468426723}
 --- !u!114 &245371665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20671,11 +20672,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.57
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.77
+      value: 33.53
       objectReference: {fileID: 0}
     - target: {fileID: 267261789239747529, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20723,14 +20724,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216806308430422832, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: sceneToLoad
-      value: Dungeon_MaE1
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 6216806308430422832, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
       propertyPath: sceneTransitionName
-      value: MMEntry
+      value: CEntry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4220580866551073070, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}

@@ -20,6 +20,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Knockback knockback;
     private Flash flash;
 
+    
+
     const string HEALTH_SLIDER_TEXT = "Health Slider";
     //string TOWN_TEXT = RespawnScene;
     readonly int DEATH_HASH = Animator.StringToHash("Death");

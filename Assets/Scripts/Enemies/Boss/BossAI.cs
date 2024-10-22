@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossAI : MonoBehaviour
 {
     [SerializeField] private float roamChangeDirFloat = 2f;
     [SerializeField] public int enemyDamage;
+    [SerializeField] Slider bossHealthbar;
     //[SerializeField] Transform enemyTransform;
     BossMovement bossMovement;
     private Animator bossAnimator;
     GameObject AttackObject;
     private PolygonCollider2D attackCollider;
     //private GameObject attackZone;
+
+    EnemyHealth enemyHealth;
     
 
 
@@ -26,9 +30,10 @@ public class BossAI : MonoBehaviour
 
     private void Awake()
     {
-            
+        
         bossMovement = GetComponent<BossMovement>();
         bossAnimator = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
 
         AttackObject = transform.GetChild(0).gameObject;
 
@@ -48,7 +53,7 @@ public class BossAI : MonoBehaviour
 
     private void Start()
     {
-
+        
         StartCoroutine(RoamingRoutine());
     }
 

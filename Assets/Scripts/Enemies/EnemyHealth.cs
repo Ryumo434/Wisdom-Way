@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float knockBackThrust = 15f;
 
     [SerializeField] private FloatingHealthbar healthbar;
+    //[SerializeField] private Slider healthbar;
 
     //private int currentHealth;
     private Knockback knockback;
@@ -20,6 +23,10 @@ public class EnemyHealth : MonoBehaviour
     private CapsuleCollider2D bossCollider;
     private GameObject bossHealthbar;
     private GameObject bossName;
+    private Slider bossHealthbarSlider;
+
+    private GameObject Player;
+    private PlayerHealth playerHealth;
     
 
     private void Awake()
@@ -37,12 +44,22 @@ public class EnemyHealth : MonoBehaviour
             Debug.LogError("FloatingHealthbar not found on the enemy object or its children!");
         }*/
         bossHealthbar = GameObject.Find("BossHealthbar");
+        bossHealthbarSlider = bossHealthbar.GetComponent<Slider>();
+
         bossName = GameObject.Find("BossName (TMP)");
+
+        Player = GameObject.Find("Player");
+        playerHealth = Player.GetComponent<PlayerHealth>();
+
+
+
+
     }
     
     private void Start()
     {
         currentHealth = startingHealth;
+        //healthbar.value = currentHealth;
         // healthbar.UpdateHealthBar(currentHealth, startingHealth);
         
     }
@@ -63,9 +80,14 @@ public class EnemyHealth : MonoBehaviour
         DetectDeath();
     }
 
+    private void Update()
+    {
+        if(playerHealth.isDead) {bossHealthbarSlider.value = startingHealth ; }
+    }
+
     public void DetectDeath()
     {
-        if (bossIsDead) return;
+        //if (bossIsDead) return;
 
 
         if (currentHealth <= 0 && bossAI == null)
@@ -84,9 +106,8 @@ public class EnemyHealth : MonoBehaviour
             bossAnimator.SetBool("isDead", true);
             bossHealthbar.SetActive(false);
             bossName.SetActive(false);
-
-            // boss soll im letzten frame liegen bleiben
-            //StartCoroutine(DisableAnimatorAfterDeath());
+           
+           
 
         }
     }
@@ -102,6 +123,7 @@ public class EnemyHealth : MonoBehaviour
             // Destroy(gameObject, 2f);
         }
     
+    //AnimEvent
     void DestroyAnimation()
     {
         bossAnimator.enabled = false;
@@ -110,6 +132,7 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
+    
 
     
 
