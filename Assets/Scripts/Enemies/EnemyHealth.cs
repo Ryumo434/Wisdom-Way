@@ -18,6 +18,9 @@ public class EnemyHealth : MonoBehaviour
     private Animator bossAnimator;
     public bool bossIsDead= false;
     private CapsuleCollider2D bossCollider;
+    private GameObject bossHealthbar;
+    private GameObject bossName;
+    
 
     private void Awake()
     {
@@ -33,13 +36,15 @@ public class EnemyHealth : MonoBehaviour
         {
             Debug.LogError("FloatingHealthbar not found on the enemy object or its children!");
         }*/
-
+        bossHealthbar = GameObject.Find("BossHealthbar");
+        bossName = GameObject.Find("BossName (TMP)");
     }
-
+    
     private void Start()
     {
         currentHealth = startingHealth;
         // healthbar.UpdateHealthBar(currentHealth, startingHealth);
+        
     }
 
     public void TakeDamage(int damage)
@@ -77,6 +82,8 @@ public class EnemyHealth : MonoBehaviour
             bossAnimator.SetBool("isMoving", false);
             bossAnimator.SetBool("Attack1", false);
             bossAnimator.SetBool("isDead", true);
+            bossHealthbar.SetActive(false);
+            bossName.SetActive(false);
 
             // boss soll im letzten frame liegen bleiben
             //StartCoroutine(DisableAnimatorAfterDeath());
@@ -99,7 +106,7 @@ public class EnemyHealth : MonoBehaviour
     {
         bossAnimator.enabled = false;
         bossCollider.enabled = false;
-       // healthbar.enabled = false;
+        
 
     }
 

@@ -1080,6 +1080,7 @@ MonoBehaviour:
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 0
   healthbar: {fileID: 468426722}
+  bossIsDead: 0
 --- !u!114 &245371661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14472,7 +14473,7 @@ GameObject:
   - component: {fileID: 2068988170}
   - component: {fileID: 2068988169}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BossName (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15697,6 +15698,7 @@ MonoBehaviour:
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 10
   healthbar: {fileID: 3702226941692152495}
+  bossIsDead: 0
 --- !u!198 &7812249193441222725
 ParticleSystem:
   m_ObjectHideFlags: 0
