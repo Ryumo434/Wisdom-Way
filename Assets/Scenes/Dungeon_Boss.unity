@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 245371664}
   - component: {fileID: 245371663}
   - component: {fileID: 245371665}
+  - component: {fileID: 245371666}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1074,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df02677b8537a7a42a8b1e78a249aee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 3
   currentHealth: 3
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 0
@@ -1148,6 +1149,23 @@ MonoBehaviour:
   player: {fileID: 0}
   ChaseSpeed: 5
   ChaseDistance: 15
+--- !u!114 &245371666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245371652}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50647eea290520249984cdb1b96214eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  currentHealth: 3
+  deathVFXPrefab: {fileID: 0}
+  knockBackThrust: 15
+  healthbar: {fileID: 0}
 --- !u!1 &297358265
 GameObject:
   m_ObjectHideFlags: 0

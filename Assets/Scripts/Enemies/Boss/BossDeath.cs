@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class BossDeath : MonoBehaviour
 {
+
+
     [SerializeField] private int startingHealth = 3;
     public int currentHealth = 3;
     [SerializeField] private GameObject deathVFXPrefab;
@@ -14,19 +16,16 @@ public class EnemyHealth : MonoBehaviour
     //private int currentHealth;
     private Knockback knockback;
     private Flash flash;
-    private BossAI bossAI;
-    private Animator bossAnimator;
-    public bool bossIsDead= false;
-    private CapsuleCollider2D bossCollider;
+    Animator bossAnimator;
 
     private void Awake()
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
-        bossAI = GetComponent<BossAI>();
-        bossAnimator = GetComponent<Animator>();    
 
-        bossCollider = GetComponent<CapsuleCollider2D>();
+        //enemyHealth = GetComponent<EnemyHealth>();
+        bossAnimator = GetComponent<Animator>();
+
         //healthbar = GetComponentInChildren<FloatingHealthbar>(); // Hier wird die Healthbar gefunden.
         /*
         if (healthbar == null)
@@ -60,50 +59,35 @@ public class EnemyHealth : MonoBehaviour
 
     public void DetectDeath()
     {
-        if (bossIsDead) return;
-
-
-        if (currentHealth <= 0 && bossAI == null)
+        if (currentHealth <= 0)
         {
             //partikel(deathVFXPrefab ein Gameobject) wird an der position(transform.Position) des Enemy instanziiert ohne dass eine rotation stattfindet(Quaternion.identity)
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        else if (currentHealth <= 0 && bossAI != null)
-        {
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-
-            bossIsDead = true;
-            bossAnimator.SetBool("isMoving", false);
-            bossAnimator.SetBool("Attack1", false);
             bossAnimator.SetBool("isDead", true);
-
-            // boss soll im letzten frame liegen bleiben
-            //StartCoroutine(DisableAnimatorAfterDeath());
-
+            //Destroy(gameObject);
         }
     }
-        private IEnumerator DisableAnimatorAfterDeath()
-        {
-            // Warte, bis die Todesanimation vollständig abgespielt ist.
-            yield return new WaitForSeconds(bossAnimator.GetCurrentAnimatorStateInfo(0).length);
+//sdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-            // Animator deaktivieren, damit der Boss im letzten Frame der Animation bleibt
-            bossAnimator.enabled = false;
 
-            // Alternativ: Wenn der Boss zerstört werden soll, nach der Animation
-            // Destroy(gameObject, 2f);
-        }
+
+
+
+    /*
+    EnemyHealth enemyHealth;
+   
     
-    void DestroyAnimation()
+
+    private void Update()
     {
-        bossAnimator.enabled = false;
-        bossCollider.enabled = false;
-       // healthbar.enabled = false;
-
+        BossDeathDetection();
     }
 
-
-    
-
+    void BossDeathDetection()
+    {
+        if (enemyHealth.currentHealth <= 0)
+        {
+           bossAnimator.SetBool("isDead", true);
+        }
+    }*/
 }

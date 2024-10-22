@@ -18,6 +18,7 @@ public class BossMovement : MonoBehaviour
 
     GameObject AttackObject;
     private PolygonCollider2D attackCollider;
+    EnemyHealth enemyHealth;
 
    // private BoxCollider2D boxCollider2D;
 
@@ -28,6 +29,7 @@ public class BossMovement : MonoBehaviour
         knockback = GetComponent<Knockback>();
         rb = GetComponent<Rigidbody2D>();
         bossAnimation = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
 
        
 
@@ -51,6 +53,9 @@ public class BossMovement : MonoBehaviour
 
     private void Update()
     {
+
+        if (enemyHealth.bossIsDead) { return; }
+
         Vector2 direction = (player.position - transform.position).normalized;
         movement = direction * moveSpeed;
         
@@ -80,6 +85,11 @@ public class BossMovement : MonoBehaviour
         if (knockback.GettingKnockedBack) { return; }
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
+    }
+
+    void stopMovement()
+    {
+        movement = Vector3.zero;
     }
 
    
