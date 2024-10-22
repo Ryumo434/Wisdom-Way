@@ -82,6 +82,7 @@ public class TriggerQuestion : MonoBehaviour
             // Zeit fortsetzen und das Panel schließen, wenn ESC gedrückt wird
             Time.timeScale = 1f;
             questionPanel.SetActive(false);
+            answerInputFieldObject.SetActive(false);
             isQuestionActive = false;  // Quiz wird geschlossen
         }
     }
