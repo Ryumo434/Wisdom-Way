@@ -13,28 +13,9 @@ public class TriggerQuestion : MonoBehaviour
     private bool isQuestionActive = false;  // Überprüfen, ob die Frage aktiv ist
     [SerializeField] private TMP_InputField answerInputField;  // Das TMP_InputField von TextMeshPro
 
-    private void Awake()
-    {
-        // Singleton-Pattern um sicherzustellen, dass nur eine Instanz existiert
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);  // Behalte das GameObject über Szenenwechsel hinweg
-        }
-        else
-        {
-            Destroy(gameObject);  // Zerstöre doppelte Instanzen
-        }
-
-        // Stelle sicher, dass wichtige UI-Elemente nicht zerstört werden
-        DontDestroyOnLoad(questionPanel);
-        DontDestroyOnLoad(answerInputFieldObject);
-        DontDestroyOnLoad(answerInputField.gameObject);
-        DontDestroyOnLoad(barrier);
-    }
-
     private void Start()
     {
+        barrier = GameObject.Find("Barrier1");
         // Abonniere das onEndEdit-Event des TMP_InputField
         answerInputField.onEndEdit.AddListener(OnSubmit);  
     }
