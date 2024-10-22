@@ -5342,26 +5342,6 @@ CompositeCollider2D:
         Y: -270000000
       - X: 1018750016
         Y: -270000000
-    - - X: 1090000000
-        Y: -235624992
-      - X: 1082499968
-        Y: -235624992
-      - X: 1081250048
-        Y: -236875008
-      - X: 1081250048
-        Y: -240000000
-      - X: 1090000000
-        Y: -240000000
-    - - X: 1110000000
-        Y: -235624992
-      - X: 1102499968
-        Y: -235624992
-      - X: 1101250048
-        Y: -236875008
-      - X: 1101250048
-        Y: -240000000
-      - X: 1110000000
-        Y: -240000000
   m_CompositePaths:
     m_Paths:
     - - {x: 51.999973, y: -8}
@@ -5508,16 +5488,6 @@ CompositeCollider2D:
       - {x: 97.81251, y: -26.937502}
       - {x: 98.00001, y: -26.937508}
       - {x: 98.062515, y: -27}
-    - - {x: 108.99998, y: -24}
-      - {x: 108.99998, y: -23.5625}
-      - {x: 108.249985, y: -23.562508}
-      - {x: 108.12501, y: -23.687511}
-      - {x: 108.12503, y: -24}
-    - - {x: 110.99998, y: -24}
-      - {x: 110.99998, y: -23.5625}
-      - {x: 110.249985, y: -23.562508}
-      - {x: 110.12501, y: -23.687511}
-      - {x: 110.12503, y: -24}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -5828,26 +5798,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 64
       m_TileSpriteIndex: 80
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 108, y: -24, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 63
-      m_TileSpriteIndex: 76
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 110, y: -24, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 63
-      m_TileSpriteIndex: 76
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6561,8 +6511,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 702c4f144831e014c82557acaf47f9bd, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 848c5a0ffee17cc469a39dcb4edc76f0, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 519d8fbbcaee0ab49b8efe6e65dbe619, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 563c7934bc381634fbe1762213e0e022, type: 2}
   - m_RefCount: 6
@@ -6726,8 +6676,8 @@ Tilemap:
     m_Data: {fileID: 561918914, guid: 476b0937b7d73234286d79b481180357, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1699379463, guid: 476b0937b7d73234286d79b481180357, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: -1433074928, guid: 06b4fe28fb0dfa242837b29008fb0661, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -770200201, guid: 27876c0e088b43049b22dac46bd198fe, type: 3}
   - m_RefCount: 4
@@ -6761,7 +6711,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -715639105, guid: 27876c0e088b43049b22dac46bd198fe, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 79
+  - m_RefCount: 77
     m_Data:
       e00: 1
       e01: 0
@@ -6780,7 +6730,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 79
+  - m_RefCount: 77
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -26635,9 +26585,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414224262}
     - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
+      propertyPath: Sternennacht
+      value: 
+      objectReference: {fileID: 1191457550}
+    - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
       propertyPath: darkBackground
       value: 
       objectReference: {fileID: 813777082}
+    - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
+      propertyPath: SternennachtGesicht
+      value: 
+      objectReference: {fileID: 1414224262}
+    - target: {fileID: 967119265790911687, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
+      propertyPath: SternennachtGetauscht
+      value: 
+      objectReference: {fileID: 230208365}
     - target: {fileID: 1627303855441439217, guid: a2cfc5e763d91014189eadf8bf2227e6, type: 3}
       propertyPath: m_Name
       value: Trigger1
@@ -60511,7 +60473,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4459686, y: 19.3325, z: 0.053459167}
+  m_LocalPosition: {x: 2.467186, y: 19.332531, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61989,6 +61951,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2231448723477382710, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
+      propertyPath: m_Name
+      value: SternGruen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231448723477382710, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -62073,8 +62039,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4877303032484062346, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
+      propertyPath: m_Name
+      value: SternenOriginal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877303032484062346, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478618972005144269, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
+      propertyPath: m_Name
+      value: SternMitGesicht
       objectReference: {fileID: 0}
     - target: {fileID: 5478618972005144269, guid: 29a5bfa9b3a6f824cac583e90390ef7f, type: 3}
       propertyPath: m_IsActive
@@ -62270,9 +62244,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414224262}
     - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
+      propertyPath: Sternennacht
+      value: 
+      objectReference: {fileID: 1191457550}
+    - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
       propertyPath: darkBackground
       value: 
       objectReference: {fileID: 368807787}
+    - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
+      propertyPath: SternennachtGesicht
+      value: 
+      objectReference: {fileID: 1414224262}
+    - target: {fileID: 5922872280918430878, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
+      propertyPath: SternennachtGetauscht
+      value: 
+      objectReference: {fileID: 230208365}
     - target: {fileID: 8006316994888660675, guid: e8fdd07f45dbaf242b4061ca7b54b30f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 73
@@ -65476,9 +65462,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414224262}
     - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
+      propertyPath: Sternennacht
+      value: 
+      objectReference: {fileID: 1191457550}
+    - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
       propertyPath: darkBackground
       value: 
       objectReference: {fileID: 368807787}
+    - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
+      propertyPath: SternennachtGesicht
+      value: 
+      objectReference: {fileID: 1414224262}
+    - target: {fileID: 177796915768922665, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
+      propertyPath: SternennachtGetauscht
+      value: 
+      objectReference: {fileID: 230208365}
     - target: {fileID: 807002174867897263, guid: 388222742a05ec241b8abdf546c24fc0, type: 3}
       propertyPath: m_Name
       value: Trigger3
