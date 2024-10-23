@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
     private GameObject bossHealthbar;
     private GameObject bossName;
     private Slider bossHealthbarSlider;
+    private GameObject attackCollider;
 
     private GameObject Player;
     private PlayerHealth playerHealth;
@@ -34,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
         bossAI = GetComponent<BossAI>();
+        attackCollider = GameObject.Find("Attack Collider");
         if (bossAI != null)
         {
             bossAI = GetComponent<BossAI>();
@@ -103,9 +105,10 @@ public class EnemyHealth : MonoBehaviour
             bossAnimator.SetBool("isMoving", false);
             bossAnimator.SetBool("Attack1", false);
             bossAnimator.SetBool("isDead", true);
-
+            
             bossHealthbar.SetActive(false);
             bossName.SetActive(false);
+            attackCollider.SetActive(false);
 
 
 
@@ -130,8 +133,7 @@ public class EnemyHealth : MonoBehaviour
     {
         bossAnimator.enabled = false;
         bossCollider.enabled = false;
-        bossHealthbar.SetActive(false);
-        bossName.SetActive(false);
+        
 
 
     }
