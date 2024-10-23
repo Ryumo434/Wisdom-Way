@@ -106,8 +106,10 @@ public class EnemyHealth : MonoBehaviour
 
             bossHealthbar.SetActive(false);
             bossName.SetActive(false);
-           
-           
+
+
+
+
 
         }
     }
@@ -128,7 +130,9 @@ public class EnemyHealth : MonoBehaviour
     {
         bossAnimator.enabled = false;
         bossCollider.enabled = false;
-        
+        bossHealthbar.SetActive(false);
+        bossName.SetActive(false);
+
 
     }
 
