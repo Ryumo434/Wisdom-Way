@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Macros;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,11 +12,13 @@ public class ButtonUI : MonoBehaviour
     public void NewGameButton()
     {
         DontDestroyOnLoad(gameObject);
-        StartCoroutine(FadeOutAndLoadScene(newGameLevel));
+        //StartCoroutine(FadeOutAndLoadScene(newGameLevel));
+        SceneManager.LoadScene(newGameLevel);
         //SceneManager.LoadScene(newGameLevel);
     }
 
-
+    //Methode um die Musik langsam aus faden zu lassen  -Nasser
+    /*
     private IEnumerator FadeOutAndLoadScene(string sceneName)
     {
         
@@ -34,5 +37,5 @@ public class ButtonUI : MonoBehaviour
 
         // Wechsle die Szene
        SceneManager.LoadScene(sceneName);
-    }
+    }*/
 }
