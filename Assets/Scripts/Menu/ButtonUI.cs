@@ -11,7 +11,7 @@ public class ButtonUI : MonoBehaviour
     [SerializeField] private string newGameLevel = "Home";
     public void NewGameButton()
     {
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
         //StartCoroutine(FadeOutAndLoadScene(newGameLevel));
         SceneManager.LoadScene(newGameLevel);
         //SceneManager.LoadScene(newGameLevel);
