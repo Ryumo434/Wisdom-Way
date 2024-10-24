@@ -22,6 +22,7 @@ public class KeyUsage : MonoBehaviour
             if (item != null)
             {
                 itemGameObject = item.gameObject;
+                itemGameObject.SetActive(false);
                 Debug.Log("Item gefunden: " + item.gameObject.name);
             }
             else
