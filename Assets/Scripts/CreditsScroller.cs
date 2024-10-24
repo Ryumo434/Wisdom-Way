@@ -20,6 +20,8 @@ public class CreditsScroller : MonoBehaviour
 
     void Start()
     {
+        GameObject ui = GameObject.Find("UICanvas");
+        ui.SetActive(false);
         fullText = creditsText.text;
         creditsText.text = "";
         typingCoroutine = StartCoroutine(TypeText());
