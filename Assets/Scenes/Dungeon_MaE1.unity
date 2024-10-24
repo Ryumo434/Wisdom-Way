@@ -21442,6 +21442,22 @@ PrefabInstance:
       propertyPath: sceneTransitionName
       value: BEntry
       objectReference: {fileID: 0}
+    - target: {fileID: 7814983969861346607, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+      propertyPath: m_Size.x
+      value: 6.0735474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814983969861346607, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+      propertyPath: m_Size.y
+      value: 4.720627
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814983969861346607, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.85900116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814983969861346607, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6836014
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4220580866551073070, guid: 6289d7b60beabaf448755b2ed81a2f1e, type: 3}
