@@ -5110,6 +5110,7 @@ GameObject:
   - component: {fileID: 245371663}
   - component: {fileID: 245371665}
   - component: {fileID: 245371666}
+  - component: {fileID: 245371667}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -5263,11 +5264,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03787931, y: 0.693828}
-  m_Size: {x: 1.019038, y: 1.6548755}
+  m_Offset: {x: -0.09716098, y: 0.6766805}
+  m_Size: {x: 0.9024188, y: 1.6758265}
   m_Direction: 0
 --- !u!114 &245371660
 MonoBehaviour:
@@ -5281,7 +5282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df02677b8537a7a42a8b1e78a249aee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
+  startingHealth: 100
   currentHealth: 3
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 0
@@ -5374,6 +5375,41 @@ MonoBehaviour:
   deathVFXPrefab: {fileID: 0}
   knockBackThrust: 15
   healthbar: {fileID: 0}
+--- !u!70 &245371667
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245371652}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.14876541, y: 0.111618295}
+  m_Size: {x: 1.0533514, y: 0.5717832}
+  m_Direction: 1
 --- !u!1 &294520320
 GameObject:
   m_ObjectHideFlags: 0
@@ -11683,6 +11719,7 @@ GameObject:
   - component: {fileID: 1022159434}
   - component: {fileID: 1022159433}
   - component: {fileID: 1022159435}
+  - component: {fileID: 1022159436}
   m_Layer: 0
   m_Name: Cosmetic
   m_TagString: Untagged
@@ -12758,6 +12795,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa98277ba03faa41aadff6c717fd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!19719996 &1022159436
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022159429}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &1043405894
 GameObject:
   m_ObjectHideFlags: 0
@@ -40436,11 +40509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9906001
+      value: 0.9511907
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.84606934
+      value: -5.435749
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size
