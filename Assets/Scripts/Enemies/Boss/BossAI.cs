@@ -16,6 +16,7 @@ public class BossAI : MonoBehaviour
     private PolygonCollider2D attackCollider;
     //private GameObject attackZone;
 
+  
     EnemyHealth enemyHealth;
     
 
@@ -34,6 +35,7 @@ public class BossAI : MonoBehaviour
         bossMovement = GetComponent<BossMovement>();
         bossAnimator = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
+       
 
         AttackObject = transform.GetChild(0).gameObject;
 

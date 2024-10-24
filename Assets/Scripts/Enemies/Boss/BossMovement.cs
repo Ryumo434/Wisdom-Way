@@ -20,6 +20,8 @@ public class BossMovement : MonoBehaviour
     private PolygonCollider2D attackCollider;
     EnemyHealth enemyHealth;
 
+    GameObject areaExit;
+
    // private BoxCollider2D boxCollider2D;
 
 
@@ -31,7 +33,8 @@ public class BossMovement : MonoBehaviour
         bossAnimation = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
 
-       
+        areaExit = GameObject.Find("AreaExit");
+
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -46,7 +49,7 @@ public class BossMovement : MonoBehaviour
         attackCollider = AttackObject.GetComponent<PolygonCollider2D>();
         //boxCollider2D = GetComponent<BoxCollider2D>();
 
-
+        areaExit.SetActive(false);
 
 
     }
@@ -54,8 +57,11 @@ public class BossMovement : MonoBehaviour
     private void Update()
     {
 
-        if (enemyHealth.bossIsDead) { return; }
-
+        if (enemyHealth.bossIsDead) {
+            areaExit.SetActive(true);
+            return; 
+        }
+        
         Vector2 direction = (player.position - transform.position).normalized;
         movement = direction * moveSpeed;
         
