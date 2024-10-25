@@ -255,7 +255,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CREDITS\n\nEin 2D-Pixel-Abenteuer von\n\nLukas, Mihoshi, Nasser, Sinan\n\nProgrammierung\n\nLukas\nSinan\nNasser\nMihoshi\n\nGrafik
+  m_text: "CREDITS\n\n\nWisdom Way\nVersion 1.0.0\n\nEin 2D-Pixel-Abenteuer von\n\nLukas,
+    Mihoshi, Nasser, Sinan\n\nProgrammierung\n\nLukas\nSinan\nNasser\nMihoshi\n\nGrafik
     & Pixel Art\n\nMihoshi\nLukas\nNasser\nSinan\n\nStory & Level Design\n\nNasser\nSinan\nLukas\nMihoshi\n\nTesting\n\nSinan\nMihoshi\nNasser\nLukas\n\nBesonderer
     Dank an\n\nLukas, Nasser, Mihoshi, Sinan f\xFCr die Unterst\xFCtzung bei der
     Entwicklung\nSinan, Nasser, Lukas, Mihoshi f\xFCr inspirierende Ideen\n\nUnsere

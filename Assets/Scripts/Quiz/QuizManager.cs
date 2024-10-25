@@ -81,7 +81,7 @@ public class QuizManagerTMP : MonoBehaviour
         answerButtonB.onClick.AddListener(() => SelectAnswer(1));
         answerButtonC.onClick.AddListener(() => SelectAnswer(2));
         answerButtonD.onClick.AddListener(() => SelectAnswer(3));
-        
+
     }
 
     void LoadQuestion(int index)

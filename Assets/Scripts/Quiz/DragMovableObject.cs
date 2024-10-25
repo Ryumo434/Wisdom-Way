@@ -15,6 +15,8 @@ public class DragMovableObject : MonoBehaviour
 
     void Start()
     {
+        hotbar = GameObject.Find("Active Inventory");
+        weapon = GameObject.Find("Active Weapon");
         rb = GetComponent<Rigidbody2D>();
         FreezePositionInXY();
 
