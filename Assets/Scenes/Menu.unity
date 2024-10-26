@@ -949,7 +949,6 @@ MonoBehaviour:
   menuButtons:
   - {fileID: 813974511}
   - {fileID: 488220957}
-  - {fileID: 0}
   - {fileID: 701729868}
   fadeInDuration: 1
 --- !u!1 &1350445311
