@@ -165,6 +165,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3835115}
   m_CullTransparentMesh: 1
+--- !u!1 &33192399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6382564831540963180, guid: e8e2615736ba64d9c9ea54192b00d5e3, type: 3}
+  m_PrefabInstance: {fileID: 1755941526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &51715603
 GameObject:
   m_ObjectHideFlags: 0
@@ -13330,11 +13335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3693889240162254912, guid: 722bbf704be01c94ab00b47c71326928, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.031929
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 3693889240162254912, guid: 722bbf704be01c94ab00b47c71326928, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.894978
+      value: 42.72
       objectReference: {fileID: 0}
     - target: {fileID: 3693889240162254912, guid: 722bbf704be01c94ab00b47c71326928, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13978,6 +13983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1777707195}
     m_Modifications:
+    - target: {fileID: -2791014221227124913, guid: 55b0e99c7caa44c1caa0c41461f0ec9f, type: 3}
+      propertyPath: m_Mass
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 502620815657891979, guid: 55b0e99c7caa44c1caa0c41461f0ec9f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15355,6 +15364,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892570713196321808, guid: 99dfe34ed34a1406c9612b16743be90b, type: 3}
   m_PrefabInstance: {fileID: 1018072857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &604601626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6382564831540963180, guid: e8e2615736ba64d9c9ea54192b00d5e3, type: 3}
+  m_PrefabInstance: {fileID: 1166374681}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &606436208 stripped
 Transform:
@@ -63926,7 +63940,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5099998, y: 17.34, z: 0.053459167}
+  m_LocalPosition: {x: 8.219957, y: 17.35897, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64229,7 +64243,7 @@ PrefabInstance:
       objectReference: {fileID: 4807423794291172552, guid: 46a9624935b0549ce93341fc6e4efea7, type: 3}
     - target: {fileID: 6920516071211663897, guid: e8e2615736ba64d9c9ea54192b00d5e3, type: 3}
       propertyPath: spawnInterval
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7248180985958493215, guid: e8e2615736ba64d9c9ea54192b00d5e3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -65228,6 +65242,14 @@ PrefabInstance:
       propertyPath: plankBarrier
       value: 
       objectReference: {fileID: 1244067141}
+    - target: {fileID: 3430584781065559508, guid: 78d0ef0aab95e474e8dc1495844a3571, type: 3}
+      propertyPath: spawnEggBlue
+      value: 
+      objectReference: {fileID: 604601626}
+    - target: {fileID: 3430584781065559508, guid: 78d0ef0aab95e474e8dc1495844a3571, type: 3}
+      propertyPath: spawnEggGreen
+      value: 
+      objectReference: {fileID: 33192399}
     - target: {fileID: 3730795127310779844, guid: 78d0ef0aab95e474e8dc1495844a3571, type: 3}
       propertyPath: m_Color.b
       value: 1

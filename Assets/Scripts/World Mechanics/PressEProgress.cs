@@ -7,13 +7,23 @@ public class PressEProgress : MonoBehaviour
     public float totalPressTimeRequired = 15f; // Gesamtzeit, die 'e' gedr?ckt werden muss
     public GameObject canvas;
     public GameObject plankBarrier;
+    public GameObject spawnEggGreen;
+    public GameObject spawnEggBlue;
     public GameObject plank;
 
     private bool isPlayerInTrigger = false;
     private float ePressTime = 0f;
+    private GameObject hotbar;
+    private GameObject weapon;
 
     private void Start()
     {
+        hotbar = GameObject.Find("Active Inventory");
+        weapon = GameObject.Find("Active Weapon");
+
+        if (hotbar != null) hotbar.SetActive(true);
+        if (weapon != null) weapon.SetActive(true);
+
         if (progressBar != null)
         {
             progressBar.maxValue = totalPressTimeRequired;
@@ -29,6 +39,9 @@ public class PressEProgress : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
+            if (hotbar != null) hotbar.SetActive(false);
+            if (weapon != null) weapon.SetActive(false);
+
             if (progressBar != null)
             {
                 canvas.SetActive(true);
@@ -42,6 +55,8 @@ public class PressEProgress : MonoBehaviour
         {
             isPlayerInTrigger = false;
             ePressTime = 0f;
+            hotbar.SetActive(true);
+            weapon.SetActive(true);
             if (progressBar != null)
             {
                 progressBar.value = 0f;
@@ -65,6 +80,9 @@ public class PressEProgress : MonoBehaviour
                     Debug.Log("'e' wurde f?r 15 Sekunden gedr?ckt!");
                     plank.SetActive(true);
                     plankBarrier.SetActive(false);
+                    canvas.SetActive(false);
+                    spawnEggBlue.SetActive(false);
+                    spawnEggGreen.SetActive(false);
                 }
             }
             else
