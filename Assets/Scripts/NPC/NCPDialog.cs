@@ -18,6 +18,21 @@ public class NCPDialog : MonoBehaviour
 
     private string[] dialoge = new string[]
     {
+        "Willkommen, Sucher des Wissens!",
+        "Vier Ebenen erwarten dich:",
+        "Geschichte, Logik, Kunst und Mathe.",
+        "Bestehe alle, triff ihn an der Spitze",
+        "und fordere ihn heraus.",
+        "Erlange Ruhm und Weisheit!",
+        "Doch nicht jeder siegt und kehrt zurück...",
+        "Sei wachsam und klug.",
+        "Wirst du ein neuer Weiser?",
+        "Oder jemand der vergessen wird?"
+    };
+
+    /*
+    private string[] dialoge = new string[]
+    {
         "Willkommen, tapferer Reisender!",
         "Vier Herausforderungen,",
         "werden dich erwarten.",
@@ -27,7 +42,7 @@ public class NCPDialog : MonoBehaviour
         "Sei wachsam und klug.",
         "Viel Erfolg!"
     };
-
+    */
     private string[] dialoge2 = new string[]
     {
         "Hallo mein kleiner...",
