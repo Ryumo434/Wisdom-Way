@@ -34,8 +34,8 @@ public class EnemyHealth : MonoBehaviour
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
-        //bossAI = GetComponent<BossAI>();
-        //attackCollider = GameObject.Find("Attack Collider");
+        bossAI = GetComponent<BossAI>();
+        attackCollider = GameObject.Find("Attack Collider");
         
         if (bossAI != null)
         {
@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
 
             bossAI = GetComponent<BossAI>();
             bossAnimator = GetComponent<Animator>();
-            attackCollider = GameObject.Find("Attack Collider");
+            
 
             bossCollider = GetComponent<CapsuleCollider2D>();
 
