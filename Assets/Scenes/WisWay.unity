@@ -78521,11 +78521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3262625
+      value: 2.3270144
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8023396
+      value: -1.8023195
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size

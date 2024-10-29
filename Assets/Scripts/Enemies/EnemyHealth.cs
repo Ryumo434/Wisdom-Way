@@ -34,12 +34,16 @@ public class EnemyHealth : MonoBehaviour
     {
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
-        bossAI = GetComponent<BossAI>();
-        attackCollider = GameObject.Find("Attack Collider");
+        //bossAI = GetComponent<BossAI>();
+        //attackCollider = GameObject.Find("Attack Collider");
+        
         if (bossAI != null)
         {
+            
+
             bossAI = GetComponent<BossAI>();
-            bossAnimator = GetComponent<Animator>();    
+            bossAnimator = GetComponent<Animator>();
+            attackCollider = GameObject.Find("Attack Collider");
 
             bossCollider = GetComponent<CapsuleCollider2D>();
 
@@ -48,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
 
             bossName = GameObject.Find("BossName (TMP)");
         }
-
+        
         Player = GameObject.Find("Player");
         playerHealth = Player.GetComponent<PlayerHealth>();
 
