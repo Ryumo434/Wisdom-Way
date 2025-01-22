@@ -28,7 +28,14 @@ public class EnemyHealth : MonoBehaviour
 
     private GameObject Player;
     private PlayerHealth playerHealth;
-    
+
+
+    //drop Coin vars
+    public GameObject coinPrefab; // Prefab der Münze
+    public int minCoins = 1; // Minimale Anzahl an Münzen
+    public int maxCoins = 5; // Maximale Anzahl an Münzen
+    public float dropRadius = 1.0f; // Radius, in dem die Münzen fallen können
+
 
     private void Awake()
     {
@@ -90,6 +97,27 @@ public class EnemyHealth : MonoBehaviour
         if(playerHealth.isDead) {bossHealthbarSlider.value = startingHealth ; }
     }
 
+    public void OnMonsterDeath()
+    {
+        // Berechne zufällige Anzahl an Münzen
+        int numberOfCoins = Random.Range(minCoins, maxCoins + 1);
+
+        // Generiere Münzen um die Position des Monsters
+        for (int i = 0; i < numberOfCoins; i++)
+        {
+            DropCoin();
+        }
+    }
+
+    private void DropCoin()
+    {
+        // Zufällige Position innerhalb eines Kreises
+        Vector2 dropPosition = (Vector2)transform.position + Random.insideUnitCircle * dropRadius;
+
+        // Erstelle die Münze an der berechneten Position
+        Instantiate(coinPrefab, dropPosition, Quaternion.identity);
+    }
+
     public void DetectDeath()
     {
         //if (bossIsDead) return;
@@ -99,6 +127,7 @@ public class EnemyHealth : MonoBehaviour
         {
             //partikel(deathVFXPrefab ein Gameobject) wird an der position(transform.Position) des Enemy instanziiert ohne dass eine rotation stattfindet(Quaternion.identity)
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+            OnMonsterDeath();
             Destroy(gameObject);
         }
         else if (currentHealth <= 0 && bossAI != null)

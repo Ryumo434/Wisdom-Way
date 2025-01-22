@@ -73534,6 +73534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: coin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2778137160095017952, guid: 972b9847ec3e55f47bfc907ca1d8eaac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4009892872520518713, guid: 972b9847ec3e55f47bfc907ca1d8eaac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.159472
@@ -75529,6 +75533,7 @@ GameObject:
   - component: {fileID: 1819596714}
   - component: {fileID: 1819596716}
   - component: {fileID: 1819596715}
+  - component: {fileID: 1819596717}
   m_Layer: 5
   m_Name: Coins Container
   m_TagString: Untagged
@@ -75588,6 +75593,19 @@ MonoBehaviour:
   m_Spacing: {x: -38.6, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1819596717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819596713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67c2d06fe684f44f87a55ea3286b447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1347865210}
 --- !u!4 &1820079641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3693889240162254912, guid: 68f02d18d02d2704ba729f6ee363756f, type: 3}

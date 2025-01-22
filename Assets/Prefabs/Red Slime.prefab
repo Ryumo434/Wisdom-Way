@@ -511,6 +511,11 @@ MonoBehaviour:
   deathVFXPrefab: {fileID: 8365192975593302221, guid: 753c713731f919446833fd39be1d3167, type: 3}
   knockBackThrust: 10
   healthbar: {fileID: 3702226941903497876}
+  bossIsDead: 0
+  coinPrefab: {fileID: 2392607621845269886, guid: 972b9847ec3e55f47bfc907ca1d8eaac, type: 3}
+  minCoins: 2
+  maxCoins: 5
+  dropRadius: 1
 --- !u!114 &8347792498237903835
 MonoBehaviour:
   m_ObjectHideFlags: 0
