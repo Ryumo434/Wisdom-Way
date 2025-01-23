@@ -15,6 +15,7 @@ public class LueckenTextController : MonoBehaviour
     private string[,] quizData;
     private int currentQuestionIndex = 0;
     private bool isPlayerInTrigger;
+    private bool isQuizActive;
 
 
     // Lueckentext Sets
@@ -40,8 +41,17 @@ public class LueckenTextController : MonoBehaviour
         {
             quizPanel.SetActive(true);
             currentQuestionIndex = 0;
+            isQuizActive = true;
             LoadQuestion(currentQuestionIndex);
             Time.timeScale = 0;
+        }
+
+        if (isQuizActive && Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Zeit fortsetzen und das Panel schließen, wenn ESC gedrückt wird
+            Time.timeScale = 1f;
+            quizPanel.SetActive(false);
+            isQuizActive = false;  // Quiz wird geschlossen
         }
     }
 

@@ -26,6 +26,7 @@ public class QuizManagerTMP : MonoBehaviour
 
     private string[,] quizData;
     private int currentQuestionIndex = 0;
+    private bool isQuizActive;
 
     // Verschiedene Fragensets
     // {"Frage", "Antwort 1", "Antwort 2", "Antwort 3", "Antwort 4", "Index der richtigen Antwort"}
@@ -81,170 +82,181 @@ public class QuizManagerTMP : MonoBehaviour
         answerButtonB.onClick.AddListener(() => SelectAnswer(1));
         answerButtonC.onClick.AddListener(() => SelectAnswer(2));
         answerButtonD.onClick.AddListener(() => SelectAnswer(3));
+    }
 
+
+    void Update()
+    {
+        if (isQuizActive && Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Zeit fortsetzen und das Panel schließen, wenn ESC gedrückt wird
+            Time.timeScale = 1f;
+            playerController.isQuizPlaying = false;
+            quizPanel.SetActive(false);
+            isQuizActive = false;
+        }
     }
 
     void LoadQuestion(int index)
-    {
-        questionText.text = quizData[index, 0];
-        buttonTextA.text = "A: " + quizData[index, 1];
-        buttonTextB.text = "B: " + quizData[index, 2];
-        buttonTextC.text = "C: " + quizData[index, 3];
-        buttonTextD.text = "D: " + quizData[index, 4];
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("trigger");
-        if (other.CompareTag("Player"))
         {
-            Debug.Log("Player hat Trigger betreten: " + gameObject.name);
-
-            // ?berpr?fen, welcher Trigger das Quiz ausl?st
-            if (gameObject.name == "MathQuiz")
-            {
-                quizData = mathQuizData;
-                Debug.Log("Math Quiz geladen: " + quizData.Length + " Fragen");
-            }
-            else if (gameObject.name == "ScienceQuiz")
-            {
-                quizData = scienceQuizData;
-                Debug.Log("Science Quiz geladen: " + quizData.Length + " Fragen");
-            }
-            else if (gameObject.name == "HistoryQuiz")
-            {
-                quizData = historyQuizData;
-                Debug.Log("History Quiz geladen: " + quizData.Length + " Fragen");
-            }
-            else if (gameObject.name == "ArtQuiz")
-            {
-                quizData = ArtQuizData;
-                Debug.Log("Art Quiz geladen: " + quizData.Length + " Fragen");
-            }
-
-            if (quizData != null && quizData.GetLength(0) > 0)
-            {
-                quizPanel.SetActive(true);
-                StartCoroutine(FadeInButtons());
-                currentQuestionIndex = 0;
-                LoadQuestion(currentQuestionIndex);
-                playerController.isQuizPlaying = true;
-            }
-            else
-            {
-                Debug.LogError("QuizData ist leer oder nicht initialisiert!");
-            }
-        }
-    }
-
-
-    public void SelectAnswer(int answerIndex)
-    {
-        if (quizData == null)
-        {
-            Debug.LogError("quizData ist null!");
-            return;
+            questionText.text = quizData[index, 0];
+            buttonTextA.text = "A: " + quizData[index, 1];
+            buttonTextB.text = "B: " + quizData[index, 2];
+            buttonTextC.text = "C: " + quizData[index, 3];
+            buttonTextD.text = "D: " + quizData[index, 4];
         }
 
-        if (currentQuestionIndex >= quizData.GetLength(0))
+        void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.LogError("currentQuestionIndex ist au?erhalb des Bereichs!");
-            return;
+            Debug.Log("trigger");
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("Player hat Trigger betreten: " + gameObject.name);
+                isQuizActive = true;
+                // ?berpr?fen, welcher Trigger das Quiz ausl?st
+                if (gameObject.name == "MathQuiz")
+                {
+                    quizData = mathQuizData;
+                    Debug.Log("Math Quiz geladen: " + quizData.Length + " Fragen");
+                }
+                else if (gameObject.name == "ScienceQuiz")
+                {
+                    quizData = scienceQuizData;
+                    Debug.Log("Science Quiz geladen: " + quizData.Length + " Fragen");
+                }
+                else if (gameObject.name == "HistoryQuiz")
+                {
+                    quizData = historyQuizData;
+                    Debug.Log("History Quiz geladen: " + quizData.Length + " Fragen");
+                }
+                else if (gameObject.name == "ArtQuiz")
+                {
+                    quizData = ArtQuizData;
+                    Debug.Log("Art Quiz geladen: " + quizData.Length + " Fragen");
+                }
+
+                if (quizData != null && quizData.GetLength(0) > 0)
+                {
+                    quizPanel.SetActive(true);
+                    StartCoroutine(FadeInButtons());
+                    currentQuestionIndex = 0;
+                    LoadQuestion(currentQuestionIndex);
+                    playerController.isQuizPlaying = true;
+                }
+                else
+                {
+                    Debug.LogError("QuizData ist leer oder nicht initialisiert!");
+                }
+            }
         }
 
-        if ((answerIndex + 1).ToString() == quizData[currentQuestionIndex, 5])
-        {
-            Debug.Log("Antwort ist RICHTIG! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1]);
-        } else
-        {
-            string correctAnswerIndexString = quizData[currentQuestionIndex, 5];
-            int correctAnswerIndex = int.Parse(correctAnswerIndexString);
-            Debug.Log("Antwort ist FALSCH! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1] + "Richtige Antwort w?re: " + quizData[currentQuestionIndex, correctAnswerIndex]);
 
-
-            if (health == null)
+        public void SelectAnswer(int answerIndex)
+        {
+            if (quizData == null)
             {
-                FindPlayerHealth(); // Versucht, PlayerHealth erneut zu finden
+                Debug.LogError("quizData ist null!");
+                return;
             }
 
-            if (health != null)
+            if (currentQuestionIndex >= quizData.GetLength(0))
             {
-                health.QuizTakeDamage(2, this.transform);
+                Debug.LogError("currentQuestionIndex ist au?erhalb des Bereichs!");
+                return;
             }
 
-        }
+            if ((answerIndex + 1).ToString() == quizData[currentQuestionIndex, 5])
+            {
+                Debug.Log("Antwort ist RICHTIG! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1]);
+            } else
+            {
+                string correctAnswerIndexString = quizData[currentQuestionIndex, 5];
+                int correctAnswerIndex = int.Parse(correctAnswerIndexString);
+                Debug.Log("Antwort ist FALSCH! Ausgew?hlte Antwort: " + quizData[currentQuestionIndex, answerIndex + 1] + "Richtige Antwort w?re: " + quizData[currentQuestionIndex, correctAnswerIndex]);
+
+
+                if (health == null)
+                {
+                    FindPlayerHealth(); // Versucht, PlayerHealth erneut zu finden
+                }
+
+                if (health != null)
+                {
+                    health.QuizTakeDamage(2, this.transform);
+                }
+            }
 
     
 
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizData.GetLength(0))
-        {
-            LoadQuestion(currentQuestionIndex);
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.GetLength(0))
+            {
+                LoadQuestion(currentQuestionIndex);
+            }
+            else
+            {
+                Debug.Log("Quiz abgeschlossen");
+                quizTrigger.SetActive(false);
+                quizPanel.SetActive(false);
+                barrier.SetActive(false);
+                playerController.isQuizPlaying = false;
+                wallController.OpenWall();
+            }
         }
-        else
+
+        private IEnumerator FadeInButtons()
         {
-            Debug.Log("Quiz abgeschlossen");
-            quizTrigger.SetActive(false);
-            quizPanel.SetActive(false);
-            barrier.SetActive(false);
-            playerController.isQuizPlaying = false;
-            wallController.OpenWall();
-        }
-    }
+            float elapsedTime = 0f;
 
-    private IEnumerator FadeInButtons()
-    {
-        float elapsedTime = 0f;
+            Image buttonAImage = answerButtonA.GetComponent<Image>();
+            Image buttonBImage = answerButtonB.GetComponent<Image>();
+            Image buttonCImage = answerButtonC.GetComponent<Image>();
+            Image buttonDImage = answerButtonD.GetComponent<Image>();
 
-        Image buttonAImage = answerButtonA.GetComponent<Image>();
-        Image buttonBImage = answerButtonB.GetComponent<Image>();
-        Image buttonCImage = answerButtonC.GetComponent<Image>();
-        Image buttonDImage = answerButtonD.GetComponent<Image>();
+            // Fade logic
+            while (elapsedTime < fadeDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
 
-        // Fade logic
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-
-            SetAlpha(questionText, alpha);
-            SetAlpha(buttonAImage, buttonTextA, alpha);
-            SetAlpha(buttonBImage, buttonTextB, alpha);
-            SetAlpha(buttonCImage, buttonTextC, alpha);
-            SetAlpha(buttonDImage, buttonTextD, alpha);
+                SetAlpha(questionText, alpha);
+                SetAlpha(buttonAImage, buttonTextA, alpha);
+                SetAlpha(buttonBImage, buttonTextB, alpha);
+                SetAlpha(buttonCImage, buttonTextC, alpha);
+                SetAlpha(buttonDImage, buttonTextD, alpha);
             
 
-            yield return null;
+                yield return null;
+            }
         }
-    }
 
-    private void SetAlpha(TextMeshProUGUI tmpText, float alpha)
-    {
-        Color textColor = tmpText.color;
-        textColor.a = alpha;
-        tmpText.color = textColor;
-    }
-
-    private void SetAlpha(Image buttonImage, TextMeshProUGUI buttonText, float alpha)
-    {
-        Color imageColor = buttonImage.color;
-        imageColor.a = alpha;
-        buttonImage.color = imageColor;
-
-        Color textColor = buttonText.color;
-        textColor.a = alpha;
-        buttonText.color = textColor;
-    }
-
-    void FindPlayerHealth()
-    {
-        if (health == null)
+        private void SetAlpha(TextMeshProUGUI tmpText, float alpha)
         {
-            health = FindObjectOfType<PlayerHealth>(); // Sucht das PlayerHealth-Objekt neu
+            Color textColor = tmpText.color;
+            textColor.a = alpha;
+            tmpText.color = textColor;
+        }
+
+        private void SetAlpha(Image buttonImage, TextMeshProUGUI buttonText, float alpha)
+        {
+            Color imageColor = buttonImage.color;
+            imageColor.a = alpha;
+            buttonImage.color = imageColor;
+
+            Color textColor = buttonText.color;
+            textColor.a = alpha;
+            buttonText.color = textColor;
+        }
+
+        void FindPlayerHealth()
+        {
             if (health == null)
             {
-                Debug.LogError("PlayerHealth-Objekt wurde nicht gefunden!");
+                health = FindObjectOfType<PlayerHealth>(); // Sucht das PlayerHealth-Objekt neu
+                if (health == null)
+                {
+                    Debug.LogError("PlayerHealth-Objekt wurde nicht gefunden!");
+                }
             }
         }
     }
-}
