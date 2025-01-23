@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Für Szenenwechsel-Events
+using UnityEngine.SceneManagement;
 
 public class DragMovableObject : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class DragMovableObject : MonoBehaviour
     private PlayerController playerController;
 
     private bool isPlayerInTrigger;
+    private static DragMovableObject activeObject; // Speichert das aktuell aktive Objekt
 
     void Start()
     {
@@ -23,17 +24,13 @@ public class DragMovableObject : MonoBehaviour
         if (hotbar != null) hotbar.SetActive(true);
         if (weapon != null) weapon.SetActive(true);
 
-        // Den Spieler in der aktuellen Szene finden und den FixedJoint zuweisen
         AssignPlayerAndJoint();
 
-        // Verhindere, dass dieses GameObject beim Szenenwechsel zerstört wird
         DontDestroyOnLoad(gameObject);
 
-        // Abonniere das Event, das aufgerufen wird, wenn eine Szene geladen wird
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Diese Methode weist den Spieler und den Joint zu
     private void AssignPlayerAndJoint()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");
@@ -45,7 +42,7 @@ public class DragMovableObject : MonoBehaviour
 
             if (joint != null)
             {
-                joint.enabled = false; // Standardmäßig deaktiviert, bis es gebraucht wird
+                joint.enabled = false;
             }
             else
             {
@@ -58,10 +55,8 @@ public class DragMovableObject : MonoBehaviour
         }
     }
 
-    // Wird aufgerufen, wenn eine neue Szene geladen wird
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Weisen den Spieler und den Joint neu zu, nachdem die Szene geladen wurde
         AssignPlayerAndJoint();
     }
 
@@ -69,48 +64,52 @@ public class DragMovableObject : MonoBehaviour
     {
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            if (IsPositionFrozen())
+            if (activeObject == null || activeObject == this) // Prüfen, ob kein anderes Objekt aktiv ist
             {
-                UnfreezePositionInXY();
-                AttachToPlayer();
-                playerController.activateDraggingAnimation();
-            }
-            else
-            {
-                FreezePositionInXY();
-                DetachFromPlayer();
-                playerController.deactivateDraggingAnimation();
+                if (IsPositionFrozen())
+                {
+                    UnfreezePositionInXY();
+                    AttachToPlayer();
+                    if (hotbar != null) hotbar.SetActive(false);
+                    if (weapon != null) weapon.SetActive(false);
+                    playerController.activateDraggingAnimation();
+                    activeObject = this; // Setze das aktuelle Objekt als aktiv
+                }
+                else
+                {
+                    FreezePositionInXY();
+                    DetachFromPlayer();
+                    if (hotbar != null) hotbar.SetActive(true);
+                    if (weapon != null) weapon.SetActive(true);
+                    playerController.deactivateDraggingAnimation();
+                    activeObject = null; // Kein Objekt mehr aktiv
+                }
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
 
-            if (hotbar != null) hotbar.SetActive(false);
-            if (weapon != null) weapon.SetActive(false);
+            
             if (PressE != null) PressE.SetActive(true);
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
 
-            if (hotbar != null) hotbar.SetActive(true);
-            if (weapon != null) weapon.SetActive(true);
+            
             if (PressE != null) PressE.SetActive(false);
         }
     }
 
-    // Methoden zum Freezen und Unfreezen
     void FreezePositionInXY()
     {
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
@@ -128,10 +127,9 @@ public class DragMovableObject : MonoBehaviour
                (rb.constraints & RigidbodyConstraints2D.FreezePositionY) != 0;
     }
 
-    // Methoden zum Verbinden und Trennen des Joints
     private void AttachToPlayer()
     {
-        if (joint != null) // Sicherstellen, dass der Joint existiert
+        if (joint != null)
         {
             joint.enableCollision = true;
             joint.enabled = true;
@@ -145,7 +143,7 @@ public class DragMovableObject : MonoBehaviour
 
     private void DetachFromPlayer()
     {
-        if (joint != null) // Sicherstellen, dass der Joint existiert
+        if (joint != null)
         {
             joint.enabled = false;
             joint.connectedBody = null;
@@ -158,7 +156,11 @@ public class DragMovableObject : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Event abmelden, wenn das GameObject zerstört wird
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        if (activeObject == this)
+        {
+            activeObject = null; // Das aktive Objekt zurücksetzen, falls es zerstört wird
+        }
     }
 }
