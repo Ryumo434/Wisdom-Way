@@ -15,6 +15,7 @@ public class TriggerQuestion : MonoBehaviour
     private string correctAnswer = "leonardo da vinci";  // Die richtige Antwort
     private bool isQuestionActive = false;  // Überprüfen, ob die Frage aktiv ist
     private bool isQuizSolved = false;  // Überprüfen, ob das Quiz gelöst wurde
+    private bool isPlayerInTrigger = false;
 
     private void Start()
     {
@@ -29,13 +30,14 @@ public class TriggerQuestion : MonoBehaviour
         // Überprüfen, ob der Spieler das Tag "Player" hat
         if (other.CompareTag("Player") && !isQuizSolved)
         {
+            isPlayerInTrigger = true;
             PressEMonaLisa.SetActive(true);
         }
     }
 
     private void EisPressed()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isQuizSolved) {
+        if (Input.GetKeyDown(KeyCode.E) && !isQuizSolved && isPlayerInTrigger) {
             PressEMonaLisa.SetActive(false);
             questionPanel.SetActive(true);
             answerInputFieldObject.SetActive(true);
@@ -51,6 +53,7 @@ public class TriggerQuestion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Frage verbergen und Zeit fortsetzen
+            isPlayerInTrigger = false;
             PressEMonaLisa.SetActive(false);
             questionPanel.SetActive(false);
             answerInputFieldObject.SetActive(false);
