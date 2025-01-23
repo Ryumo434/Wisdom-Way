@@ -47,7 +47,7 @@ public class NCPDialog : MonoBehaviour
     {
         "Hallo mein kleiner...",
         "Ich frage mich",
-        "wer der Künster",
+        "wer der Künstler",
         "dieses Meisterwekes war",
         "Leonardo da ... war sein Name."
     };
