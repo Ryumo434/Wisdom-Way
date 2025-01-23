@@ -5,13 +5,16 @@ public class TriggerQuestion : MonoBehaviour
 {
     public static TriggerQuestion instance;  // Singleton-Instance
 
-    [SerializeField] public GameObject questionPanel;  // Das Panel, das die Frage und das InputField enthält
-    [SerializeField] public GameObject answerInputFieldObject;  // Das TMP_InputField von TextMeshPro
-    [SerializeField] public GameObject barrier;  // Das GameObject, das deaktiviert werden soll
+    [SerializeField] private GameObject questionPanel;  // Das Panel, das die Frage und das InputField enthält
+    [SerializeField] private GameObject answerInputFieldObject;  // Das TMP_InputField von TextMeshPro
+    [SerializeField] private GameObject barrier;  // Das GameObject, das deaktiviert werden soll
+    [SerializeField] private GameObject ActivateWeapon;
+    [SerializeField] private GameObject PressEMonaLisa;
+    [SerializeField] private TMP_InputField answerInputField;  // Das TMP_InputField von TextMeshPro
 
     private string correctAnswer = "leonardo da vinci";  // Die richtige Antwort
     private bool isQuestionActive = false;  // Überprüfen, ob die Frage aktiv ist
-    [SerializeField] private TMP_InputField answerInputField;  // Das TMP_InputField von TextMeshPro
+    private bool isQuizSolved = false;  // Überprüfen, ob das Quiz gelöst wurde
 
     private void Start()
     {
@@ -24,12 +27,20 @@ public class TriggerQuestion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Überprüfen, ob der Spieler das Tag "Player" hat
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isQuizSolved)
         {
-            // Frage anzeigen und Zeit anhalten
+            PressEMonaLisa.SetActive(true);
+        }
+    }
+
+    private void EisPressed()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !isQuizSolved) {
+            PressEMonaLisa.SetActive(false);
             questionPanel.SetActive(true);
             answerInputFieldObject.SetActive(true);
             Time.timeScale = 0f;  // Zeit anhalten
+            ActivateWeapon.SetActive(false);
             isQuestionActive = true;
         }
     }
@@ -40,9 +51,11 @@ public class TriggerQuestion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Frage verbergen und Zeit fortsetzen
+            PressEMonaLisa.SetActive(false);
             questionPanel.SetActive(false);
             answerInputFieldObject.SetActive(false);
             Time.timeScale = 1f;  // Zeit fortsetzen
+            ActivateWeapon.SetActive(true);
             isQuestionActive = false;
         }
     }
@@ -62,6 +75,8 @@ public class TriggerQuestion : MonoBehaviour
             answerInputFieldObject.SetActive(false);
             Time.timeScale = 1f;  // Zeit fortsetzen
             isQuestionActive = false;  // Quiz ist beendet
+            isQuizSolved = true;  // Quiz wurde gelöst
+            Debug.Log("Richtige Eingabe: " + inputText);
         }
         else
         {
@@ -76,6 +91,7 @@ public class TriggerQuestion : MonoBehaviour
     // Update-Methode, um Eingaben zu erkennen
     private void Update()
     {
+        EisPressed();
         // Überprüfen, ob die Escape-Taste gedrückt wird
         if (isQuestionActive && Input.GetKeyDown(KeyCode.Escape))
         {
@@ -84,31 +100,6 @@ public class TriggerQuestion : MonoBehaviour
             questionPanel.SetActive(false);
             answerInputFieldObject.SetActive(false);
             isQuestionActive = false;  // Quiz wird geschlossen
-        }
-    }
-
-    // Methode wird vom Button aufgerufen, um manuell zu prüfen
-    public void CheckAnswer()
-    {
-        // Bereinige die Eingabe und die richtige Antwort (entferne Leerzeichen und vergleiche case-insensitive)
-        string cleanedInput = answerInputField.text.Trim().ToLower().Replace(" ", "");
-        string cleanedAnswer = correctAnswer.Trim().ToLower().Replace(" ", "");
-
-        if (cleanedInput == cleanedAnswer)
-        {
-            // Deaktiviert die Barriere, wenn die Antwort korrekt ist
-            barrier.SetActive(false);
-            questionPanel.SetActive(false);  // Fragepanel ausblenden
-            Time.timeScale = 1f;  // Zeit fortsetzen
-            isQuestionActive = false;  // Quiz ist beendet
-        }
-        else
-        {
-            // Falsche Eingabe in der Konsole ausgeben
-            Debug.Log("Falsche Eingabe: " + answerInputField.text);
-            Debug.Log("Falsch");
-            // Frage aktiv lassen, damit Spieler mit ESC das Quiz schließen kann
-            isQuestionActive = true;  // Quiz bleibt aktiv, damit ESC funktioniert
         }
     }
 }
