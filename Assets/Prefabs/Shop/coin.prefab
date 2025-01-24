@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 2392607621845269886}
-  bobbingAmplitude: 0.2
+  bobbingAmplitude: 0.05
   bobbingFrequency: 4
 --- !u!114 &-4447674087588540547
 MonoBehaviour:

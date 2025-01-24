@@ -77,7 +77,7 @@ public class PressEProgress : MonoBehaviour
                 {
                     ePressTime = totalPressTimeRequired;
 
-                    Debug.Log("'e' wurde f?r 15 Sekunden gedr?ckt!");
+                    Debug.Log("'e' wurde für 15 Sekunden gedrückt!");
                     plank.SetActive(true);
                     plankBarrier.SetActive(false);
                     canvas.SetActive(false);
