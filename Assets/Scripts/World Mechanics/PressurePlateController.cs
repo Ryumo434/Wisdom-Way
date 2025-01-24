@@ -19,10 +19,6 @@ public class PressurePlateController : MonoBehaviour
             Debug.Log("Kiste +1");
             addCorrectChest();
         }
-        else
-        {
-            Debug.Log("Falsche Kiste");
-        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -35,10 +31,6 @@ public class PressurePlateController : MonoBehaviour
         {
             Debug.Log("Kiste -1");
             subtractCorrectChest();
-        }
-        else
-        {
-            Debug.Log("Falsche Kiste");
         }
     }
 
