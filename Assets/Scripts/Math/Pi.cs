@@ -7,6 +7,7 @@ public class Pi : MonoBehaviour
 {
     PlayerHealth playerHealth;
     [SerializeField] private GameObject AreaExit;
+    [SerializeField] private GameObject ParticleSystem;
     public CheckArray checkArray;
     public GameObject text1;
     public GameObject text2;
@@ -144,6 +145,7 @@ public class Pi : MonoBehaviour
                 Debug.Log("JaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAA");
                 checkArray.CorrectOrder = true;
                 AreaExit.SetActive(true);
+                ParticleSystem.SetActive(true);
             } else {
                 StartCoroutine(DeactivateTorchesAfterDelay());
                 //Schaden
