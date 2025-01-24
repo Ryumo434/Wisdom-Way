@@ -62,6 +62,30 @@ public class NCPDialog : MonoBehaviour
         "Viel Erfolg!"
     };
     
+    private void Start() {
+        // Finde das Root-Objekt "Player"
+        GameObject player = GameObject.Find("Player");
+
+        if (player != null)
+        {
+            // Finde das Kindobjekt "ActivateWeapon" unter "Player"
+            Transform activateWeaponTransform = player.transform.Find("Active Weapon");
+
+            if (activateWeaponTransform != null)
+            {
+                ActivateWeapon = activateWeaponTransform.gameObject;
+            }
+            else
+            {
+                Debug.LogError("ActivateWeapon konnte unter Player nicht gefunden werden!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Player konnte nicht gefunden werden!");
+        }
+        UICanvas = GameObject.Find("UICanvas");
+    }
     void Update()
     {
         EisPressed();
