@@ -1021,6 +1021,8 @@ MonoBehaviour:
   torch3: {fileID: 1441218534}
   torch4: {fileID: 1862404925}
   torch5: {fileID: 1204831973}
+  audioSource: {fileID: 1206477350}
+  audioClip1: {fileID: 8300000, guid: f0e592b569f2f22439e63cd78ff44bc2, type: 3}
 --- !u!60 &185939387
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18774,6 +18776,8 @@ MonoBehaviour:
   torch3: {fileID: 1441218534}
   torch4: {fileID: 1862404925}
   torch5: {fileID: 1204831973}
+  audioSource: {fileID: 1206477350}
+  audioClip1: {fileID: 8300000, guid: f0e592b569f2f22439e63cd78ff44bc2, type: 3}
 --- !u!60 &823671643
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -20569,6 +20573,8 @@ MonoBehaviour:
   torch3: {fileID: 1441218534}
   torch4: {fileID: 1862404925}
   torch5: {fileID: 1204831973}
+  audioSource: {fileID: 1206477350}
+  audioClip1: {fileID: 8300000, guid: f0e592b569f2f22439e63cd78ff44bc2, type: 3}
 --- !u!60 &1097566705
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21112,6 +21118,8 @@ MonoBehaviour:
   torch3: {fileID: 1441218534}
   torch4: {fileID: 1862404925}
   torch5: {fileID: 1204831973}
+  audioSource: {fileID: 1206477350}
+  audioClip1: {fileID: 8300000, guid: f0e592b569f2f22439e63cd78ff44bc2, type: 3}
 --- !u!60 &1177431286
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -36625,6 +36633,8 @@ MonoBehaviour:
   torch3: {fileID: 1441218534}
   torch4: {fileID: 1862404925}
   torch5: {fileID: 1204831973}
+  audioSource: {fileID: 1206477350}
+  audioClip1: {fileID: 8300000, guid: f0e592b569f2f22439e63cd78ff44bc2, type: 3}
 --- !u!60 &1989503600
 PolygonCollider2D:
   m_ObjectHideFlags: 0

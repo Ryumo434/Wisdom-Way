@@ -21,6 +21,8 @@ public class Pi : MonoBehaviour
     public GameObject torch5;
     private bool playerInRange = false;
     private int torchNumber = 0;
+    public AudioSource audioSource;
+    public AudioClip audioClip1;
 
     void Update()
     {
@@ -146,6 +148,7 @@ public class Pi : MonoBehaviour
                 checkArray.CorrectOrder = true;
                 AreaExit.SetActive(true);
                 ParticleSystem.SetActive(true);
+                audioSource.PlayOneShot(audioClip1);
             } else {
                 StartCoroutine(DeactivateTorchesAfterDelay());
                 //Schaden
