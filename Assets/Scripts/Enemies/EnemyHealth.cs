@@ -38,9 +38,10 @@ public class EnemyHealth : MonoBehaviour
 
 
     private void Awake()
-    {
+    {   
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
+        /*
         bossAI = GetComponent<BossAI>();
         attackCollider = GameObject.Find("Attack Collider");
         
@@ -59,9 +60,14 @@ public class EnemyHealth : MonoBehaviour
 
             bossName = GameObject.Find("BossName (TMP)");
         }
-        
+
+        */
+
         //Player = GameObject.Find("Player");
         //playerHealth = Player.GetComponent<PlayerHealth>();
+       
+        
+        //playerHealth = null;
 
 
 
@@ -73,8 +79,15 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
         //healthbar.value = currentHealth;
         // healthbar.UpdateHealthBar(currentHealth, startingHealth);
-        playerHealth = Player.GetComponent<PlayerHealth>();
 
+
+        //WennSpieler nicht tot íst tue dies....
+        
+
+        if (playerHealth!= null)
+        {
+            playerHealth = Player.GetComponent<PlayerHealth>();
+        }
     }
 
     public void TakeDamage(int damage)
