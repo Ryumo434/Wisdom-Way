@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class DropCoin : MonoBehaviour
 {
-    public EnemyHealth EnemyHealth;
-    //drop Coin vars
+    public EnemyHealth EnemyHealth; // Referenz zum EnemyHealth-Skript
     public GameObject coinPrefab; // Prefab der Münze
     public int minCoins = 1; // Minimale Anzahl an Münzen
     public int maxCoins = 5; // Maximale Anzahl an Münzen
     public float dropRadius = 1.0f; // Radius, in dem die Münzen fallen können
-                                    // Start is called before the first frame update
+    private bool hasDropped = false; // Flag, um sicherzustellen, dass Münzen nur einmal droppen
+
+    // Wird aufgerufen, wenn der Gegner stirbt
     public void OnMonsterDeath()
     {
+        if (hasDropped) return; // Verhindert mehrfaches Droppen
+        hasDropped = true;
+
         // Berechne zufällige Anzahl an Münzen
         int numberOfCoins = Random.Range(minCoins, maxCoins + 1);
 
@@ -32,18 +36,11 @@ public class DropCoin : MonoBehaviour
         Instantiate(coinPrefab, dropPosition, Quaternion.identity);
     }
 
-    void Start()
-    {
-        EnemyHealth = GetComponent<EnemyHealth>();
-    }
-
     void Update()
     {
-        if(EnemyHealth.currentHealth <= 0)
+        if (EnemyHealth != null && EnemyHealth.currentHealth <= 0)
         {
             OnMonsterDeath();
         }
     }
-
-
 }

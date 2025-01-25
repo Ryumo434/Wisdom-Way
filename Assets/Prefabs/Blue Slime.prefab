@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 8347792498237903835}
   - component: {fileID: 6562113291325115552}
   - component: {fileID: 6964227162103319216}
+  - component: {fileID: 5196486760978185583}
   m_Layer: 0
   m_Name: Blue Slime
   m_TagString: Untagged
@@ -512,10 +513,6 @@ MonoBehaviour:
   knockBackThrust: 10
   healthbar: {fileID: 3702226941903497876}
   bossIsDead: 0
-  coinPrefab: {fileID: 2392607621845269886, guid: 972b9847ec3e55f47bfc907ca1d8eaac, type: 3}
-  minCoins: 1
-  maxCoins: 1
-  dropRadius: 1
 --- !u!114 &8347792498237903835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +555,23 @@ MonoBehaviour:
   player: {fileID: 0}
   ChaseSpeed: 2.5
   ChaseDistance: 10
+--- !u!114 &5196486760978185583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807423794291172552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e576931fe558204381a8c491a85a651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyHealth: {fileID: 7627083817574866449}
+  coinPrefab: {fileID: 2392607621845269886, guid: 972b9847ec3e55f47bfc907ca1d8eaac, type: 3}
+  minCoins: 1
+  maxCoins: 1
+  dropRadius: 1
 --- !u!1 &7345810914214164617
 GameObject:
   m_ObjectHideFlags: 0

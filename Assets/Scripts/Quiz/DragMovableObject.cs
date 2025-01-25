@@ -26,7 +26,6 @@ public class DragMovableObject : MonoBehaviour
 
         AssignPlayerAndJoint();
 
-        DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
