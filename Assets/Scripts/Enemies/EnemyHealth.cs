@@ -60,8 +60,8 @@ public class EnemyHealth : MonoBehaviour
             bossName = GameObject.Find("BossName (TMP)");
         }
         
-        Player = GameObject.Find("Player");
-        playerHealth = Player.GetComponent<PlayerHealth>();
+        //Player = GameObject.Find("Player");
+        //playerHealth = Player.GetComponent<PlayerHealth>();
 
 
 
@@ -73,7 +73,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
         //healthbar.value = currentHealth;
         // healthbar.UpdateHealthBar(currentHealth, startingHealth);
-        
+        playerHealth = Player.GetComponent<PlayerHealth>();
+
     }
 
     public void TakeDamage(int damage)
@@ -94,7 +95,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
-        if(playerHealth.isDead) {bossHealthbarSlider.value = startingHealth ; }
+        // if(playerHealth.isDead) {bossHealthbarSlider.value = startingHealth ; }
+        Player = GameObject.Find("Player");
+        
     }
 
     public void OnMonsterDeath()
@@ -123,33 +126,36 @@ public class EnemyHealth : MonoBehaviour
         //if (bossIsDead) return;
 
 
-        if (currentHealth <= 0 && bossAI == null)
-        {
-            //partikel(deathVFXPrefab ein Gameobject) wird an der position(transform.Position) des Enemy instanziiert ohne dass eine rotation stattfindet(Quaternion.identity)
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-            OnMonsterDeath();
-            Destroy(gameObject);
-        }
-        else if (currentHealth <= 0 && bossAI != null)
-        {
+        /*  if (currentHealth <= 0 && bossAI == null)
+            */ if(currentHealth <= 0)         
+          {
+              //partikel(deathVFXPrefab ein Gameobject) wird an der position(transform.Position) des Enemy instanziiert ohne dass eine rotation stattfindet(Quaternion.identity)
+              Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+              OnMonsterDeath();
+              Destroy(gameObject);
+          } /*
+          else if (currentHealth <= 0 && bossAI != null)
+          { 
+
+        //von mir neu hinzugefügt:
+        /*
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
 
             bossIsDead = true;
             bossAnimator.SetBool("isMoving", false);
             bossAnimator.SetBool("Attack1", false);
             bossAnimator.SetBool("isDead", true);
-            
+
             bossHealthbar.SetActive(false);
             bossName.SetActive(false);
             attackCollider.SetActive(false);
+        
+        
 
 
-
-
-
-        }
+        }*/
     }
-        private IEnumerator DisableAnimatorAfterDeath()
+    private IEnumerator DisableAnimatorAfterDeath()
         {
             // Warte, bis die Todesanimation vollständig abgespielt ist.
             yield return new WaitForSeconds(bossAnimator.GetCurrentAnimatorStateInfo(0).length);
