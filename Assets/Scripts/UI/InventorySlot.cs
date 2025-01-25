@@ -6,7 +6,14 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
 
-    public WeaponInfo GetWeaponInfo() {
+    public WeaponInfo GetWeaponInfo()
+    {
         return weaponInfo;
+    }
+
+    // Füge diese Methode hinzu:
+    public void SetWeaponInfo(WeaponInfo newWeaponInfo)
+    {
+        weaponInfo = newWeaponInfo;
     }
 }
