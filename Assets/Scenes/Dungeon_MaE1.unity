@@ -1244,6 +1244,7 @@ GameObject:
   - component: {fileID: 199796432}
   - component: {fileID: 199796434}
   - component: {fileID: 199796433}
+  - component: {fileID: 199796435}
   m_Layer: 5
   m_Name: CoinCounter (TMP)
   m_TagString: Untagged
@@ -1367,6 +1368,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199796431}
   m_CullTransparentMesh: 1
+--- !u!114 &199796435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199796431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67c2d06fe684f44f87a55ea3286b447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 199796433}
 --- !u!4 &200273289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 220718934878291125, guid: dbb118f572f0e094e9d73e305656d86f, type: 3}
@@ -36885,15 +36899,15 @@ RectTransform:
   m_GameObject: {fileID: 1913077116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77239996, y: 0.77239996, z: 0.77239996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2019191349}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1060326542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 741.5, y: 451.41043}
+  m_AnchoredPosition: {x: 0.000061035156, y: -4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1916028182
@@ -38126,6 +38140,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8047036070433370241, guid: 33f257e5838078d4b85c7e90fa50626d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1027101050}
+    - targetCorrespondingSourceObject: {fileID: 8047036070433370241, guid: 33f257e5838078d4b85c7e90fa50626d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1913077118}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33f257e5838078d4b85c7e90fa50626d, type: 3}
 --- !u!1001 &2113183186821915677
@@ -38238,7 +38255,6 @@ SceneRoots:
   - {fileID: 2035434913}
   - {fileID: 1808503588}
   - {fileID: 1404800148741962070}
-  - {fileID: 1913077118}
   - {fileID: 406799825}
   - {fileID: 960342303}
   - {fileID: 1124052459987244897}
