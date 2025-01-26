@@ -4,7 +4,7 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance; // Singleton-Instanz
-    public TMP_Text scoreText; // TextMeshPro-Text für den Score
+    public TMP_Text scoreText; // TextMeshPro-Text fÃ¼r den Score
     private int currentScore = 0; // Aktueller Punktestand
 
     void Awake()
@@ -23,20 +23,33 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
-        // Score erhöhen
+        // Score erhÃ¶hen
         currentScore = Mathf.Min(currentScore + amount, 9999);
-        UpdateScoreText();
+        UpdateScoreText(currentScore);
     }
 
-    private void UpdateScoreText()
+    public void UpdateScoreText(int currentScoreVar)
     {
         if (scoreText != null)
         {
-            scoreText.text = currentScore.ToString();
+            scoreText.text = currentScoreVar.ToString();
         }
         else
         {
             Debug.LogError("ScoreText ist nicht zugewiesen!");
         }
+    }
+
+    public int GetScore()
+    {
+        // Gibt den aktuellen Punktestand zurÃ¼ck
+        return currentScore;
+    }
+
+    public void SetScore(int newScore)
+    {
+        // Setzt den aktuellen Score auf einen neuen Wert und aktualisiert die Anzeige
+        currentScore = Mathf.Clamp(newScore, 0, 9999);
+        UpdateScoreText(currentScore);
     }
 }

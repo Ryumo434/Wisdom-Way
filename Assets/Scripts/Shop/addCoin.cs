@@ -7,7 +7,7 @@ public class addCoin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered the trigger");
-            // Score erh?hen ?ber den ScoreManager
+            // Score erhöhen über den ScoreManager
             ScoreManager.instance.AddScore(100);
             Destroy(gameObject);
         }

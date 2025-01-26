@@ -51,20 +51,15 @@ public class PlayerHealth : Singleton<PlayerHealth>
             TakeDamage(EnemyDamage.Instance.enemyDamage, other.transform);
         }
     }*/
-    
 
-    public void HealPlayer()
+    public void HealPlayer(int amount)
+    {
+        currentHealth += amount;
+        UpdateHealthSlider();
+    }
+
+    public void ResetPlayerHealth()
     { 
-        /*
-        while (currentHealth < maxHealth)
-        {
-            if (currentHealth < maxHealth)
-            {
-                currentHealth += 1;
-                UpdateHealthSlider();
-            }
-        }
-        */
         currentHealth = maxHealth;
         UpdateHealthSlider();
     }

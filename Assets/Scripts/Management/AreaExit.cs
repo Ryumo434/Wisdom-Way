@@ -30,7 +30,7 @@ public class AreaExit : MonoBehaviour
             //playerHealth.currentHealth = playerHealth.maxHealth;
             
             StartCoroutine(LoadSceneRoutine());
-            playerHealth.HealPlayer();
+            playerHealth.ResetPlayerHealth();
 
         }
     }
