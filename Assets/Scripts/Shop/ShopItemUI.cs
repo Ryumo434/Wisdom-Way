@@ -1,50 +1,53 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShopItemUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private Button buyButton;
 
-    // Referenz auf das ShopItem (wird beim Erstellen zugewiesen)
+    // Referenz auf das Item, das dieses UI-Element darstellt
     private ShopItem shopItem;
 
+    // Wird von ShopUI aufgerufen, um die ShopItem-Daten zu setzen
     public void Initialize(ShopItem item)
     {
         shopItem = item;
-        SetName(item.Name); // da
-        SetPrice(item.Price);
-        SetImage(item.Icon);
+
+        // UI setzen
+        nameText.text = shopItem.Name;
+        priceText.text = shopItem.Price.ToString();
+        itemImage.sprite = shopItem.Icon;
     }
 
-    public void SetName(string newName)
+    // Beispiel innerhalb ShopItemUI:
+    private void Awake()
     {
-        nameText.text = newName;
+        // Referenz zu Button wird ?ber [SerializeField] oder GetComponent<Button>() geholt
+        if (buyButton != null)
+        {
+            buyButton.onClick.AddListener(OnBuyButtonClicked);
+        }
     }
 
-    public void SetPrice(int newPrice)
-    {
-        priceText.text = newPrice.ToString();
-    }
-
-    public void SetImage(Sprite newSprite)
-    {
-        itemImage.sprite = newSprite;
-    }
-
-    // Nehmen wir an, der Button hängt am gleichen GameObject:
+    // Wird aufgerufen, wenn der "Kaufen"-Button gedr?ckt wird
     public void OnBuyButtonClicked()
     {
-        // Hole dir das BuyItem-Skript (falls auf dem gleichen GameObject hängt)
+        // Wir holen das BuyItem-Script (das muss auf demselben Prefab liegen oder einem Child)
         BuyItem buyItem = GetComponent<BuyItem>();
         if (buyItem != null)
         {
-            // Setze das ShopItem
+            // Jetzt ?bergeben wir das aktuelle ShopItem an BuyItem
             buyItem.SetCurrentShopItem(shopItem);
-            // Führe gleich den Kaufversuch aus
+            // Und starten den Kauf
             buyItem.OnButtonClick();
+        }
+        else
+        {
+            Debug.LogWarning($"Kein BuyItem-Script am Prefab {gameObject.name} gefunden!");
         }
     }
 }

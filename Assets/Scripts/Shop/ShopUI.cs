@@ -16,14 +16,14 @@ public class ShopUI : MonoBehaviour
 
     private void Start()
     {
-        // Falls du hier dynamisch noch etwas einstellen möchtest:
+        // Falls du hier dynamisch noch etwas einstellen m?chtest:
         // (z.B. gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         //       gridLayout.constraintCount = 2;)
 
         PopulateShop();
     }
 
-    // Füllt das Grid mit allen Items aus dem ShopInventory
+    // F?llt das Grid mit allen Items aus dem ShopInventory
     private void PopulateShop()
     {
         // Vorherigen Inhalt entfernen
@@ -32,29 +32,18 @@ public class ShopUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Shop-Items hinzufügen
+        // Shop-Items hinzuf?gen
         foreach (ShopItem item in shopInventory)
         {
             // Prefab instanziieren
             GameObject newItemUI = Instantiate(shopItemPrefab, contentParent);
 
-            // Optional: Debug-Log
-            Debug.Log($"Instantiated {item.Name}");
-
-            // RectTransform prüfen und skalieren
-            RectTransform rectTransform = newItemUI.GetComponent<RectTransform>();
-            if (rectTransform != null)
-            {
-                rectTransform.localScale = Vector3.one; // Sicherstellen, dass die Skalierung korrekt ist
-            }
-
-            // Daten setzen
+            // ShopItemUI-Komponente holen
             ShopItemUI itemUI = newItemUI.GetComponent<ShopItemUI>();
             if (itemUI != null)
             {
-                itemUI.SetName(item.Name);
-                itemUI.SetPrice(item.Price);
-                itemUI.SetImage(item.Icon);
+                // Hier kriegt das UI seine Daten
+                itemUI.Initialize(item);
             }
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;  // Für Image
+using UnityEngine.UI; 
 
 public class BuyItem : MonoBehaviour
 {
@@ -9,11 +9,11 @@ public class BuyItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI errorText;
 
-    // Verwenden wir ein Singleton, also kein Inspector-Reference nötig.
+    // Verwenden wir ein Singleton, also kein Inspector-Reference n?tig.
     // Wenn du eine Referenz via Inspector hast, kannst du das auch machen.
     private ActiveInventory activeInventory;
 
-    // ShopItem, das wir kaufen möchten
+    // ShopItem, das wir kaufen m?chten
     [SerializeField] private ShopItem currentShopItem;
 
     private TextMeshProUGUI coinCounterText;
@@ -31,7 +31,8 @@ public class BuyItem : MonoBehaviour
     {
         // Aktuelles CoinCounter-Textfeld suchen
         coinCounterText = GameObject.Find("Coins Container/Coin Image/CoinCounter (TMP)").GetComponent<TextMeshProUGUI>();
-        if (coinCounterText != null)
+        Debug.Log($"Du hast {coinCounterText.text} Coins");
+        if (coinCounterText.text != null)
         {
             currentCoins = int.Parse(coinCounterText.text);
         }
@@ -47,12 +48,13 @@ public class BuyItem : MonoBehaviour
     public void SetCurrentShopItem(ShopItem item)
     {
         currentShopItem = item;
+        Debug.Log($"MOMENTANES SHOP ITEM {currentShopItem}");
 
         if (currentShopItem != null)
         {
             nameText.text = currentShopItem.Name;
             priceText.text = currentShopItem.Price.ToString();
-
+            Debug.Log($"Der momentane Preis ist {currentShopItem.Price}");
             price = currentShopItem.Price;
             Debug.Log($"[BuyItem] SetCurrentShopItem: {currentShopItem.Name}, Preis: {price}");
         }
@@ -74,7 +76,7 @@ public class BuyItem : MonoBehaviour
             return;
         }
 
-        Debug.Log($"[BuyItem] Kaufvorgang gestartet für: {currentShopItem.Name} (Preis: {price})");
+        Debug.Log($"[BuyItem] Kaufvorgang gestartet f?r: {currentShopItem.Name} (Preis: {price})");
 
         if (currentCoins >= price)
         {
@@ -92,7 +94,7 @@ public class BuyItem : MonoBehaviour
             else
             {
                 errorText.text = "Kein Platz im Inventar!";
-                Debug.Log($"[BuyItem] Kauf fehlgeschlagen: Kein Platz im Inventar für {currentShopItem.Name}.");
+                Debug.Log($"[BuyItem] Kauf fehlgeschlagen: Kein Platz im Inventar f?r {currentShopItem.Name}.");
             }
         }
         else
@@ -109,7 +111,7 @@ public class BuyItem : MonoBehaviour
     private bool AddItemToInventory(ShopItem shopItem)
     {
         // Debug-Ausgabe
-        Debug.Log($"[BuyItem] Prüfe Inventar-Slots für {shopItem.Name}...");
+        Debug.Log($"[BuyItem] Pr?fe Inventar-Slots f?r {shopItem.Name}...");
 
         int slotCount = activeInventory.transform.childCount;
 
@@ -120,11 +122,11 @@ public class BuyItem : MonoBehaviour
 
             if (slot == null)
             {
-                Debug.LogWarning($"[BuyItem] Kind {i} hat keinen InventorySlot! Überspringe...");
+                Debug.LogWarning($"[BuyItem] Kind {i} hat keinen InventorySlot! ?berspringe...");
                 continue;
             }
 
-            // Prüfen, ob der Slot leer ist
+            // Pr?fen, ob der Slot leer ist
             if (slot.GetWeaponInfo() == null)
             {
                 // Debug und Setzen

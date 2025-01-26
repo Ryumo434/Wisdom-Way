@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 6792847065133818374}
   - component: {fileID: 3606818993521558978}
   - component: {fileID: 4295396436396514858}
-  - component: {fileID: 7170407129487271928}
   m_Layer: 5
   m_Name: BuyButton (Legacy)
   m_TagString: Untagged
@@ -331,7 +330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7170407129487271928}
+      - m_Target: {fileID: 3752720351846299468}
         m_TargetAssemblyTypeName: BuyItem, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -343,21 +342,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7170407129487271928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064004405214306605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe76d4b5f9dc0a4c9ee1bf5eb8d31d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  priceText: {fileID: 7365175654005279759}
-  nameText: {fileID: 5189594555137510551}
-  errorText: {fileID: 4280443449710085146}
 --- !u!1 &2333395995426158464
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8907669200402711809}
   - component: {fileID: 8722358198606683908}
+  - component: {fileID: 3752720351846299468}
   m_Layer: 5
   m_Name: ItemPanel
   m_TagString: Untagged
@@ -699,6 +684,30 @@ MonoBehaviour:
   priceText: {fileID: 7365175654005279759}
   itemImage: {fileID: 2095536378937688793}
   nameText: {fileID: 5189594555137510551}
+  buyButton: {fileID: 4295396436396514858}
+--- !u!114 &3752720351846299468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785026757306434325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe76d4b5f9dc0a4c9ee1bf5eb8d31d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priceText: {fileID: 7365175654005279759}
+  nameText: {fileID: 5189594555137510551}
+  errorText: {fileID: 4280443449710085146}
+  currentShopItem:
+    Name: 
+    Price: 0
+    Icon: {fileID: 0}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 0}
 --- !u!1 &7298079129621557121
 GameObject:
   m_ObjectHideFlags: 0
