@@ -19,6 +19,9 @@ public class DamageSource : MonoBehaviour
         {
             EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealth?.TakeDamage(damageAmount);
+
+            //BossHealth bossHealth = other.gameObject.GetComponent<BossHealth>();
+            //bossHealth?.TakeDamage(damageAmount);
             
         }
     }
