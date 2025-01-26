@@ -15,7 +15,10 @@ public class AreaExit : MonoBehaviour
     public void Awake()
     {
         player = GameObject.Find("Player");
-        playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+        }
         
     }
     
