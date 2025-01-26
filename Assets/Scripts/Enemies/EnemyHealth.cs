@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     //private int currentHealth;
     private Knockback knockback;
     private Flash flash;
-    private BossAI bossAI = null;
+    
     private Animator bossAnimator;
     public bool bossIsDead= false;
     private CapsuleCollider2D bossCollider;
@@ -35,47 +35,13 @@ public class EnemyHealth : MonoBehaviour
     {   
         flash = GetComponent<Flash>();
         knockback = GetComponent<Knockback>();
-        /*
-        bossAI = GetComponent<BossAI>();
-        attackCollider = GameObject.Find("Attack Collider");
-        
-        if (bossAI != null)
-        {
-            
-
-            bossAI = GetComponent<BossAI>();
-            bossAnimator = GetComponent<Animator>();
-            
-
-            bossCollider = GetComponent<CapsuleCollider2D>();
-
-            bossHealthbar = GameObject.Find("BossHealthbar");
-            bossHealthbarSlider = bossHealthbar.GetComponent<Slider>();
-
-            bossName = GameObject.Find("BossName (TMP)");
-        }
-
-        */
-
-        //Player = GameObject.Find("Player");
-        //playerHealth = Player.GetComponent<PlayerHealth>();
-       
-        
-        //playerHealth = null;
-
-
-
+      
 
     }
     
     private void Start()
     {
         currentHealth = startingHealth;
-        //healthbar.value = currentHealth;
-        // healthbar.UpdateHealthBar(currentHealth, startingHealth);
-
-
-        //WennSpieler nicht tot íst tue dies....
         
 
         if (playerHealth!= null)
@@ -109,36 +75,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void DetectDeath()
     {
-        //if (bossIsDead) return;
-
-
-        /*  if (currentHealth <= 0 && bossAI == null)
-            */ if(currentHealth <= 0)         
+         if(currentHealth <= 0)         
           {
               //partikel(deathVFXPrefab ein Gameobject) wird an der position(transform.Position) des Enemy instanziiert ohne dass eine rotation stattfindet(Quaternion.identity)
               Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
               Destroy(gameObject);
-          } /*
-          else if (currentHealth <= 0 && bossAI != null)
-          { 
-
-        //von mir neu hinzugefügt:
-        /*
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-
-            bossIsDead = true;
-            bossAnimator.SetBool("isMoving", false);
-            bossAnimator.SetBool("Attack1", false);
-            bossAnimator.SetBool("isDead", true);
-
-            bossHealthbar.SetActive(false);
-            bossName.SetActive(false);
-            attackCollider.SetActive(false);
+          } 
+  
         
-        
-
-
-        }*/
     }
     private IEnumerator DisableAnimatorAfterDeath()
         {
@@ -153,14 +97,7 @@ public class EnemyHealth : MonoBehaviour
         }
     
     //AnimEvent
-    void DestroyAnimation()
-    {
-        bossAnimator.enabled = false;
-        bossCollider.enabled = false;
-        
 
-
-    }
 
     
 
