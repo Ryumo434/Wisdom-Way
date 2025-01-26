@@ -17,7 +17,8 @@ public class BossAI : MonoBehaviour
     //private GameObject attackZone;
 
   
-    EnemyHealth enemyHealth;
+    //EnemyHealth enemyHealth;
+    BossHealth bossHealth;
     
 
 
@@ -34,8 +35,9 @@ public class BossAI : MonoBehaviour
         
         bossMovement = GetComponent<BossMovement>();
         bossAnimator = GetComponent<Animator>();
-        enemyHealth = GetComponent<EnemyHealth>();
-       
+        //enemyHealth = GetComponent<EnemyHealth>();
+        bossHealth = GetComponent<BossHealth>();
+
 
         AttackObject = transform.GetChild(0).gameObject;
 

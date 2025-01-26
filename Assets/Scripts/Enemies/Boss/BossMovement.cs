@@ -18,7 +18,8 @@ public class BossMovement : MonoBehaviour
 
     GameObject AttackObject;
     private PolygonCollider2D attackCollider;
-    EnemyHealth enemyHealth;
+    //EnemyHealth enemyHealth;
+    BossHealth bossHealth;
 
     GameObject areaExit;
 
@@ -31,7 +32,8 @@ public class BossMovement : MonoBehaviour
         knockback = GetComponent<Knockback>();
         rb = GetComponent<Rigidbody2D>();
         bossAnimation = GetComponent<Animator>();
-        enemyHealth = GetComponent<EnemyHealth>();
+        //enemyHealth = GetComponent<EnemyHealth>();
+        bossHealth = GetComponent<BossHealth>();
 
         areaExit = GameObject.Find("AreaExit");
 
@@ -57,7 +59,7 @@ public class BossMovement : MonoBehaviour
     private void Update()
     {
 
-        if (enemyHealth.bossIsDead) {
+        if (bossHealth.bossIsDead) {
             areaExit.SetActive(true);
             return; 
         }

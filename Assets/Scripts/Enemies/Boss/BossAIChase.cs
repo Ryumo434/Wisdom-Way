@@ -11,6 +11,7 @@ public class BossAIChase : MonoBehaviour
 
     private float distance;
     EnemyHealth enemyHealth;
+    BossHealth bossHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,8 @@ public class BossAIChase : MonoBehaviour
     private void Awake()
     {
         bossAnimator = GetComponent<Animator>();
-        enemyHealth = GetComponent<EnemyHealth>();
+        //enemyHealth = GetComponent<EnemyHealth>();
+        bossHealth = GetComponent<BossHealth>();
 
     }
 
@@ -29,7 +31,7 @@ public class BossAIChase : MonoBehaviour
     void Update()
     {    
         
-        if(enemyHealth.bossIsDead) { return; }
+        if(bossHealth.bossIsDead) { return; }
         // Distance berechnet den Abstand zwischen zwei gameobjects und gibt diesen als Float zurück
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;

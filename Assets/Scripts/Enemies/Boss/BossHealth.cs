@@ -20,6 +20,7 @@ public class BossHealth : MonoBehaviour
     private Animator bossAnimator;
     public bool bossIsDead = false;
     private CapsuleCollider2D bossCollider;
+    private BoxCollider2D boxCollider;
     private GameObject bossHealthbar;
     private GameObject bossName;
     private Slider bossHealthbarSlider;
@@ -53,6 +54,7 @@ public class BossHealth : MonoBehaviour
             
 
             bossCollider = GetComponent<CapsuleCollider2D>();
+            boxCollider = GetComponent <BoxCollider2D>();
 
             bossHealthbar = GameObject.Find("BossHealthbar");
             bossHealthbarSlider = bossHealthbar.GetComponent<Slider>();
@@ -160,7 +162,7 @@ public class BossHealth : MonoBehaviour
         
 
 
-        }
+          }
     }
     private IEnumerator DisableAnimatorAfterDeath()
     {
@@ -179,6 +181,7 @@ public class BossHealth : MonoBehaviour
     {
         bossAnimator.enabled = false;
         bossCollider.enabled = false;
+        boxCollider.enabled = false;
 
 
 
