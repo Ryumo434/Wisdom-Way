@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public GameObject ShopUI;
+    private GameObject ui;
     public GameObject eText;
 
     private bool isPlayerInTrigger = false;
@@ -22,12 +22,12 @@ public class Shop : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                ShopUI.SetActive(true);
+                ui.SetActive(true);
             }
 
             if (Input.GetKey(KeyCode.Escape))
             {
-                ShopUI.SetActive(false);
+                ui.SetActive(false);
             }
         }
     }
@@ -47,7 +47,7 @@ public class Shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-            ShopUI.SetActive(false);
+            ui.SetActive(false);
             eText.SetActive(false);
         }
     }
