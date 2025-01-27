@@ -16,10 +16,6 @@ public class ShopUI : MonoBehaviour
 
     private void Start()
     {
-        // Falls du hier dynamisch noch etwas einstellen m?chtest:
-        // (z.B. gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-        //       gridLayout.constraintCount = 2;)
-
         PopulateShop();
     }
 

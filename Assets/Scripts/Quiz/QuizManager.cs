@@ -71,11 +71,6 @@ public class QuizManagerTMP : MonoBehaviour
         {"Welcher Künstler ist als Mitbegründer der Pop-Art bekannt?", "Andy Warhol", "Salvador Dalí", "Rembrandt", "Claude Monet","1"}
     };
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject); // Verhindert, dass das Objekt beim Szenenwechsel zerstört wird
-    }
-
     void Start()
     {
         answerButtonA.onClick.AddListener(() => SelectAnswer(0));
