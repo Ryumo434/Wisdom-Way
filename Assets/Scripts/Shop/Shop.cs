@@ -1,34 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    private GameObject ui;
-    public GameObject eText;
+    [Header("Drag & Drop der UI aus der jeweiligen Szene")]
+    [SerializeField] private GameObject ui;      // "Shop Container"
+    [Header("Drag & Drop vom E-Text")]
+    [SerializeField] private GameObject eText;   // z. B. "Press E"
 
     private bool isPlayerInTrigger = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        eText.SetActive(false);
+        ui = GameObject.Find("UICanvas/Shop Container");
+        // Kleiner Sicherheitscheck
+        if (ui == null)
+            Debug.LogError($"{name}: Keine UI-Referenz gesetzt!");
+        if (eText == null)
+            Debug.LogError($"{name}: Kein E-Text gesetzt!");
+        else
+            eText.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (isPlayerInTrigger)
+        if (isPlayerInTrigger && ui != null)
         {
-            if (Input.GetKey(KeyCode.E))
-            {
+            // Mit "GetKeyDown" öffnen/schließen wir das UI einmalig
+            if (Input.GetKeyDown(KeyCode.E))
                 ui.SetActive(true);
-            }
 
-            if (Input.GetKey(KeyCode.Escape))
-            {
+            if (Input.GetKeyDown(KeyCode.Escape))
                 ui.SetActive(false);
-            }
         }
     }
 
@@ -36,9 +38,9 @@ public class Shop : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("player entered");
             isPlayerInTrigger = true;
-            eText.SetActive(true);
+            if (eText != null)
+                eText.SetActive(true);
         }
     }
 
@@ -47,8 +49,10 @@ public class Shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-            ui.SetActive(false);
-            eText.SetActive(false);
+            if (ui != null)
+                ui.SetActive(false);
+            if (eText != null)
+                eText.SetActive(false);
         }
     }
 }
