@@ -127,4 +127,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
     }
+
+    public void UpdateHealthUI()
+    {
+        UpdateHealthSlider();
+    }
 }
