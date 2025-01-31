@@ -9,5 +9,5 @@ public class ShopItem
     public string Description;
     public int Strength;
     public string Effect;
-    public WeaponInfo weaponInfo; // <--- So könnte man das direkt verknüpfen
+    public WeaponInfo weaponInfo; 
 }
