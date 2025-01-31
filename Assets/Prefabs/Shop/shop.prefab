@@ -580,6 +580,13 @@ MonoBehaviour:
     Strength: 0
     Effect: healing
     weaponInfo: {fileID: 11400000, guid: 5727cfab37ab247a9b45bb761b7051d5, type: 2}
+  - Name: Bogen
+    Price: 600
+    Icon: {fileID: 21300000, guid: ecbb68f71af43a442ad25a613b9fec58, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: d6f0b1f70081b2549a8c8bbe20bbc16f, type: 2}
 --- !u!1 &4195651327482494434
 GameObject:
   m_ObjectHideFlags: 0

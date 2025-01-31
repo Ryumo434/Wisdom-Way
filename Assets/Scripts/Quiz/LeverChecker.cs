@@ -10,12 +10,14 @@ public class LeverChecker : MonoBehaviour
     [SerializeField] GameObject bridge;
     [SerializeField] GameObject brokenBridge;
     [SerializeField] GameObject barrier;
+    [SerializeField] GameObject barrier1;
 
     void Start()
     {
         bridge.SetActive(false);
         brokenBridge.SetActive(true);
         barrier.SetActive(true);
+        barrier1.SetActive(true);
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class LeverChecker : MonoBehaviour
             bridge.SetActive(true);
             brokenBridge.SetActive(false);
             barrier.SetActive(false);
+            barrier1.SetActive(false);
         }
     }
 }
