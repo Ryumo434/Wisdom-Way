@@ -13,7 +13,6 @@ public class InventorySlot : MonoBehaviour
         return weaponInfo;
     }
 
-    // F?ge diese Methode hinzu:
     public void SetWeaponInfo(WeaponInfo newWeaponInfo)
     {
         weaponInfo = newWeaponInfo;

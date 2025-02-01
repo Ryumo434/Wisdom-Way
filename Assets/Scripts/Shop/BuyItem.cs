@@ -93,6 +93,7 @@ public class BuyItem : MonoBehaviour
                 int newStackCount = int.Parse(currentStackCount.text) + 1;
                 slot.setStackCount(newStackCount.ToString());
                 slot.setStackCountVisible();
+                return true;
             }
 
             // Füge nur hinzu, wenn der Slot leer ist

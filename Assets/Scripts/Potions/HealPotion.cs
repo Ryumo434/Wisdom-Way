@@ -18,13 +18,12 @@ public class HealPotion : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (weaponInfo.effect == "healing")
             {
                 playerHealth.HealPlayer(10);
                 RemovePotionFromInventory();
-                Destroy(gameObject);
             }
         }
     }
@@ -35,22 +34,38 @@ public class HealPotion : MonoBehaviour
 
         foreach (InventorySlot slot in inventorySlots)
         {
-            // Pr?fen, ob der Slot aktiv ist (Child "Active" sichtbar)
             Transform activeChild = slot.transform.Find("Active");
             if (activeChild != null && activeChild.gameObject.activeSelf)
             {
                 if (slot.GetWeaponInfo() == weaponInfo)
                 {
-                    slot.RemoveWeaponInfo();
+                    if (slot.getStackCount().text != "0")
+                    {
+                        int newValue = int.Parse(slot.getStackCount().text) - 1;
+                        slot.setStackCount(newValue.ToString());
 
-                    // Bild zur?cksetzen
+                        if (newValue == 0)
+                        {
+                            slot.setStackCountInvisible();
+                            continue;
+                        } else
+                        {
+                            return;
+                        }
+                    } else
+                    {
+                        slot.setStackCountInvisible();
+                    }
+
                     Transform itemChild = slot.transform.Find("Item");
                     if (itemChild != null)
                     {
                         Image itemImage = itemChild.GetComponent<Image>();
                         if (itemImage != null && emptySprite != null)
                         {
+                            slot.RemoveWeaponInfo();
                             itemImage.sprite = emptySprite;
+                            Destroy(gameObject);
                         }
                     }
 
