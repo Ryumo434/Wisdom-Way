@@ -46,21 +46,23 @@ public class BuyItem : MonoBehaviour
 
     public void OnButtonClick()
     {
+        Debug.Log($"[OnButtonClick] wurde aufgerufen von: {gameObject.name}", gameObject);
+
         if (currentShopItem == null)
         {
             errorText.text = "Kein Item zugewiesen.";
             return;
         }
 
-        int currentCoins = ScoreManager.instance.GetScore(); // Aktuellen Punktestand holen
+        int currentCoins = ScoreManager.instance.GetScore();
 
         if (currentCoins >= price)
         {
             if (AddItemToInventory(currentShopItem))
             {
-                currentCoins -= price; // Punktestand reduzieren
-                ScoreManager.instance.SetScore(currentCoins); // Punktestand aktualisieren
-                Debug.Log($"[BuyItem] {currentShopItem.Name} gekauft! Neue Coin-Anzahl: {currentCoins}");
+                currentCoins -= price;
+                ScoreManager.instance.SetScore(currentCoins);
+                Debug.Log($"[BuyItem] {currentShopItem.Name} gekauft! Neue Coin-Anzahl: {currentCoins}", gameObject);
             }
             else
             {
@@ -72,6 +74,7 @@ public class BuyItem : MonoBehaviour
             errorText.text = "Du hast zu wenig Coins!";
         }
     }
+
 
 
     private bool AddItemToInventory(ShopItem shopItem)
