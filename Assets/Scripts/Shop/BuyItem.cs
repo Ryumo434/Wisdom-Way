@@ -73,6 +73,7 @@ public class BuyItem : MonoBehaviour
         }
     }
 
+
     private bool AddItemToInventory(ShopItem shopItem)
     {
         int slotCount = activeInventory.transform.childCount;
@@ -84,6 +85,15 @@ public class BuyItem : MonoBehaviour
 
             if (slot == null)
                 continue;
+
+            //checkt ob das Item schon im Inventar ist
+            if (slot.GetWeaponInfo() == shopItem.weaponInfo)
+            {
+                TextMeshProUGUI currentStackCount = slot.getStackCount();
+                int newStackCount = int.Parse(currentStackCount.text) + 1;
+                slot.setStackCount(newStackCount.ToString());
+                slot.setStackCountVisible();
+            }
 
             // Füge nur hinzu, wenn der Slot leer ist
             if (slot.GetWeaponInfo() == null)
