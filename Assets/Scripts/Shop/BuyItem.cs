@@ -120,6 +120,6 @@ public class BuyItem : MonoBehaviour
         }
 
         Debug.LogWarning("No empty inventory slot found!");
-        return false; // Kein freier Slot gefunden
+        return false;
     }
 }

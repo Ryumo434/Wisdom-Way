@@ -13,28 +13,16 @@ public class ShopItemUI : MonoBehaviour
 
     public void Initialize(ShopItem item)
     {
+        BuyItem buyItem = GetComponent<BuyItem>();
         shopItem = item;
 
         nameText.text = shopItem.Name;
         priceText.text = shopItem.Price.ToString();
         itemImage.sprite = shopItem.Icon;
-    }
 
-    private void Awake()
-    {
-        if (buyButton != null)
-        {
-            buyButton.onClick.AddListener(OnBuyButtonClicked);
-        }
-    }
-
-    public void OnBuyButtonClicked()
-    {
-        BuyItem buyItem = GetComponent<BuyItem>();
         if (buyItem != null)
         {
             buyItem.SetCurrentShopItem(shopItem);
-            buyItem.OnButtonClick();
         }
         else
         {

@@ -39,7 +39,7 @@ public class HealPotion : MonoBehaviour
             {
                 if (slot.GetWeaponInfo() == weaponInfo)
                 {
-                    if (slot.getStackCount().text != "0")
+                    if (slot.getStackCount().text != "1")
                     {
                         int newValue = int.Parse(slot.getStackCount().text) - 1;
                         slot.setStackCount(newValue.ToString());
