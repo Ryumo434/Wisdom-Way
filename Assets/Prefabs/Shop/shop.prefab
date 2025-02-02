@@ -587,6 +587,13 @@ MonoBehaviour:
     Strength: 0
     Effect: 
     weaponInfo: {fileID: 11400000, guid: d6f0b1f70081b2549a8c8bbe20bbc16f, type: 2}
+  - Name: Speed-Trank
+    Price: 250
+    Icon: {fileID: 21300000, guid: 3942a293c108949a089a74ccc2f82d5f, type: 3}
+    Description: 
+    Strength: 0
+    Effect: speed
+    weaponInfo: {fileID: 11400000, guid: 0f546ed7506f94f1a897900bc437627d, type: 2}
 --- !u!1 &4195651327482494434
 GameObject:
   m_ObjectHideFlags: 0

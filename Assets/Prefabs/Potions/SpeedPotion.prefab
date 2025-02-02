@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2703656303470772114}
   - component: {fileID: 2497282052436273400}
-  - component: {fileID: -310012713139331275}
+  - component: {fileID: -5097323176950739577}
   m_Layer: 0
-  m_Name: Healingpotion
+  m_Name: SpeedPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60169eacc525e437d91a345c88c143b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3942a293c108949a089a74ccc2f82d5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-310012713139331275
+--- !u!114 &-5097323176950739577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7913549816652367291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97af853d1e7604056b8686810fd275c8, type: 3}
+  m_Script: {fileID: 11500000, guid: f7f82d99754d541a4aa0b21c5d69b626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 5727cfab37ab247a9b45bb761b7051d5, type: 2}
+  weaponInfo: {fileID: 11400000, guid: 0f546ed7506f94f1a897900bc437627d, type: 2}
   emptySprite: {fileID: 21300000, guid: a8b20d367a3514b47890de333724c68e, type: 3}
+  timerText: {fileID: 0}

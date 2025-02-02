@@ -109,6 +109,12 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    public void setMoveSpeed(float speedMultiplier)
+    {
+        moveSpeed = startingMoveSpeed * speedMultiplier;
+        Debug.Log($"Player speed updated to: {moveSpeed} (Multiplier: {speedMultiplier})");
+    }
+
     private void Dash()
     {
         if (!isDashing && Stamina.Instance.currentStamina > 0)
