@@ -10,6 +10,14 @@ public class Shop : MonoBehaviour
 
     private bool isPlayerInTrigger = false;
 
+    private void Start()
+    {
+        ui = GameObject.FindWithTag("ShopUI");
+        if (ui == null)
+        {
+            Debug.Log("immernoch null...");
+        }
+    }
 
     private void Update()
     {

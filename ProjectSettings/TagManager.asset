@@ -25,6 +25,7 @@ TagManager:
   - torch3
   - torch4
   - torch5
+  - ShopUI
   layers:
   - Default
   - TransparentFX
