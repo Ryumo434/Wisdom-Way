@@ -36960,7 +36960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &445132261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36998,7 +36998,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentParent: {fileID: 887758622}
   gridLayout: {fileID: 887758624}
-  ui: {fileID: 445132260}
   shopItemPrefab: {fileID: 6785026757306434325, guid: 91d14a32d5c3ae94b8be909cf77ba493, type: 3}
   shopInventory:
   - Name: Heilungstrank
@@ -37703,7 +37702,7 @@ RectTransform:
   m_Father: {fileID: 1032870956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -40987,8 +40986,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.00033569336}
-  m_SizeDelta: {x: 1200, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887758623
 MonoBehaviour:
@@ -44481,7 +44480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 515615324}
   m_HandleRect: {fileID: 515615323}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -76151,10 +76150,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5860740575951015663, guid: e27daa631c0cf4a968a085837273949f, type: 3}
-      propertyPath: ui
-      value: 
-      objectReference: {fileID: 445132260}
     - target: {fileID: 7277065387090082750, guid: e27daa631c0cf4a968a085837273949f, type: 3}
       propertyPath: m_Name
       value: shop
@@ -80418,11 +80413,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3278584
+      value: 2.3265305
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8022995
+      value: -1.8023295
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size
@@ -80947,7 +80942,8 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1692331439073185253, guid: 88c25e73406b6c441bcaea5e3dacdb75, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7525774289492788404, guid: 88c25e73406b6c441bcaea5e3dacdb75, type: 3}
       insertIndex: 1

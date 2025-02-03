@@ -7,7 +7,6 @@ public class ShopUI : MonoBehaviour
     [Header("Grid/ScrollView-Einstellungen")]
     [SerializeField] private Transform contentParent;  // Z.B. das "Content"-Objekt der ScrollView
     [SerializeField] private GridLayoutGroup gridLayout; // Referenz auf das GridLayoutGroup-Objekt
-    [SerializeField] private GameObject ui; // Referenz auf das GridLayoutGroup-Objekt
 
     [Header("Prefab-Einstellungen")]
     [SerializeField] private GameObject shopItemPrefab; // Unser ShopItemUI-Prefab
@@ -15,17 +14,11 @@ public class ShopUI : MonoBehaviour
     [Header("Inventar-Einstellungen")]
     [SerializeField] private List<ShopItem> shopInventory; // Deine Shop-Items
 
-    private void Awake()
-    {
-        ui.SetActive(false);
-    }
-
     private void Start()
     {
         PopulateShop();
     }
 
-    // F?llt das Grid mit allen Items aus dem ShopInventory
     private void PopulateShop()
     {
         // Vorherigen Inhalt entfernen
@@ -49,5 +42,4 @@ public class ShopUI : MonoBehaviour
             }
         }
     }
-
 }
