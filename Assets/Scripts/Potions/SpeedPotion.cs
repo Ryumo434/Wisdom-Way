@@ -20,7 +20,6 @@ public class SpeedPotion : MonoBehaviour
         {
             if (weaponInfo.effect == "speed")
             {
-                // Starte die Coroutine und warte, bis sie fertig ist
                 StartCoroutine(SpeedPotionEffect(5.0f, 1.5f));
             }
         }
@@ -32,11 +31,10 @@ public class SpeedPotion : MonoBehaviour
         playerController.setMoveSpeed(speedMultiplier);
         Debug.Log("SpeedPotion aktiviert: Geschwindigkeit erhöht!");
 
-        // Timer-Logik: Zeige die verbleibende Zeit an
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            yield return null; // Warte einen Frame
+            yield return null;
             elapsed += Time.deltaTime;
         }
 
@@ -45,7 +43,6 @@ public class SpeedPotion : MonoBehaviour
         playerController.setMoveSpeed(1.0f);
         Debug.Log("SpeedPotion Effekt abgelaufen: Geschwindigkeit zurückgesetzt.");
 
-        // Nachdem der Effekt abgelaufen ist, entferne die Potion aus dem Inventar
         RemovePotionFromInventory();
     }
 
