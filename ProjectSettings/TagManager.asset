@@ -26,6 +26,8 @@ TagManager:
   - torch4
   - torch5
   - ShopUI
+  - weapon
+  - potion
   layers:
   - Default
   - TransparentFX
