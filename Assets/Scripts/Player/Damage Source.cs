@@ -18,7 +18,16 @@ public class DamageSource : MonoBehaviour
         if (other.gameObject.GetComponent<EnemyHealth>())
         {
             EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth?.TakeDamage(damageAmount);
+
+            // checken ob player den Stärke effekt hat.
+            if (StrengthPotion.hasStrength)
+            {
+                enemyHealth?.TakeDamage(damageAmount + 1000);
+            }
+            else
+            {
+                enemyHealth?.TakeDamage(damageAmount);
+            }
 
             //BossHealth bossHealth = other.gameObject.GetComponent<BossHealth>();
             //bossHealth?.TakeDamage(damageAmount);
