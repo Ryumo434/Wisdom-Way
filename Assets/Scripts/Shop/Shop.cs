@@ -13,43 +13,32 @@ public class Shop : MonoBehaviour
 
     private void OnEnable()
     {
-        // Registriere den Callback, damit OnSceneLoaded immer aufgerufen wird, wenn eine neue Szene geladen wird
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        // Vergiss nicht, den Callback wieder zu deregistrieren!
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Diese Methode wird jedes Mal aufgerufen, wenn eine neue Szene geladen wird
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetUIReference();
     }
 
-    // Methode, um die UI-Referenz zu aktualisieren
     private void SetUIReference()
     {
-        // Versuch zuerst den Standardweg:
-        ui = GameObject.FindWithTag("ShopUI");
-
-        if (ui == null)
+        GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject go in allObjects)
         {
-            Debug.Log("ShopUI nicht gefunden via FindWithTag, versuche alternative Suche...");
-
-            // Suche auch in inaktiven Objekten:
-            GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
-            foreach (GameObject go in allObjects)
+            if (go.CompareTag("ShopUI"))
             {
-                if (go.CompareTag("ShopUI"))
-                {
-                    ui = go;
-                    break;
-                }
+                ui = go;
+                Debug.Log("ShopUI gesetzt");
+                break;
             }
         }
+
 
         if (ui != null)
         {

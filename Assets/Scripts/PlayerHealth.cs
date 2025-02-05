@@ -52,6 +52,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
         }
     }*/
 
+    public int getCurrentPlayerHealth()
+    {
+        return currentHealth;
+    }
+
     public void HealPlayer(int amount)
     {
         currentHealth += amount;

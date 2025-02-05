@@ -4,7 +4,6 @@ public class HealPotion : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private Sprite emptySprite;
-    [SerializeField] private int healAmount = 10;
 
     void Update()
     {
@@ -12,8 +11,7 @@ public class HealPotion : MonoBehaviour
         {
             if (weaponInfo.effect == "healing")
             {
-                PotionEffectManager.Instance.UseHealPotion(weaponInfo, healAmount, emptySprite);
-                // Zerstöre das Potion-Objekt
+                PotionEffectManager.Instance.UseHealPotion(weaponInfo, emptySprite);
                 Destroy(gameObject);
             }
         }

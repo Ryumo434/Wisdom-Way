@@ -15,7 +15,6 @@ public class SpeedPotion : MonoBehaviour
             if (weaponInfo.effect == "speed")
             {
                 PotionEffectManager.Instance.StartSpeedPotionEffect(weaponInfo, duration, speedMultiplier, emptySprite);
-                // Zerstöre das Potion-Objekt, damit es nicht nochmal verarbeitet wird.
                 Destroy(gameObject);
             }
         }

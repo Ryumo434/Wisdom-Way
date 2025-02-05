@@ -68,11 +68,17 @@ public class PotionEffectManager : MonoBehaviour
         RemovePotionFromInventory(weaponInfo, emptySprite);
     }
 
-    public void UseHealPotion(WeaponInfo weaponInfo, int healAmount, Sprite emptySprite)
+    public void UseHealPotion(WeaponInfo weaponInfo, Sprite emptySprite)
     {
         // Heile den Spieler
-        PlayerHealth.Instance.HealPlayer(healAmount);
-        Debug.Log("HealPotion aktiviert: Spieler geheilt um " + healAmount + " HP.");
+        int currentPlayerHealth = PlayerHealth.Instance.getCurrentPlayerHealth();
+        int amountToHeal = 20 - currentPlayerHealth;
+        if (amountToHeal > 10)
+        {
+            amountToHeal = 10;
+        }
+        PlayerHealth.Instance.HealPlayer(amountToHeal);
+        Debug.Log("HealPotion aktiviert: Spieler geheilt um " + amountToHeal + " HP.");
         RemovePotionFromInventory(weaponInfo, emptySprite);
     }
 

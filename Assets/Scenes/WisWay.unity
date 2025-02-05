@@ -44556,7 +44556,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 515615324}
   m_HandleRect: {fileID: 515615323}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -76226,6 +76226,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5860740575951015663, guid: e27daa631c0cf4a968a085837273949f, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 445132260}
     - target: {fileID: 6292511930413107175, guid: e27daa631c0cf4a968a085837273949f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -458.353
@@ -80513,11 +80517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3269854
+      value: 2.3265305
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8023195
+      value: -1.8023295
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size
