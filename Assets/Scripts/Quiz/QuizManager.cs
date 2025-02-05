@@ -41,16 +41,16 @@ public class QuizManagerTMP : MonoBehaviour
 
     private string[,] historyQuizData = new string[,]
     {
-        {"Wer war der berühmte Pharao, dessen Grab im Tal der Könige entdeckt wurde?", "Ramses II", "Tutanchamun", "Cheops", "Echnaton", "2"},
+        {"Wer war der berühmte Pharao, dessen Grab im Tal der Könige entdeckt wurde?", "Ramses II", "Cheops", "Tutanchamun", "Echnaton", "3"},
         {"Wer gilt als Begründer des Mongolischen Reiches?", "Kublai Khan", "Genghis Khan", "Tamerlan", "Attila", "2"},
         {"In welchem Jahr wurde die Berliner Mauer gebaut?", "1948", "1950", "1961", "1989", "3"},
-        {"Welches alte Reich war für die hängenden Gärten von Babylon berühmt?", "Ägypten", "Mesopotamien", "Persien", "Assyrien", "2"},
+        {"Welches alte Reich war für die hängenden Gärten von Babylon berühmt?", "Mesopotamien", "Ägypten", "Persien", "Assyrien", "1"},
         {"Wann fand die Französische Revolution statt?", "1776", "1789", "1812", "1848", "2"},
         {"Wer war der Führer der Sowjetunion während des Zweiten Weltkriegs?", "Wladimir Lenin", "Josef Stalin", "Nikita Chruschtschow", "Leonid Breschnew", "2"},
-        {"In welchem Jahr landeten die ersten Menschen auf dem Mond?", "1965", "1969", "1972", "1980", "2"},
+        {"In welchem Jahr landeten die ersten Menschen auf dem Mond?", "1969", "1965", "1972", "1980", "1"},
         {"Welches antike Volk baute die berühmten Pyramiden von Gizeh?", "Die Römer", "Die Griechen", "Die Ägypter", "Die Mesopotamier", "3"},
-        {"Wer war der Gründer des Osmanischen Reiches?", "Mehmed II", "Osman I", "Süleyman der Prächtige", "Selim I", "2"},
-        {"Welches Dokument wurde 1215 in England unterzeichnet und gilt als ein Grundstein der modernen Demokratie?", "Bill of Rights", "Magna Carta", "Vertrag von Versailles", "Habeas Corpus", "2"}
+        {"Wer war der Gründer des Osmanischen Reiches?", "Mehmed II", "Selim I", "Süleyman der Prächtige", "Osman I", "4"},
+        {"Welches Dokument gilt als ein Grundstein der modernen Demokratie?", "Bill of Rights", "Magna Carta", "Vertrag von Versailles", "Habeas Corpus", "2"}
     };
 
     private string[,] scienceQuizData = new string[,]
