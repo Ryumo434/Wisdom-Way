@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Healingpotion
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 7913549816652367291, guid: a0491e24359a84c5ab540b20f187e393, type: 3}
-  weaponCooldown: 0
+  weaponCooldown: 0.5
   weaponDamage: 0
   weaponRange: 0
   effect: healing

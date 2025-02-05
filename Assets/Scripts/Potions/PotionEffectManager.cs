@@ -1,7 +1,7 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PotionEffectManager : MonoBehaviour
 {
@@ -20,12 +20,12 @@ public class PotionEffectManager : MonoBehaviour
         }
     }
 
-    public void StartStrengthPotionEffect(WeaponInfo weaponInfo, float duration, Sprite emptySprite)
+    public void StartStrengthPotionEffect(WeaponInfo weaponInfo, float duration, Sprite emptySprite, GameObject go)
     {
-        StartCoroutine(StrengthPotionEffectCoroutine(weaponInfo, duration, emptySprite));
+        StartCoroutine(StrengthPotionEffectCoroutine(weaponInfo, duration, emptySprite, go));
     }
 
-    private IEnumerator StrengthPotionEffectCoroutine(WeaponInfo weaponInfo, float duration, Sprite emptySprite)
+    private IEnumerator StrengthPotionEffectCoroutine(WeaponInfo weaponInfo, float duration, Sprite emptySprite, GameObject go)
     {
         StrengthPotion.hasStrength = true;
         Debug.Log("Strength effect started: " + StrengthPotion.hasStrength);
@@ -34,21 +34,22 @@ public class PotionEffectManager : MonoBehaviour
         while (elapsed < duration)
         {
             yield return null;
-            setPotionTimer(weaponInfo, elapsed);
+            setPotionTimer(weaponInfo, duration - elapsed);
             elapsed += Time.deltaTime;
         }
 
         StrengthPotion.hasStrength = false;
         Debug.Log("Strength effect ended: " + StrengthPotion.hasStrength);
-        RemovePotionFromInventory(weaponInfo, emptySprite);
+        HidePotionTimer(weaponInfo);
+        RemovePotionFromInventory(weaponInfo, emptySprite, go);
     }
 
-    public void StartSpeedPotionEffect(WeaponInfo weaponInfo, float duration, float speedMultiplier, Sprite emptySprite)
+    public void StartSpeedPotionEffect(WeaponInfo weaponInfo, float duration, float speedMultiplier, Sprite emptySprite, GameObject go)
     {
-        StartCoroutine(SpeedPotionEffectCoroutine(weaponInfo, duration, speedMultiplier, emptySprite));
+        StartCoroutine(SpeedPotionEffectCoroutine(weaponInfo, duration, speedMultiplier, emptySprite, go));
     }
 
-    private IEnumerator SpeedPotionEffectCoroutine(WeaponInfo weaponInfo, float duration, float speedMultiplier, Sprite emptySprite)
+    private IEnumerator SpeedPotionEffectCoroutine(WeaponInfo weaponInfo, float duration, float speedMultiplier, Sprite emptySprite, GameObject go)
     {
         // Erhöhe die Geschwindigkeit
         PlayerController.Instance.setMoveSpeed(speedMultiplier);
@@ -58,18 +59,18 @@ public class PotionEffectManager : MonoBehaviour
         while (elapsed < duration)
         {
             yield return null;
-            setPotionTimer(weaponInfo, elapsed);
+            setPotionTimer(weaponInfo, duration - elapsed);
             elapsed += Time.deltaTime;
         }
 
         // Setze die Geschwindigkeit wieder auf Standard
         PlayerController.Instance.setMoveSpeed(1.0f);
         Debug.Log("SpeedPotion Effekt abgelaufen: Geschwindigkeit zurückgesetzt.");
-
-        RemovePotionFromInventory(weaponInfo, emptySprite);
+        HidePotionTimer(weaponInfo);
+        RemovePotionFromInventory(weaponInfo, emptySprite, go);
     }
 
-    public void UseHealPotion(WeaponInfo weaponInfo, Sprite emptySprite)
+    public void UseHealPotion(WeaponInfo weaponInfo, Sprite emptySprite, GameObject go)
     {
         // Heile den Spieler
         int currentPlayerHealth = PlayerHealth.Instance.getCurrentPlayerHealth();
@@ -80,7 +81,7 @@ public class PotionEffectManager : MonoBehaviour
         }
         PlayerHealth.Instance.HealPlayer(amountToHeal);
         Debug.Log("HealPotion aktiviert: Spieler geheilt um " + amountToHeal + " HP.");
-        RemovePotionFromInventory(weaponInfo, emptySprite);
+        RemovePotionFromInventory(weaponInfo, emptySprite, go);
     }
 
     private void setPotionTimer(WeaponInfo weaponInfo, float elapsed)
@@ -99,7 +100,22 @@ public class PotionEffectManager : MonoBehaviour
         
     }
 
-    private void RemovePotionFromInventory(WeaponInfo weaponInfo, Sprite emptySprite)
+    private void HidePotionTimer(WeaponInfo weaponInfo)
+    {
+        InventorySlot[] inventorySlots = FindObjectsOfType<InventorySlot>(true);
+
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            if (slot.GetWeaponInfo() == weaponInfo)
+            {
+                // Timer ausblenden, fertig
+                slot.setTimerInvisible();
+            }
+        }
+    }
+
+
+    private void RemovePotionFromInventory(WeaponInfo weaponInfo, Sprite emptySprite, GameObject go)
     {
         // Suche alle InventorySlots (auch inaktive)
         InventorySlot[] inventorySlots = FindObjectsOfType<InventorySlot>(true);
@@ -139,6 +155,7 @@ public class PotionEffectManager : MonoBehaviour
                         slot.setTimerInvisible();
                         slot.RemoveWeaponInfo();
                         itemImage.sprite = emptySprite;
+                        Destroy(go);
                     }
                 }
 

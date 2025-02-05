@@ -14,9 +14,7 @@ public class StrengthPotion : MonoBehaviour
         {
             if (weaponInfo.effect == "strength")
             {
-                PotionEffectManager.Instance.StartStrengthPotionEffect(weaponInfo, 5.0f, emptySprite);
-
-                Destroy(gameObject);
+                PotionEffectManager.Instance.StartStrengthPotionEffect(weaponInfo, 5.0f, emptySprite, gameObject);
             }
         }
     }

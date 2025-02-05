@@ -11,8 +11,7 @@ public class HealPotion : MonoBehaviour
         {
             if (weaponInfo.effect == "healing")
             {
-                PotionEffectManager.Instance.UseHealPotion(weaponInfo, emptySprite);
-                Destroy(gameObject);
+                PotionEffectManager.Instance.UseHealPotion(weaponInfo, emptySprite, gameObject);
             }
         }
     }

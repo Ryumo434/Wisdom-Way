@@ -14,8 +14,7 @@ public class SpeedPotion : MonoBehaviour
         {
             if (weaponInfo.effect == "speed")
             {
-                PotionEffectManager.Instance.StartSpeedPotionEffect(weaponInfo, duration, speedMultiplier, emptySprite);
-                Destroy(gameObject);
+                PotionEffectManager.Instance.StartSpeedPotionEffect(weaponInfo, duration, speedMultiplier, emptySprite, gameObject);
             }
         }
     }
