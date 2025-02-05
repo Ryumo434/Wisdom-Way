@@ -34,7 +34,7 @@ public class PotionEffectManager : MonoBehaviour
         while (elapsed < duration)
         {
             yield return null;
-            Debug.Log("Elapsed (strength): " + elapsed);
+            setPotionTimer(weaponInfo, elapsed);
             elapsed += Time.deltaTime;
         }
 
@@ -58,6 +58,7 @@ public class PotionEffectManager : MonoBehaviour
         while (elapsed < duration)
         {
             yield return null;
+            setPotionTimer(weaponInfo, elapsed);
             elapsed += Time.deltaTime;
         }
 
@@ -80,6 +81,22 @@ public class PotionEffectManager : MonoBehaviour
         PlayerHealth.Instance.HealPlayer(amountToHeal);
         Debug.Log("HealPotion aktiviert: Spieler geheilt um " + amountToHeal + " HP.");
         RemovePotionFromInventory(weaponInfo, emptySprite);
+    }
+
+    private void setPotionTimer(WeaponInfo weaponInfo, float elapsed)
+    {
+        InventorySlot[] inventorySlots = FindObjectsOfType<InventorySlot>(true);
+
+        foreach (InventorySlot slot in inventorySlots)
+        {
+            if (slot.GetWeaponInfo() == weaponInfo)
+            {
+                slot.setTimertVisible();
+                slot.setTimer(elapsed.ToString("F1"));
+            }
+        }
+
+        
     }
 
     private void RemovePotionFromInventory(WeaponInfo weaponInfo, Sprite emptySprite)
@@ -119,6 +136,7 @@ public class PotionEffectManager : MonoBehaviour
                     Image itemImage = itemChild.GetComponent<Image>();
                     if (itemImage != null && emptySprite != null)
                     {
+                        slot.setTimerInvisible();
                         slot.RemoveWeaponInfo();
                         itemImage.sprite = emptySprite;
                     }

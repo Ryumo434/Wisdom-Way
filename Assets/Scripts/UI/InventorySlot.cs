@@ -7,6 +7,7 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private TextMeshProUGUI stackCount;
+    [SerializeField] private TextMeshProUGUI potionTimer;
 
     public WeaponInfo GetWeaponInfo()
     {
@@ -22,6 +23,8 @@ public class InventorySlot : MonoBehaviour
     {
         weaponInfo = null;
     }
+
+    // ----- Stack Counter -----
 
     public TextMeshProUGUI getStackCount()
     {
@@ -41,5 +44,22 @@ public class InventorySlot : MonoBehaviour
     public void setStackCountInvisible()
     {
         stackCount.gameObject.SetActive(false);
+    }
+
+    // ----- Timer -----
+
+    public void setTimer(string newValue)
+    {
+        potionTimer.text = newValue;
+    }
+
+    public void setTimertVisible()
+    {
+        potionTimer.gameObject.SetActive(true);
+    }
+
+    public void setTimerInvisible()
+    {
+        potionTimer.gameObject.SetActive(false);
     }
 }
