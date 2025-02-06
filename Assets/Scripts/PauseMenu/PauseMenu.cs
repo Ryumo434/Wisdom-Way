@@ -52,17 +52,19 @@ public class PauseMenuScript : MonoBehaviour
 
 
 
-    public void Home()
+    public void MainMenu()
 
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
+
+        Time.timeScale = 1;
 
     }
 
 
 
-    public void Continue()
+    public void Resume()
 
     {
 
@@ -71,6 +73,16 @@ public class PauseMenuScript : MonoBehaviour
         gamePaused = false;
 
         pauseMenu.SetActive(false);
+
+    }
+
+    public void Options()
+    {
+
+    }
+
+    public void SaveGame()
+    {
 
     }
 
