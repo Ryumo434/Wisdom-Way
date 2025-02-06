@@ -92,6 +92,10 @@ public class BuyItem : MonoBehaviour
             //checkt ob das Item schon im Inventar ist
             if (slot.GetWeaponInfo() == shopItem.weaponInfo)
             {
+                if (slot.GetWeaponInfo().isUnique)
+                {
+                    return false;
+                }
                 TextMeshProUGUI currentStackCount = slot.getStackCount();
                 int newStackCount = int.Parse(currentStackCount.text) + 1;
                 slot.setStackCount(newStackCount.ToString());
@@ -111,6 +115,12 @@ public class BuyItem : MonoBehaviour
                     if (itemImage != null)
                     {
                         itemImage.sprite = shopItem.Icon;
+                    }
+
+                    // überprüfen ob Item unique ist und button auf "gekauft" stellen
+                    if (slot.GetWeaponInfo().isUnique)
+                    {
+                        priceText.text = "gekauft";
                     }
                 }
 

@@ -16,3 +16,5 @@ MonoBehaviour:
   weaponCooldown: 1.2
   weaponDamage: 2
   weaponRange: 8
+  effect: 
+  isUnique: 1

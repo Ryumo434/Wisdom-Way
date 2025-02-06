@@ -11,4 +11,5 @@ public class WeaponInfo : ScriptableObject
     public int weaponDamage;
     public float weaponRange;
     public string effect;
+    public bool isUnique;
 }
