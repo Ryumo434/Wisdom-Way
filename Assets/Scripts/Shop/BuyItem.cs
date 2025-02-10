@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class BuyItem : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class BuyItem : MonoBehaviour
 
         if (currentShopItem == null)
         {
-            errorText.text = "Kein Item zugewiesen.";
+            StartCoroutine(ErrorMessageRoutine("Kein Item zugewiesen!"));
             return;
         }
 
@@ -66,12 +67,12 @@ public class BuyItem : MonoBehaviour
             }
             else
             {
-                errorText.text = "Kein Platz im Inventar!";
+                StartCoroutine(ErrorMessageRoutine("Kein Platz im Inventar!"));
             }
         }
         else
         {
-            errorText.text = "Du hast zu wenig Coins!";
+            StartCoroutine(ErrorMessageRoutine("Du hast zu wenig Coins!"));
         }
     }
 
@@ -131,5 +132,20 @@ public class BuyItem : MonoBehaviour
 
         Debug.LogWarning("No empty inventory slot found!");
         return false;
+    }
+
+    private IEnumerator ErrorMessageRoutine(string text)
+    {
+        Debug.Log("Show error Message 5 sec...");
+        errorText.text = text;
+        errorText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+        errorText.gameObject.SetActive(false);
+        Debug.Log("Deactivating...");
+    }
+
+    void OnDisable()
+    {
+        errorText.gameObject.SetActive(false);
     }
 }

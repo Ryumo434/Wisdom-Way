@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-// FALLS PERFORMANCE PROBLEME DEN ANSATZ MIT "FindObjectsOfTypeAll" IST SEHR RECHENINTENSIV!!!!
+// FALLS PERFORMANCE PROBLEME: DER ANSATZ MIT "FindObjectsOfTypeAll" IST SEHR RECHENINTENSIV!!!!
 
 public class Shop : MonoBehaviour
 {
