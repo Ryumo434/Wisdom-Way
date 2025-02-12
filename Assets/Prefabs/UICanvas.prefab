@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8976f0a24476c9d418779d7981c7ee62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: d6f0b1f70081b2549a8c8bbe20bbc16f, type: 2}
+  weaponInfo: {fileID: 0}
   stackCount: {fileID: 3267566344053478002}
   potionTimer: {fileID: 614657065037161476}
 --- !u!1 &1127814486505437277
@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 706e01ae4b06f5b42bfe217c40861ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8b20d367a3514b47890de333724c68e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3173,7 +3173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8976f0a24476c9d418779d7981c7ee62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 5e49daf889680ec438e9e9fe29e10906, type: 2}
+  weaponInfo: {fileID: 0}
   stackCount: {fileID: 6227970362546540527}
   potionTimer: {fileID: 4877039711047772709}
 --- !u!1 &8771725530247166934
@@ -3375,7 +3375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e4dd3f7b7ea5f184980dc74b2cfb174a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8b20d367a3514b47890de333724c68e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
