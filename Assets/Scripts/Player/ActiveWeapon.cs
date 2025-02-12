@@ -36,17 +36,12 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     public void NewWeapon(MonoBehaviour newWeapon)
     {
-        if (newWeapon == null || !(newWeapon is IWeapon weapon))
-        {
-            WeaponNull(); // Falls kein gültiges IWeapon-Objekt, setze Waffe auf null | wenn eine potion im Inv ist kommt kein fehler 
-            return;
-        }
-
         CurrentActiveWeapon = newWeapon;
 
         AttackCooldown();
-        timeBetweenAttacks = weapon.GetWeaponInfo().weaponCooldown;
+        timeBetweenAttacks = (CurrentActiveWeapon as IWeapon).GetWeaponInfo().weaponCooldown;
 
+        // Reset the attack state when a new weapon is equipped
         isAttacking = false;
     }
 
