@@ -26,8 +26,9 @@ public class GameOverManager : MonoBehaviour
 
     private void ShowGameOverScreen()
     {
-        gameOverScreen.SetActive(true);
         Time.timeScale = 0f; // Spiel pausieren
+        gameOverScreen.SetActive(true);
+        
     }
 
     public void RestartGame()
