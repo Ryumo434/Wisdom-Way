@@ -26,20 +26,16 @@ public class GameOverManager : MonoBehaviour
 
     private void ShowGameOverScreen()
     {
-        Time.timeScale = 0f; // Spiel pausieren
         gameOverScreen.SetActive(true);
-        
     }
 
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Spiel fortsetzen
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadMainMenu()
-    {
-        Time.timeScale = 1f;
+    {    
         SceneManager.LoadScene("Menu"); 
     }
 }

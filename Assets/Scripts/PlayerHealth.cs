@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+//änderungen in Zeile 113-115
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool isDead { get; private set; }
@@ -110,9 +110,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
 
-        string currentScene;
-        currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        //string currentScene;
+        //currentScene = SceneManager.GetActiveScene().name;
+        //SceneManager.LoadScene(currentScene);
         
     }
 
