@@ -85,7 +85,7 @@ public class BuyItem : MonoBehaviour
 
         for (int i = 0; i < slotCount; i++)
         {
-            Transform slotTransform = activeInventory.transform.GetChild(i);
+            Transform slotTransform = activeInventory.transform.GetChild(i); // ---------------------
             InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
 
             if (slot == null)
@@ -105,18 +105,18 @@ public class BuyItem : MonoBehaviour
                 return true;
             }
 
-            // Füge nur hinzu, wenn der Slot leer ist
+            // Füge nur hinzu, wenn der Slot leer ist | Mihoshi hier
             if (slot.GetWeaponInfo() == null)
             {
                 slot.SetWeaponInfo(shopItem.weaponInfo);
 
                 if (slotTransform.childCount > 1)
                 {
-                    Transform itemTransform = slotTransform.GetChild(1);
-                    Image itemImage = itemTransform.GetComponent<Image>();
+                    Transform itemTransform = slotTransform.GetChild(1); // -------------
+                    Image itemImage = itemTransform.GetComponent<Image>(); // ---------------
                     if (itemImage != null)
                     {
-                        itemImage.sprite = shopItem.Icon;
+                        itemImage.sprite = shopItem.Icon; // ---------------
                     }
 
                     // überprüfen ob Item unique ist und button auf "gekauft" stellen
