@@ -63,6 +63,7 @@ public class BuyItem : MonoBehaviour
             {
                 currentCoins -= price;
                 ScoreManager.instance.SetScore(currentCoins);
+                GameManager.Instance.SaveGame();// Gekaufte Items speichern
                 Debug.Log($"[BuyItem] {currentShopItem.Name} gekauft! Neue Coin-Anzahl: {currentCoins}", gameObject);
             }
             else

@@ -77,4 +77,50 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
+
+    
+     public List<string> GetInventoryItems()
+    {
+        List<string> items = new List<string>();
+        foreach (Transform slotTransform in transform)
+        {
+            InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
+            if (slot != null && slot.GetWeaponInfo() != null)
+            {
+                items.Add(slot.GetWeaponInfo().name);
+            }
+        }
+        return items;
+    }
+
+    public void LoadInventoryItems(List<string> items)
+    {
+        foreach (Transform slotTransform in transform)
+        {
+            InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
+            if (slot != null && items.Count > 0)
+            {
+                string itemName = items[0];
+                items.RemoveAt(0);
+                ShopItem shopItem = ShopManager.Instance.FindShopItemByName(itemName);
+
+                if (shopItem != null)
+                {
+                    slot.SetWeaponInfo(shopItem.weaponInfo);
+                }
+                else
+                {
+                    Debug.LogWarning($"[ActiveInventory] Item '{itemName}' nicht gefunden!");
+                }
+            }
+        }
+    }
+
+
+    private ShopItem FindShopItemByName(string itemName)
+    {
+        return ShopManager.Instance?.FindShopItemByName(itemName);
+    }
 }
+
+

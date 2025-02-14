@@ -10,6 +10,7 @@ public static class SaveSystem
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(savePath, json);
         Debug.Log("SaveSystem: Spielstand gespeichert.");
+         Debug.Log($"Json path: {savePath}");
     }
 
     public static PlayerData Load()

@@ -6204,6 +6204,7 @@ Transform:
   - {fileID: 1202145177}
   - {fileID: 367083358}
   - {fileID: 699184579}
+  - {fileID: 1012589185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &98945046
@@ -43255,6 +43256,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3693889240162254912, guid: 722bbf704be01c94ab00b47c71326928, type: 3}
   m_PrefabInstance: {fileID: 1476465129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1012589184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1012589185}
+  - component: {fileID: 1012589186}
+  m_Layer: 0
+  m_Name: Shop Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1012589185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012589184}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.205497, y: -5.500166, z: 0.04063338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 98945045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012589186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012589184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd678d63d4ea904e99e14395beecdef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allShopItems:
+  - Name: Sword
+    Price: 0
+    Icon: {fileID: 21300000, guid: e99c577d95312f3488f51d285211612b, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: 740360ca4f762454887cd0771e332f62, type: 2}
+  - Name: Staff
+    Price: 0
+    Icon: {fileID: 21300000, guid: 706e01ae4b06f5b42bfe217c40861ba2, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: 5e49daf889680ec438e9e9fe29e10906, type: 2}
+  - Name: Bow
+    Price: 0
+    Icon: {fileID: 21300000, guid: e4dd3f7b7ea5f184980dc74b2cfb174a, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: d6f0b1f70081b2549a8c8bbe20bbc16f, type: 2}
+  - Name: Healingpotion
+    Price: 0
+    Icon: {fileID: 21300000, guid: 60169eacc525e437d91a345c88c143b1, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: 5727cfab37ab247a9b45bb761b7051d5, type: 2}
+  - Name: SpeedPotion
+    Price: 0
+    Icon: {fileID: 21300000, guid: 3942a293c108949a089a74ccc2f82d5f, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: 0f546ed7506f94f1a897900bc437627d, type: 2}
+  - Name: StrengthPotion
+    Price: 0
+    Icon: {fileID: 21300000, guid: 04b6a4550efda466bab2e305823c3275, type: 3}
+    Description: 
+    Strength: 0
+    Effect: 
+    weaponInfo: {fileID: 11400000, guid: 817c2c60bfb174d4dbc704e9fa9c9caf, type: 2}
 --- !u!4 &1014552086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3693889240162254912, guid: 722bbf704be01c94ab00b47c71326928, type: 3}

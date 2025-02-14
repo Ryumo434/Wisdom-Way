@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,8 +32,9 @@ public class GameManager : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
         int currentScore = ScoreManager.instance.GetScore();
         int currentHealth = PlayerHealth.Instance.currentHealth;
+        List<string> inventoryItems = ActiveInventory.Instance.GetInventoryItems(); // Items holen
 
-        PlayerData data = new PlayerData(playerPosition, currentScene, currentScore, currentHealth);
+        PlayerData data = new PlayerData(playerPosition, currentScene, currentScore, currentHealth, inventoryItems);
         SaveSystem.Save(data);
         Debug.Log("GameManager: Spielstand gespeichert!");
     }
@@ -66,6 +68,8 @@ public class GameManager : MonoBehaviour
         ScoreManager.instance.SetScore(data.score);
         PlayerHealth.Instance.currentHealth = data.health;
         PlayerHealth.Instance.UpdateHealthUI();
+        ActiveInventory.Instance.LoadInventoryItems(data.inventoryItems); // Items ins Inventar laden
+        
         Debug.Log("GameManger: Spielstand geladen!");
 
         // Stelle sicher, dass die Cinemachine-Kamera nach dem Laden der Szene folgt
@@ -74,6 +78,7 @@ public class GameManager : MonoBehaviour
         if (virtualCamera != null)
         {
             virtualCamera.Follow = PlayerController.Instance.transform;  // Weist die Kamera dem Spieler zu
+            //virtualCamera.LookAt = PlayerController.Instance.transform;   // Kamera schaut auch auf den Spieler/ alles dreht sich um den Spieler
         }
     }
 }
