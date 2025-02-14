@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveInventory : Singleton<ActiveInventory>
 {
@@ -107,6 +108,17 @@ public class ActiveInventory : Singleton<ActiveInventory>
                 if (shopItem != null)
                 {
                     slot.SetWeaponInfo(shopItem.weaponInfo);
+                    
+                if (slotTransform.childCount > 1)
+                    {
+                        Transform itemTransform = slotTransform.GetChild(1); // Zugriff auf das Image-Objekt
+                        Image itemImage = itemTransform.GetComponent<Image>(); 
+                        if (itemImage != null)
+                        {
+                            itemImage.sprite = shopItem.Icon; // Das Icon des ShopItems setzen
+                        }
+                    }
+                    
                 }
                 else
                 {
