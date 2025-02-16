@@ -15,5 +15,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 7913549816652367291, guid: ae2ea7b27ef994410942b380b1f5f8e7, type: 3}
   weaponCooldown: 0
   weaponDamage: 0
+  weaponSprite: {fileID: 21300000, guid: 3942a293c108949a089a74ccc2f82d5f, type: 3}
   weaponRange: 0
   effect: speed
+  isUnique: 0

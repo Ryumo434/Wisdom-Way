@@ -9,6 +9,7 @@ public class WeaponInfo : ScriptableObject
     public GameObject weaponPrefab;
     public float weaponCooldown;
     public int weaponDamage;
+    public Sprite weaponSprite;
     public float weaponRange;
     public string effect;
     public bool isUnique;

@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 8216366822676232021, guid: 5d833bf267dfbb54a8c7ca5c613da9f2, type: 3}
   weaponCooldown: 0.7
   weaponDamage: 2
+  weaponSprite: {fileID: 21300000, guid: ecbb68f71af43a442ad25a613b9fec58, type: 3}
   weaponRange: 12
   effect: 
   isUnique: 1
