@@ -24,9 +24,12 @@ public class Bow : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        myAnimator.SetTrigger(FIRE_HASH);                                        //übernimmt die Rotation der ausgerüsteten Waffe               
-        GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
-        newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        if (!InventoryModeManager.InventoryIsOpen)
+        {
+            myAnimator.SetTrigger(FIRE_HASH);                                        //übernimmt die Rotation der ausgerüsteten Waffe               
+            GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        }
     }
 
     public WeaponInfo GetWeaponInfo()

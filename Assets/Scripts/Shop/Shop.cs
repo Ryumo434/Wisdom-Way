@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject eText;
 
     private bool isPlayerInTrigger = false;
+    private bool isShopActive = true;
 
     private void OnEnable()
     {
@@ -43,6 +44,7 @@ public class Shop : MonoBehaviour
         if (ui != null)
         {
             ui.SetActive(false);
+            isShopActive = false;
             Debug.Log("ShopUI wurde neu referenziert.");
         }
         else
@@ -56,10 +58,20 @@ public class Shop : MonoBehaviour
         if (isPlayerInTrigger && ui != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
-                ui.SetActive(true);
+                ToggleShop();
+        }
+    }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-                ui.SetActive(false);
+    private void ToggleShop()
+    {
+        isShopActive = !isShopActive;
+        if (isShopActive)
+        {
+            ui.SetActive(false);
+        }
+        else
+        {
+            ui.SetActive(true);
         }
     }
 

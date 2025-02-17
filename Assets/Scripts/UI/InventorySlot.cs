@@ -64,14 +64,10 @@ public class InventorySlot : MonoBehaviour
         potionTimer.gameObject.SetActive(false);
     }
 
-    // ----- Neue Methode zum Aktualisieren des UI -----
-    public void UpdateSlotUI(Image slotIcon, Sprite emptySprite, Sprite selectedSprite)
+    // ----- Aktualisieren des UI -----
+    public void UpdateSlotUI(Sprite emptySprite, Sprite selectedSprite)
     {
-        if (slotIcon == null)
-        {
-            // Versuche, ein Image-Component am 1. Child zu holen (sofern du kein SerializeField nutzen willst)
-            slotIcon = transform.GetChild(1).GetComponent<Image>();
-        }
+        Image slotIcon = transform.GetChild(1).GetComponent<Image>();
 
         if (weaponInfo == null)
         {
@@ -97,9 +93,8 @@ public class InventorySlot : MonoBehaviour
                 slotIcon.sprite = selectedSprite;
             }
 
-            // Beispiel: Falls WeaponInfo eine Anzahl hat, könntest du sie hier anzeigen
-            // if (weaponInfo.stackSize > 1) ...
-            // Für den Timer ähnlich
+            // Hier könntest du z.B. Stackgröße und Timer anzeigen,
+            // wenn deine WeaponInfo diese Informationen enthält.
         }
     }
 }

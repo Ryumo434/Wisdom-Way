@@ -12,7 +12,7 @@ public class SpeedPotion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (weaponInfo.effect == "speed")
+            if (weaponInfo.effect == "speed" && !InventoryModeManager.InventoryIsOpen)
             {
                 PotionEffectManager.Instance.StartSpeedPotionEffect(weaponInfo, duration, speedMultiplier, emptySprite, gameObject);
             }

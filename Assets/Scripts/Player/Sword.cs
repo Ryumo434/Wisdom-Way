@@ -42,11 +42,13 @@ public class Sword : MonoBehaviour, IWeapon
      
     public void Attack()
     {
-
-        myAnimator.SetTrigger("Attack");
-        weaponCollider.gameObject.SetActive(true);
-        slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
-        slashAnim.transform.parent = this.transform.parent;
+        if (!InventoryModeManager.InventoryIsOpen)
+        {
+            myAnimator.SetTrigger("Attack");
+            weaponCollider.gameObject.SetActive(true);
+            slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+            slashAnim.transform.parent = this.transform.parent;
+        }
 
     }
       

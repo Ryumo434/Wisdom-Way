@@ -25,7 +25,10 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        myAnimator.SetTrigger(ATTACK_HASH);
+        if (!InventoryModeManager.InventoryIsOpen)
+        {
+            myAnimator.SetTrigger(ATTACK_HASH);
+        }
     }
 
     public void SpawnStaffProjectileAnimEvent()

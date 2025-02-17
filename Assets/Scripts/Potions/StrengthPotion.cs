@@ -12,7 +12,7 @@ public class StrengthPotion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (weaponInfo.effect == "strength")
+            if (weaponInfo.effect == "strength" && !InventoryModeManager.InventoryIsOpen)
             {
                 PotionEffectManager.Instance.StartStrengthPotionEffect(weaponInfo, 5.0f, emptySprite, gameObject);
             }

@@ -9,7 +9,7 @@ public class HealPotion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (weaponInfo.effect == "healing")
+            if (weaponInfo.effect == "healing" && !InventoryModeManager.InventoryIsOpen)
             {
                 PotionEffectManager.Instance.UseHealPotion(weaponInfo, emptySprite, gameObject);
             }
