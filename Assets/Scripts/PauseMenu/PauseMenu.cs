@@ -25,7 +25,6 @@ public class PauseMenuScript : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Escape) && gamePaused == false)
-
         {
 
             Time.timeScale = 0;
