@@ -9,11 +9,9 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private PlayerControls playerControls;
 
-
     protected override void Awake()
     {
         base.Awake();
-
         playerControls = new PlayerControls();
     }
 
@@ -53,7 +51,6 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void ChangeActiveWeapon()
     {
-
         if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
@@ -62,7 +59,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
         Transform childTransform = transform.GetChild(activeSlotIndexNum);
         InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
         WeaponInfo weaponInfo = inventorySlot.GetWeaponInfo();
-        GameObject weaponToSpawn = weaponInfo.weaponPrefab;
+        GameObject weaponToSpawn = null;
 
         if (weaponInfo == null)
         {
@@ -70,17 +67,31 @@ public class ActiveInventory : Singleton<ActiveInventory>
             return;
         }
 
-
+        weaponToSpawn = weaponInfo.weaponPrefab;
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform);
-
-        //ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0,0,0);
-        //newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
 
-    
-     public List<string> GetInventoryItems()
+    // +++ NEU: Prüfen, ob ein Slot der aktuell aktive Slot ist
+    public bool IsSlotTheActiveOne(InventorySlot slot)
+    {
+        Transform childTransform = transform.GetChild(activeSlotIndexNum);
+        InventorySlot activeSlot = childTransform.GetComponentInChildren<InventorySlot>();
+        return (slot == activeSlot);
+    }
+
+    // +++ NEU: Erneutes Aktualisieren des gerade aktiven Slots
+    public void RecheckActiveSlot()
+    {
+        // Ruft erneut ToggleActiveHighlight() auf, was wieder ChangeActiveWeapon() auslöst
+        ToggleActiveHighlight(activeSlotIndexNum);
+    }
+
+    // -----------------------------------------------------------
+    // Diese Methoden sind unverändert und stammen aus deinem Code:
+    // -----------------------------------------------------------
+    public List<string> GetInventoryItems()
     {
         List<string> items = new List<string>();
         foreach (Transform slotTransform in transform)
@@ -108,17 +119,16 @@ public class ActiveInventory : Singleton<ActiveInventory>
                 if (shopItem != null)
                 {
                     slot.SetWeaponInfo(shopItem.weaponInfo);
-                    
-                if (slotTransform.childCount > 1)
+
+                    if (slotTransform.childCount > 1)
                     {
-                        Transform itemTransform = slotTransform.GetChild(1); // Zugriff auf das Image-Objekt
-                        Image itemImage = itemTransform.GetComponent<Image>(); 
+                        Transform itemTransform = slotTransform.GetChild(1);
+                        Image itemImage = itemTransform.GetComponent<Image>();
                         if (itemImage != null)
                         {
-                            itemImage.sprite = shopItem.Icon; // Das Icon des ShopItems setzen
+                            itemImage.sprite = shopItem.Icon;
                         }
                     }
-                    
                 }
                 else
                 {
@@ -127,12 +137,4 @@ public class ActiveInventory : Singleton<ActiveInventory>
             }
         }
     }
-
-
-    private ShopItem FindShopItemByName(string itemName)
-    {
-        return ShopManager.Instance?.FindShopItemByName(itemName);
-    }
 }
-
-

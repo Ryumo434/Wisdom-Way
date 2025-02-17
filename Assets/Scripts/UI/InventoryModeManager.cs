@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class InventoryModeManager : MonoBehaviour
 {
-    /// <summary>
-    /// Globales Flag, das anzeigt, ob das Inventar aktuell offen ist.
-    /// Andere Skripte (z.B. Waffennutzung, Tranknutzung) können dieses abfragen,
-    /// um Aktionen zu blockieren.
-    /// </summary>
     public static bool InventoryIsOpen = false;
 
     [Header("UI Referenzen")]
@@ -22,7 +17,7 @@ public class InventoryModeManager : MonoBehaviour
     private InventorySlot selectedSlot = null;
     private WeaponInfo draggedWeaponInfo = null;
     private bool isDragging = false;
-    private int draggedStackCount = 1;  // Wird beim Aufnehmen eines Items gesetzt
+    private int draggedStackCount = 1;
 
     private void Awake()
     {
@@ -31,18 +26,17 @@ public class InventoryModeManager : MonoBehaviour
         {
             draggedItemImage.gameObject.SetActive(false);
         }
-        InventoryIsOpen = false; // Zu Beginn ist das Inventar geschlossen
+        InventoryIsOpen = false;
     }
 
     void Update()
     {
-        // Inventar per Taste "I" toggeln
         if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleInventoryMode();
         }
 
-        // Wenn wir ein Item ziehen, soll das Item-Bild dem Mauszeiger folgen
+        // Wenn ein Item genommen wird, dann folgt es dem Mauszeiger
         if (isDragging && draggedItemImage != null)
         {
             Vector2 mousePos = Input.mousePosition;
@@ -61,27 +55,20 @@ public class InventoryModeManager : MonoBehaviour
         isInventoryModeActive = !isInventoryModeActive;
         inventoryUIPanel.SetActive(isInventoryModeActive);
 
-        // Zeit anhalten, solange Inventar offen ist
         Time.timeScale = isInventoryModeActive ? 0 : 1;
 
         if (isInventoryModeActive)
         {
-            // Inventar geöffnet
             InventoryIsOpen = true;
         }
         else
         {
-            // Inventar geschlossen
             InventoryIsOpen = false;
             CancelDragging();
             DeselectSlot();
         }
     }
 
-    /// <summary>
-    /// Wird aufgerufen, wenn das Inventar geschlossen wird oder der Spieler
-    /// den Drag-Vorgang abbricht.
-    /// </summary>
     private void CancelDragging()
     {
         if (isDragging)
@@ -114,17 +101,13 @@ public class InventoryModeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Wird aufgerufen, wenn ein Inventar-Slot geklickt wird.
-    /// </summary>
     public void OnSlotClicked(InventorySlot clickedSlot)
     {
-        // Falls gerade kein Drag aktiv ist, starten wir hier den Drag
         if (!isDragging)
         {
             if (clickedSlot.GetWeaponInfo() != null)
             {
-                // Merke dir den Ursprungsslot und das Item
+                // Ursprungsslot und das Item merken
                 selectedSlot = clickedSlot;
                 draggedWeaponInfo = clickedSlot.GetWeaponInfo();
 
@@ -138,15 +121,11 @@ public class InventoryModeManager : MonoBehaviour
                     draggedStackCount = 1;
                 }
 
-                // Setze im aktuellen Slot den sichtbaren StackCount auf 1
                 clickedSlot.setStackCount("1");
-
-                // Entferne das Item aus dem Slot (UI-Update auf leer)
                 clickedSlot.RemoveWeaponInfo();
                 clickedSlot.UpdateSlotUI(inventoryEmpty, null);
                 clickedSlot.setStackCountInvisible();
 
-                // Zeige das Sprite unter dem Mauszeiger an
                 if (draggedItemImage != null)
                 {
                     draggedItemImage.sprite = draggedWeaponInfo.weaponSprite;
@@ -154,11 +133,16 @@ public class InventoryModeManager : MonoBehaviour
                 }
 
                 isDragging = true;
+
+                // +++ NEU: Wenn der Slot der aktive Slot ist, ActiveInventory updaten
+                if (ActiveInventory.Instance.IsSlotTheActiveOne(clickedSlot))
+                {
+                    ActiveInventory.Instance.RecheckActiveSlot();
+                }
             }
         }
         else
         {
-            // Ein Drag ist aktiv -> versuche, das Item abzulegen
             if (clickedSlot.GetWeaponInfo() == null)
             {
                 // Leerer Slot: einfach ablegen
@@ -181,6 +165,12 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 isDragging = false;
                 selectedSlot = null;
+
+                // +++ NEU: Falls man in einen aktiven Slot ablegt
+                if (ActiveInventory.Instance.IsSlotTheActiveOne(clickedSlot))
+                {
+                    ActiveInventory.Instance.RecheckActiveSlot();
+                }
             }
             else
             {
@@ -225,28 +215,23 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 isDragging = false;
                 selectedSlot = null;
+
+                // +++ NEU: Wenn einer der beiden Slots der aktive Slot war
+                if (ActiveInventory.Instance.IsSlotTheActiveOne(clickedSlot) ||
+                    ActiveInventory.Instance.IsSlotTheActiveOne(selectedSlot))
+                {
+                    ActiveInventory.Instance.RecheckActiveSlot();
+                }
             }
         }
     }
 
-    /// <summary>
-    /// Wird aufgerufen, wenn der User auf den "Mülleimer" klickt.
-    /// Hier wird das Item bzw. ein Item aus dem Stack gelöscht.
-    /// 
-    /// Verhalten:
-    /// - Ist ein Item im Drag und hat StackCount > 1, wird nur 1 abgezogen
-    /// - Ist ein Item im Drag mit StackCount == 1, wird es entfernt
-    /// - Liegt das Item im Slot und hat StackCount > 1, wird nur 1 abgezogen
-    /// - Liegt das Item im Slot mit StackCount == 1, wird es entfernt
-    /// </summary>
     public void OnTrashCanClicked()
     {
-        // 1) Falls gerade ein Item gezogen (Drag) wird
         if (isDragging && draggedWeaponInfo != null)
         {
             if (draggedStackCount > 1)
             {
-                // StackCounter verringern
                 draggedStackCount--;
             }
             else
@@ -260,10 +245,9 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 isDragging = false;
             }
-            return; // Fertig
+            return;
         }
 
-        // 2) Kein Drag aktiv, aber ein Slot ist ausgewählt
         if (selectedSlot != null)
         {
             int currentCount = 1;
@@ -274,15 +258,9 @@ public class InventoryModeManager : MonoBehaviour
 
             if (currentCount > 1)
             {
-                // Stack verringern
                 currentCount--;
                 selectedSlot.setStackCount(currentCount.ToString());
 
-                // Nur wenn weiter >1 übrig ist, soll es sichtbar bleiben.
-                // Falls genau 1 übrig bleibt, behalten wir es. (Siehe nächster Satz?)
-                // Achtung: Du kannst hier entscheiden, ob 1 Item noch bleiben soll oder nicht.
-                // Der User sagte: "wenn es nur 1 Item gibt, soll es gelöscht werden."
-                // => Also wenn nach dem Abziehen 1 übrig bleibt, wird es ebenfalls gelöscht.
                 if (currentCount == 1)
                 {
                     // Entgültig löschen
@@ -294,18 +272,22 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 else
                 {
-                    // StackCount > 1 -> sichtbar lassen
                     selectedSlot.setStackCountVisible();
                 }
             }
             else
             {
-                // currentCount == 1 => komplett löschen
                 selectedSlot.RemoveWeaponInfo();
                 Transform itemTransform = selectedSlot.transform.GetChild(1);
                 Image itemImage = itemTransform.GetComponent<Image>();
                 itemImage.sprite = inventoryEmpty;
                 DeselectSlot();
+            }
+
+            // +++ NEU: Falls der entfernte Slot der aktive war
+            if (ActiveInventory.Instance.IsSlotTheActiveOne(selectedSlot))
+            {
+                ActiveInventory.Instance.RecheckActiveSlot();
             }
         }
     }
@@ -322,6 +304,7 @@ public class InventoryModeManager : MonoBehaviour
             }
         }
     }
+
 
     private void HighlightSlot(InventorySlot slot, bool highlight)
     {
