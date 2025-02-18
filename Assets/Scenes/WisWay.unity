@@ -37928,6 +37928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SavePointPanel: {fileID: 1191197433}
+  SaveButton: {fileID: 1179045786}
+  SpawnPoint: {fileID: 459053104}
 --- !u!70 &459053109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -47872,7 +47874,7 @@ GameObject:
   - component: {fileID: 1179045787}
   - component: {fileID: 1179045786}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
