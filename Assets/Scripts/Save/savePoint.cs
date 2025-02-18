@@ -8,6 +8,7 @@ public class SavePoint : MonoBehaviour
     [SerializeField] private GameObject SavePointPanel;
     [SerializeField] private Button SaveButton;  
     [SerializeField] private GameObject SpawnPoint;
+    private GameManager gameManager;
 
    private void Start()
     {
@@ -62,6 +63,12 @@ public class SavePoint : MonoBehaviour
         {
             Debug.LogError("UICanvas konnte nicht gefunden werden!");
         }
+
+        gameManager = FindObjectOfType<GameManager>();
+        if (gameManager == null)
+        {
+            Debug.LogError("GameManager wurde nicht gefunden!");
+        }
     }
 
     private void OnSaveButtonClicked()
@@ -69,6 +76,14 @@ public class SavePoint : MonoBehaviour
         SavePointPanel.SetActive(false);
         SpawnPoint.SetActive(false);
         Debug.Log("Save Button wurde gedrückt!");
+        if (gameManager != null)
+        {
+            gameManager.SaveGame();
+        }
+        else
+        {
+            Debug.LogError("GameManager wurde nicht gefunden!");
+        }
     }
 
     
