@@ -26,6 +26,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool facingLeft = false;
     private bool isDashing = false;
     private bool isDragging = false;
+    private bool submitPressed = false;
 
     protected override void Awake()
     {
@@ -36,6 +37,12 @@ public class PlayerController : Singleton<PlayerController>
         myAnimatorPlayer = GetComponent<Animator>();
         mySpriteRender = GetComponent<SpriteRenderer>();
         knockback = GetComponent<Knockback>();
+    }
+
+
+    public static PlayerController GetInstance()
+    {
+        return Instance;
     }
 
     private void Start()
@@ -64,6 +71,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
+        if (DialogueManager.Instance.dialogueIsPlaying) {return;}
+
         AdjustPlayerFacingDirection();
         Move();
     }
@@ -147,5 +156,10 @@ public class PlayerController : Singleton<PlayerController>
     public void deactivateDraggingAnimation()
     {
         isDragging = false;
+    }
+
+    public void RegisterSubmitPressed()
+    {
+        submitPressed = false;
     }
 }
