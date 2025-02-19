@@ -29,7 +29,7 @@ public class Stamina : Singleton<Stamina>
 
     public void UseStamina()
     {
-        if (DialogueManager.Instance.dialogueIsPlaying == true) { return; }
+       // if (DialogueManager.Instance.dialogueIsPlaying == true) { return; }
 
         currentStamina--;
         UpdateStaminaImages();
