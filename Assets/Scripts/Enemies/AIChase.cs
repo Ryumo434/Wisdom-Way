@@ -18,7 +18,9 @@ public class AIChase : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {               // Distance berechnet den Abstand zwischen zwei gameobjects und gibt diesen als Float zurück
+    {   
+        
+        // Distance berechnet den Abstand zwischen zwei gameobjects und gibt diesen als Float zurück
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();

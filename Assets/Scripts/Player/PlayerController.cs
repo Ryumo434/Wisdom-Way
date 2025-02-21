@@ -26,7 +26,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool facingLeft = false;
     private bool isDashing = false;
     private bool isDragging = false;
-    private bool submitPressed = false;
+    
 
     protected override void Awake()
     {
@@ -158,8 +158,5 @@ public class PlayerController : Singleton<PlayerController>
         isDragging = false;
     }
 
-    public void RegisterSubmitPressed()
-    {
-        submitPressed = false;
-    }
+   
 }

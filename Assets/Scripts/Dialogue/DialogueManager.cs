@@ -7,10 +7,17 @@ using UnityEngine.SearchService;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Params")]
+    [SerializeField] private float typingSpeed = 0.04f; //je kleiner die Zahl ist destu Schneller die Geschwindigkeit da es sich hier um den zeitlichen Abstand zwischen den Buchstaben handelt
+
+
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject continueIcon;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
+    [SerializeField] private Animator portraitAnimator; 
+    private Animator layoutAnimator;
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -20,6 +27,15 @@ public class DialogueManager : MonoBehaviour
     private int selectedChoiceIndex = 0;
 
     public bool dialogueIsPlaying { get; private set; }
+
+    private bool canContinueToNextLine = false;
+
+    private bool canSkip;
+
+    private bool submitSkip;
+
+    private Coroutine displayLineCoroutine;
+
     public static DialogueManager Instance { get; private set; }
 
     private const string SPEAKER_TAG = "speaker";
@@ -41,6 +57,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
+        layoutAnimator = dialoguePanel.GetComponent<Animator>();
+
         // Initialisiere das Array für die Wahltexte
         choicesText = new TextMeshProUGUI[choices.Length];
         for (int i = 0; i < choices.Length; i++)
@@ -51,10 +69,14 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueIsPlaying)
-            return;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            submitSkip = true;
+        }
 
-        if (currentStory.currentChoices.Count == 0)
+        if (!dialogueIsPlaying) {return;}
+
+        if (canContinueToNextLine == true && currentStory.currentChoices.Count == 0)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -102,6 +124,11 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        //setzt Portrait, layout und Sprecher zurück (Damit die Tagvalues nicht aus vergangenen Gespräche genommen werden.
+        displayNameText.text = "???";
+        portraitAnimator.Play("default");
+        layoutAnimator.Play("right");
+
         ContinueStory();
     }
 
@@ -117,8 +144,14 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-            DisplayChoices();
+            //Sollte displaycotoutine noch instanziert sein wird der Coroutine Gestoppt; So wird verhindert das sich alte dialogcoroutine und neue üvberschneiden wenn zu schnell geskiptt wird
+            if(displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            
 
             HandleTags(currentStory.currentTags);
         }
@@ -127,6 +160,67 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(ExitDialogueMode());
         }
     }
+
+    
+
+    private IEnumerator DisplayLine(string line)
+    {
+        
+
+        //DialogText leeren
+        dialogueText.text = "";
+
+        //Objeckte Verstecken bis der Text zuende geschrieben wurde
+        continueIcon.SetActive(false);
+        HideChoices();
+
+        submitSkip = false;
+        canContinueToNextLine = false;
+
+        StartCoroutine(CanSkip());
+
+        //display ech letter one at a time
+        foreach (char letter in line.ToCharArray())
+        {
+            
+            //Wenn der Spieler auf die Leertaste drückt während dem Typwriting effekt wird sofort die ganze Zeile ausgegeben
+            if (canSkip && submitSkip)
+            {
+                submitSkip = false; 
+                dialogueText.text = line;
+                break;
+            }
+
+            //hinzufügen eines einzelnen Buchstaben zum gesamtdialog (so wird buchstabenach buchstabe hinzugefügt)
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+        }
+
+        continueIcon.SetActive(true);
+        DisplayChoices();
+
+        canContinueToNextLine = true;
+        canSkip = false;
+    }
+
+
+    private IEnumerator CanSkip()
+    {
+        canSkip = false;
+        yield return new WaitForSeconds(0.05f);
+        canSkip = true;
+    }
+
+
+    private void HideChoices()
+    {
+        foreach(GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
+        }
+    }
+
 
     private void HandleTags(List<string> currentTags)
     {
@@ -152,9 +246,12 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log("DisplayNameText=" + tagValue);
                     break;
                 case PORTRAIT_TAG:
+                    //"Play" ist in der Lage eine beliebige Animation abzuspielen
+                    portraitAnimator.Play(tagValue);
                     Debug.Log("portrait=" + tagValue);
                     break;
                 case LAYOUT_TAG:
+                    layoutAnimator.Play(tagValue);
                     Debug.Log("layout=" + tagValue);
                     break;
                 default:
@@ -195,9 +292,14 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        Debug.Log($"Gewählte Wahl: {choiceIndex}");
-        currentStory.ChooseChoiceIndex(choiceIndex);
-        PlayerController.GetInstance().RegisterSubmitPressed();
-        ContinueStory();
+        if (canContinueToNextLine) 
+        {
+            Debug.Log($"Gewählte Wahl: {choiceIndex}");
+            currentStory.ChooseChoiceIndex(choiceIndex);
+
+            ContinueStory();
+        }
+
+        
     }
 }
