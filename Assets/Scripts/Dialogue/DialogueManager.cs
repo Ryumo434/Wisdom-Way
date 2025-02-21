@@ -148,7 +148,8 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SPEAKER_TAG:
-                    displayNameText.text = tagValue;            
+                    displayNameText.text = tagValue;
+                    Debug.Log("DisplayNameText=" + tagValue);
                     break;
                 case PORTRAIT_TAG:
                     Debug.Log("portrait=" + tagValue);
