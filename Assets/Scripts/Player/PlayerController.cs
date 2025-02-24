@@ -66,12 +66,13 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Update()
     {
+        if (DialogueManager.Instance.dialogueIsPlaying) { return; }
         PlayerInput();
     }
 
     private void FixedUpdate()
     {
-       // if (DialogueManager.Instance.dialogueIsPlaying) {return;}
+        if (DialogueManager.Instance.dialogueIsPlaying) {return;}
 
         AdjustPlayerFacingDirection();
         Move();
@@ -86,6 +87,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void PlayerInput()
     {
+        
+
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
 
         myAnimatorPlayer.SetFloat("moveX", movement.x);
@@ -95,6 +98,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
+        
+
         if (knockback.GettingKnockedBack || PlayerHealth.Instance.isDead || isQuizPlaying) { return; }
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }

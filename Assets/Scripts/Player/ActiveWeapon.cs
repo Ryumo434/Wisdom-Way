@@ -31,6 +31,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Update()
     {
+        if (DialogueManager.Instance.dialogueIsPlaying) { return; }
         Attack();
     }
 

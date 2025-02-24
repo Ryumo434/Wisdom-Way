@@ -20,6 +20,8 @@ public class EnemyPathFinding : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (DialogueManager.Instance.dialogueIsPlaying) { return; }
+
         if (knockback.GettingKnockedBack) { return; }
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 

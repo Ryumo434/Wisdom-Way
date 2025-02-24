@@ -23,9 +23,6 @@ public class Sword : MonoBehaviour, IWeapon
     private void Start()
     {
         weaponCollider = PlayerController.Instance.GetWeaponCollider();
-
-
-
         slashAnimSpawnPoint = GameObject.Find("SlashSpawnPoint").transform;
 
     }
@@ -37,6 +34,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void Update()
     {
+        if (DialogueManager.Instance.dialogueIsPlaying) { return; }
         MouseFollowWithOffset();
     }
      

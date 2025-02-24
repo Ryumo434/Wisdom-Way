@@ -9,6 +9,8 @@ public class AIChase : MonoBehaviour
     public float ChaseSpeed;
     public float ChaseDistance;
 
+    
+
     private float distance;
     // Start is called before the first frame update
     void Start()
@@ -18,8 +20,8 @@ public class AIChase : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        
+    {
+        if(DialogueManager.Instance.dialogueIsPlaying) {return;}
         // Distance berechnet den Abstand zwischen zwei gameobjects und gibt diesen als Float zurück
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;

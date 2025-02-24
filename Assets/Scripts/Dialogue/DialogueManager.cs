@@ -17,7 +17,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] private Animator portraitAnimator;
-    // [SerializeField] private GameObject darkBackground;
+
+    [SerializeField] public GameObject UICanvas;
+    [SerializeField] public GameObject ActiveWeapon;
+    [SerializeField] private GameObject darkBackground;
     private Animator layoutAnimator;
 
     [Header("Choices UI")]
@@ -45,6 +48,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+        
+
         if (Instance != null)
         {
             Debug.LogWarning("Mehr als ein DialogueManager in der Szene gefunden!");
@@ -94,20 +99,23 @@ public class DialogueManager : MonoBehaviour
     {
         int choiceCount = currentStory.currentChoices.Count;
 
-        // Navigation mit den Pfeiltasten
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (choiceCount > 0)
         {
-            selectedChoiceIndex = (selectedChoiceIndex - 1 + choiceCount) % choiceCount;
-            UpdateChoiceUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
-            selectedChoiceIndex = (selectedChoiceIndex + 1) % choiceCount;
-            UpdateChoiceUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MakeChoice(selectedChoiceIndex);
+            // Navigation mit den Pfeiltasten
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                selectedChoiceIndex = (selectedChoiceIndex - 1 + choiceCount) % choiceCount;
+                UpdateChoiceUI();
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                selectedChoiceIndex = (selectedChoiceIndex + 1) % choiceCount;
+                UpdateChoiceUI();
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                MakeChoice(selectedChoiceIndex);
+            }
         }
     }
 
@@ -122,7 +130,9 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJSON)
     {
 
-        //darkBackground.SetActive(true);
+        darkBackground.SetActive(true);
+        UICanvas.SetActive(false);
+        ActiveWeapon.SetActive(false);
 
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
@@ -146,6 +156,10 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
+        darkBackground.SetActive(false);
+        UICanvas.SetActive(true);
+        ActiveWeapon.SetActive(true);
 
     }
 
@@ -310,5 +324,10 @@ public class DialogueManager : MonoBehaviour
         }
 
 
+    }
+
+    public DialogueManager GetInstance() {
+
+        return Instance;
     }
 }
