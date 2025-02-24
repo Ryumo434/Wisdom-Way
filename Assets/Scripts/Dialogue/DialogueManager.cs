@@ -16,7 +16,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject continueIcon;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
-    [SerializeField] private Animator portraitAnimator; 
+    [SerializeField] private Animator portraitAnimator;
+    // [SerializeField] private GameObject darkBackground;
     private Animator layoutAnimator;
 
     [Header("Choices UI")]
@@ -74,7 +75,7 @@ public class DialogueManager : MonoBehaviour
             submitSkip = true;
         }
 
-        if (!dialogueIsPlaying) {return;}
+        if (!dialogueIsPlaying) { return; }
 
         if (canContinueToNextLine == true && currentStory.currentChoices.Count == 0)
         {
@@ -120,6 +121,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+
+        //darkBackground.SetActive(true);
+
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
@@ -129,7 +133,11 @@ public class DialogueManager : MonoBehaviour
         portraitAnimator.Play("default");
         layoutAnimator.Play("right");
 
+
+
         ContinueStory();
+
+
     }
 
     private IEnumerator ExitDialogueMode()
@@ -138,6 +146,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
     }
 
     private void ContinueStory()
@@ -145,13 +154,13 @@ public class DialogueManager : MonoBehaviour
         if (currentStory.canContinue)
         {
             //Sollte displaycotoutine noch instanziert sein wird der Coroutine Gestoppt; So wird verhindert das sich alte dialogcoroutine und neue üvberschneiden wenn zu schnell geskiptt wird
-            if(displayLineCoroutine != null)
+            if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
             }
 
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
-            
+
 
             HandleTags(currentStory.currentTags);
         }
@@ -161,11 +170,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    
+
 
     private IEnumerator DisplayLine(string line)
     {
-        
+
 
         //DialogText leeren
         dialogueText.text = "";
@@ -182,11 +191,11 @@ public class DialogueManager : MonoBehaviour
         //display ech letter one at a time
         foreach (char letter in line.ToCharArray())
         {
-            
+
             //Wenn der Spieler auf die Leertaste drückt während dem Typwriting effekt wird sofort die ganze Zeile ausgegeben
             if (canSkip && submitSkip)
             {
-                submitSkip = false; 
+                submitSkip = false;
                 dialogueText.text = line;
                 break;
             }
@@ -215,7 +224,7 @@ public class DialogueManager : MonoBehaviour
 
     private void HideChoices()
     {
-        foreach(GameObject choiceButton in choices)
+        foreach (GameObject choiceButton in choices)
         {
             choiceButton.SetActive(false);
         }
@@ -230,9 +239,9 @@ public class DialogueManager : MonoBehaviour
             //parse the tag
             string[] splitTag = tag.Split(':');
 
-            if(splitTag.Length != 2 )
+            if (splitTag.Length != 2)
             {
-                Debug.LogError("Tag could not be appropriately parsed : "+ tag);
+                Debug.LogError("Tag could not be appropriately parsed : " + tag);
             }
 
             string tagKey = splitTag[0].Trim();
@@ -271,7 +280,7 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError($"Zu viele Wahlmöglichkeiten! Maximal {choices.Length}, aber {currentChoices.Count} gegeben.");
             return;
         }
-        
+
 
         // Aktiviere und initialisiere nur die benötigten Optionen
         for (int i = 0; i < choices.Length; i++)
@@ -292,7 +301,7 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        if (canContinueToNextLine) 
+        if (canContinueToNextLine)
         {
             Debug.Log($"Gewählte Wahl: {choiceIndex}");
             currentStory.ChooseChoiceIndex(choiceIndex);
@@ -300,6 +309,6 @@ public class DialogueManager : MonoBehaviour
             ContinueStory();
         }
 
-        
+
     }
 }
