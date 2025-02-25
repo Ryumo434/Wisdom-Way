@@ -34,7 +34,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void Update()
     {
-        if (DialogueManager.Instance.dialogueIsPlaying) { return; }
+        
         MouseFollowWithOffset();
     }
      
