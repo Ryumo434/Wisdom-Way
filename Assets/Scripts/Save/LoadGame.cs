@@ -29,7 +29,7 @@ public class LoadGame : MonoBehaviour
         Debug.Log("Save Button wurde gedrückt!");  */
         if (gameManager != null)
         {
-            gameManager.SaveGame();
+            gameManager.LoadGame();
         }
         else
         {
