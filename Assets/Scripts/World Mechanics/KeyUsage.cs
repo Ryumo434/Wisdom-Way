@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyUsage : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private KeyController keyController;
+    [SerializeField] private Image eImage;
 
     private bool isPlayerInTrigger = false;
     private GameObject itemGameObject;
@@ -59,8 +61,22 @@ public class KeyUsage : MonoBehaviour
             if (keyController.playerHasKey && prefab.name == "useKey")
             {
                 keyController.door.SetActive(false);
+                eImage.gameObject.SetActive(true);
                 itemGameObject.SetActive(false);
             }
         }
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInTrigger = false;
+            if (keyController.playerHasKey && prefab.name == "useKey")
+            {
+                eImage.gameObject.SetActive(false);
+            }
+        }
+    }
+
 }
