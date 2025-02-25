@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7626468946521332359}
   m_Layer: 0
   m_Name: Active Weapon
-  m_TagString: Untagged
+  m_TagString: ActiveWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

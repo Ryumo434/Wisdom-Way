@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using Ink.Runtime;
 using UnityEngine.SearchService;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public GameObject UICanvas;
     [SerializeField] public GameObject ActiveWeapon;
     [SerializeField] private GameObject darkBackground;
+
+   //public GameObject pauseMenu; // Dein Pausemenü-Canvas
+
+    
+
     private Animator layoutAnimator;
 
     [Header("Choices UI")]
@@ -48,7 +54,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
+        UICanvas = GameObject.FindWithTag("UICanvas");
+        ActiveWeapon = GameObject.FindWithTag("ActiveWeapon");
+
 
         if (Instance != null)
         {
@@ -162,6 +171,9 @@ public class DialogueManager : MonoBehaviour
         UICanvas.SetActive(true);
         ActiveWeapon.SetActive(true);
 
+        //PauseMenuScript.Instance.reactivatePauseMenu();
+        //pauseMenu.SetActive(false);
+        //pauseMenu.SetActive(true);
     }
 
     private void ContinueStory()

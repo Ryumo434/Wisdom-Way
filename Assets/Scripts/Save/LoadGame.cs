@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class LoadGame : MonoBehaviour
 {
     [SerializeField] private Button LoadButton;
-    [SerializeField] private GameManager gameManager;
+    //[SerializeField] private GameManager gameManager;
+
+    GameManager gameManager;
    // [SerializeField] private GameObject SpawnPoint;
 
     void Start()
     {
+        //gameManager = GetComponent<GameManager>();
         LoadButton.onClick.AddListener(OnSaveButtonClicked);
     }
 
@@ -27,13 +30,20 @@ public class LoadGame : MonoBehaviour
             Debug.LogError("SpawnPoint wurde nicht gefunden!");
         }
         Debug.Log("Save Button wurde gedrückt!");  */
+        
+        //dieses if statemant ist unnnötig //Nasser
         if (gameManager != null)
         {
-            gameManager.LoadGame();
+            //gameManager.LoadGame();
+            GameManager.Instance.LoadGame();
         }
         else
         {
-            Debug.LogError("GameManager wurde nicht gefunden!");
+            
+           // Debug.LogError("GameManager wurde nicht gefunden!");
         }
-        }
+
+
+        GameManager.Instance.LoadGame();
+    }
 }

@@ -28,6 +28,8 @@ TagManager:
   - ShopUI
   - weapon
   - potion
+  - UICanvas
+  - ActiveWeapon
   layers:
   - Default
   - TransparentFX
