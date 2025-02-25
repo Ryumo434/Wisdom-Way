@@ -30,6 +30,7 @@ TagManager:
   - potion
   - UICanvas
   - ActiveWeapon
+  - PauseMenuCanvas
   layers:
   - Default
   - TransparentFX

@@ -19,10 +19,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] private Animator portraitAnimator;
 
-    [SerializeField] public GameObject UICanvas;
-    [SerializeField] public GameObject ActiveWeapon;
+    [SerializeField] private GameObject UICanvas;
+    [SerializeField] private GameObject ActiveWeapon;
     [SerializeField] private GameObject darkBackground;
 
+    [SerializeField] private GameObject pauseMenuCanvas;
    //public GameObject pauseMenu; // Dein Pausemenü-Canvas
 
     
@@ -57,6 +58,7 @@ public class DialogueManager : MonoBehaviour
 
         UICanvas = GameObject.FindWithTag("UICanvas");
         ActiveWeapon = GameObject.FindWithTag("ActiveWeapon");
+        pauseMenuCanvas = GameObject.FindWithTag("PauseMenuCanvas");
 
 
         if (Instance != null)
@@ -171,9 +173,9 @@ public class DialogueManager : MonoBehaviour
         UICanvas.SetActive(true);
         ActiveWeapon.SetActive(true);
 
-        //PauseMenuScript.Instance.reactivatePauseMenu();
-        //pauseMenu.SetActive(false);
-        //pauseMenu.SetActive(true);
+        
+        pauseMenuCanvas.SetActive(false);
+        pauseMenuCanvas.SetActive(true);
     }
 
     private void ContinueStory()

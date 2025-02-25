@@ -18,6 +18,8 @@ public class PauseMenuScript : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu;
 
+    public static PauseMenuScript Instance;
+
 
 
     void Update()
@@ -84,5 +86,12 @@ public class PauseMenuScript : MonoBehaviour
     {
 
     }
+
+    public void reactivatePauseMenu()
+    {
+        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(true);
+    }
+
 
 }

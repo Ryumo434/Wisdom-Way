@@ -7151,6 +7151,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1060326537}
     - target: {fileID: 5122534957083612627, guid: 9907af75c59e0884c9cd99df87def0af, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1562698149}
+    - target: {fileID: 5122534957083612627, guid: 9907af75c59e0884c9cd99df87def0af, type: 3}
       propertyPath: ActiveWeapon
       value: 
       objectReference: {fileID: 129715467}
@@ -78313,7 +78317,7 @@ GameObject:
   - component: {fileID: 1562698154}
   m_Layer: 5
   m_Name: PauseMenuCanvas
-  m_TagString: Untagged
+  m_TagString: PauseMenuCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
