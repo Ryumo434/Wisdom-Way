@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         {
             SaveGame();
         }
-        else if (Input.GetKeyDown(KeyCode.F9))
+        else if (Input.GetKeyDown(KeyCode.F10))
         {
             LoadGame();
         }

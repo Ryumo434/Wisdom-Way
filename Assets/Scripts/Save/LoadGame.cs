@@ -7,6 +7,7 @@ public class LoadGame : MonoBehaviour
 {
     [SerializeField] private Button LoadButton;
     [SerializeField] private GameManager gameManager;
+   // [SerializeField] private GameObject SpawnPoint;
 
     void Start()
     {
@@ -15,14 +16,24 @@ public class LoadGame : MonoBehaviour
 
     private void OnSaveButtonClicked()
     {
-        if (gameManager != null)
+    /*    SavePointPanel.SetActive(false);
+        if (SpawnPoint != null)
         {
-            Debug.Log("Load Button wurde gedrückt!");
-            gameManager.LoadGame();
+            SpawnPoint.SetActive(false);
+            Debug.Log("SpawnPoint wurde deaktiviert.");
         }
         else
         {
-            Debug.LogError("GameManager ist nicht zugewiesen!");
+            Debug.LogError("SpawnPoint wurde nicht gefunden!");
         }
-    }
+        Debug.Log("Save Button wurde gedrückt!");  */
+        if (gameManager != null)
+        {
+            gameManager.SaveGame();
+        }
+        else
+        {
+            Debug.LogError("GameManager wurde nicht gefunden!");
+        }
+        }
 }
