@@ -1,6 +1,4 @@
-﻿using TMPro;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryModeManager : MonoBehaviour
@@ -31,21 +29,17 @@ public class InventoryModeManager : MonoBehaviour
 
     void Update()
     {
-        // 1) Escape-Input blocken, wenn Inventar offen ist
-        //    (und ggf. Inventar damit schließen, anstatt das Hauptmenü zu öffnen).
         if (isInventoryModeActive && Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleInventoryMode();
             return;
         }
 
-        // 2) Inventar per Taste "I" öffnen/schließen (oder Esc, wenn man das möchte)
         if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleInventoryMode();
         }
 
-        // Wenn ein Item "gezogen" wird, soll es der Maus folgen
         if (isDragging && draggedItemImage != null)
         {
             Vector2 mousePos = Input.mousePosition;
@@ -82,13 +76,11 @@ public class InventoryModeManager : MonoBehaviour
     {
         if (isDragging)
         {
-            // Item zurück in den Ursprungsslot
             if (draggedWeaponInfo != null && selectedSlot != null)
             {
                 selectedSlot.SetWeaponInfo(draggedWeaponInfo);
                 selectedSlot.UpdateSlotUI(inventoryEmpty, draggedWeaponInfo.weaponSprite);
 
-                // StackCount wiederherstellen
                 if (draggedStackCount > 1)
                 {
                     selectedSlot.setStackCount(draggedStackCount.ToString());
@@ -96,12 +88,10 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 else
                 {
-                    // Ganz wichtig: erst "1" setzen, dann unsichtbar machen.
                     selectedSlot.setStackCount("1");
                     selectedSlot.setStackCountInvisible();
                 }
             }
-            // Wichtig: Nach Abbruch wieder zurücksetzen
             draggedStackCount = 1;
 
             isDragging = false;
@@ -116,16 +106,13 @@ public class InventoryModeManager : MonoBehaviour
 
     public void OnSlotClicked(InventorySlot clickedSlot)
     {
-        // 1) Wenn kein Drag aktiv ist -> Item aus Slot aufnehmen
         if (!isDragging)
         {
             if (clickedSlot.GetWeaponInfo() != null)
             {
-                // Ursprungsslot und das Item merken
                 selectedSlot = clickedSlot;
                 draggedWeaponInfo = clickedSlot.GetWeaponInfo();
 
-                // StackCount auslesen
                 if (int.TryParse(clickedSlot.getStackCount().text, out int count))
                 {
                     draggedStackCount = count;
@@ -135,7 +122,6 @@ public class InventoryModeManager : MonoBehaviour
                     draggedStackCount = 1;
                 }
 
-                // Slot vollständig leeren -> auf "0" setzen, da Item rausgenommen
                 clickedSlot.setStackCount("0");
                 clickedSlot.RemoveWeaponInfo();
                 clickedSlot.UpdateSlotUI(inventoryEmpty, null);
@@ -149,17 +135,14 @@ public class InventoryModeManager : MonoBehaviour
 
                 isDragging = true;
 
-                // Falls der aufgenommene Slot der aktive Slot war, erneut prüfen
                 if (ActiveInventory.Instance.IsSlotTheActiveOne(clickedSlot))
                 {
                     ActiveInventory.Instance.RecheckActiveSlot();
                 }
             }
         }
-        // 2) Wenn bereits Drag aktiv ist -> Item ablegen oder tauschen
         else
         {
-            // Leerer Slot -> einfach ablegen
             if (clickedSlot.GetWeaponInfo() == null)
             {
                 clickedSlot.SetWeaponInfo(draggedWeaponInfo);
@@ -172,7 +155,6 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 else
                 {
-                    // WICHTIG: erst "1", dann unsichtbar
                     clickedSlot.setStackCount("1");
                     clickedSlot.setStackCountInvisible();
                 }
@@ -185,10 +167,8 @@ public class InventoryModeManager : MonoBehaviour
                 isDragging = false;
                 selectedSlot = null;
 
-                // Drag-Stack zurücksetzen
                 draggedStackCount = 1;
 
-                // Falls in einen aktiven Slot abgelegt
                 if (ActiveInventory.Instance.IsSlotTheActiveOne(clickedSlot))
                 {
                     ActiveInventory.Instance.RecheckActiveSlot();
@@ -196,7 +176,6 @@ public class InventoryModeManager : MonoBehaviour
             }
             else
             {
-                // Ziel-Slot enthält bereits ein Item -> Swap
                 WeaponInfo targetWeapon = clickedSlot.GetWeaponInfo();
                 int targetStackCount = 1;
                 if (int.TryParse(clickedSlot.getStackCount().text, out int countTarget))
@@ -204,7 +183,6 @@ public class InventoryModeManager : MonoBehaviour
                     targetStackCount = countTarget;
                 }
 
-                // Platziere das gezogene Item im Ziel-Slot
                 clickedSlot.SetWeaponInfo(draggedWeaponInfo);
                 clickedSlot.UpdateSlotUI(inventoryEmpty, draggedWeaponInfo.weaponSprite);
 
@@ -219,7 +197,6 @@ public class InventoryModeManager : MonoBehaviour
                     clickedSlot.setStackCountInvisible();
                 }
 
-                // Das ursprünglich im Ziel-Slot liegende Item wandert in den Ursprungsslot
                 selectedSlot.SetWeaponInfo(targetWeapon);
                 selectedSlot.UpdateSlotUI(inventoryEmpty, targetWeapon.weaponSprite);
 
@@ -241,11 +218,9 @@ public class InventoryModeManager : MonoBehaviour
                 }
                 isDragging = false;
 
-                // Drag-Stack zurücksetzen
                 draggedStackCount = 1;
                 selectedSlot = null;
 
-                // Falls einer der beiden Slots der aktive Slot war
                 if (ActiveInventory.Instance.IsSlotTheActiveOne(clickedSlot) ||
                     ActiveInventory.Instance.IsSlotTheActiveOne(selectedSlot))
                 {
@@ -257,7 +232,6 @@ public class InventoryModeManager : MonoBehaviour
 
     public void OnTrashCanClicked()
     {
-        // 1) Wenn wir gerade ein Item ziehen und es löschen wollen
         if (isDragging && draggedWeaponInfo != null)
         {
             if (draggedStackCount > 1)
@@ -266,7 +240,6 @@ public class InventoryModeManager : MonoBehaviour
             }
             else
             {
-                // Nur 1 Item -> komplett löschen
                 draggedWeaponInfo = null;
                 if (draggedItemImage != null)
                 {
@@ -278,7 +251,6 @@ public class InventoryModeManager : MonoBehaviour
             return;
         }
 
-        // 2) Falls wir ein Item aus dem Slot löschen wollen
         if (selectedSlot != null)
         {
             int currentCount = 1;
@@ -294,18 +266,7 @@ public class InventoryModeManager : MonoBehaviour
 
                 if (currentCount == 1)
                 {
-                    // Hier entscheidest du, ob das Item bei "1" komplett gelöscht werden soll oder sichtbar bleibt.
-                    // Der Code unten sagt, wenn wir auf 1 kommen, Item entfernen (??). 
-                    // Vermutlich willst du es beibehalten, also ggf. diesen Code anpassen.
-
-                    // Im Original war "Entgültig löschen", wenn er 1 erreicht – das scheint aber
-                    // eher ein Logikfehler zu sein, weil wir es ja noch 1x behalten wollen.
-                    // Passe das auf deinen gewünschten Ablauf an:
-
-                    // selectedSlot.RemoveWeaponInfo();
-                    // ...
-
-                    // Ich demonstriere hier mal, wie es ansonsten wäre:
+                    
                     selectedSlot.setStackCount("1");
                     selectedSlot.setStackCountInvisible();
                 }
@@ -323,7 +284,6 @@ public class InventoryModeManager : MonoBehaviour
                 DeselectSlot();
             }
 
-            // Falls der entfernte Slot der aktive war
             if (ActiveInventory.Instance.IsSlotTheActiveOne(selectedSlot))
             {
                 ActiveInventory.Instance.RecheckActiveSlot();
@@ -335,17 +295,11 @@ public class InventoryModeManager : MonoBehaviour
     {
         if (selectedSlot != null)
         {
-            HighlightSlot(selectedSlot, false);
             selectedSlot = null;
             if (draggedItemImage != null)
             {
                 draggedItemImage.sprite = inventoryEmpty;
             }
         }
-    }
-
-    private void HighlightSlot(InventorySlot slot, bool highlight)
-    {
-        // Optional: Hier könntest du den Slot grafisch hervorheben
     }
 }
