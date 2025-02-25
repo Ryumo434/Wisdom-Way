@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         Instance = this;
+        dialoguePanel.SetActive(false);
     }
 
     private void Start()
