@@ -6,7 +6,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public MonoBehaviour CurrentActiveWeapon { get; private set; }
 
     private PlayerControls playerControls;
-    private float timeBetweenAttacks;
+    private float timeBetweenAttacks = 0.5f;
 
     private bool attackButtonDown, isAttacking = false;
 
@@ -31,7 +31,14 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Update()
     {
-        if (DialogueManager.Instance.dialogueIsPlaying) { return; }
+        if (DialogueManager.Instance != null)
+        {
+            if (DialogueManager.Instance.dialogueIsPlaying)
+            {
+                return;
+            }
+        }
+
         Attack();
     }
 
@@ -39,17 +46,27 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         CurrentActiveWeapon = newWeapon;
 
-        AttackCooldown();
-        timeBetweenAttacks = (CurrentActiveWeapon as IWeapon).GetWeaponInfo().weaponCooldown;
+        if (CurrentActiveWeapon != null)
+        {
+            IWeapon weapon = CurrentActiveWeapon as IWeapon;
+            if (weapon != null)
+            {
+                timeBetweenAttacks = weapon.GetWeaponInfo().weaponCooldown;
+            }
+        }
+        else
+        {
+            timeBetweenAttacks = 0.5f;
+        }
 
-        // Reset the attack state when a new weapon is equipped
+        AttackCooldown();
         isAttacking = false;
     }
 
     public void WeaponNull()
     {
         CurrentActiveWeapon = null;
-        isAttacking = false; // Reset when no weapon is active
+        isAttacking = false;
     }
 
     private void AttackCooldown()
@@ -77,10 +94,18 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Attack()
     {
-        if (attackButtonDown && !isAttacking && CurrentActiveWeapon)
+        if (!attackButtonDown || isAttacking || CurrentActiveWeapon == null)
+            return;
+
+        IWeapon weapon = CurrentActiveWeapon as IWeapon;
+        if (weapon == null)
         {
-            AttackCooldown();
-            (CurrentActiveWeapon as IWeapon).Attack();
+            Debug.LogWarning("CurrentActiveWeapon implementiert nicht das Interface IWeapon.");
+            return;
         }
+
+        AttackCooldown();
+
+        weapon.Attack();
     }
 }

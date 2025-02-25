@@ -51,7 +51,6 @@ public class PotionEffectManager : MonoBehaviour
 
     private IEnumerator SpeedPotionEffectCoroutine(WeaponInfo weaponInfo, float duration, float speedMultiplier, Sprite emptySprite, GameObject go)
     {
-        // Erhöhe die Geschwindigkeit
         PlayerController.Instance.setMoveSpeed(speedMultiplier);
         Debug.Log("SpeedPotion aktiviert: Geschwindigkeit erhöht!");
 
@@ -63,7 +62,6 @@ public class PotionEffectManager : MonoBehaviour
             elapsed += Time.deltaTime;
         }
 
-        // Setze die Geschwindigkeit wieder auf Standard
         PlayerController.Instance.setMoveSpeed(1.0f);
         Debug.Log("SpeedPotion Effekt abgelaufen: Geschwindigkeit zurückgesetzt.");
         HidePotionTimer(weaponInfo);
@@ -72,15 +70,26 @@ public class PotionEffectManager : MonoBehaviour
 
     public void UseHealPotion(WeaponInfo weaponInfo, Sprite emptySprite, GameObject go)
     {
-        // Heile den Spieler
-        int currentPlayerHealth = PlayerHealth.Instance.getCurrentPlayerHealth();
-        int amountToHeal = 20 - currentPlayerHealth;
-        if (amountToHeal > 10)
+        int maxHealth = 20;
+        int currentHealth = PlayerHealth.Instance.getCurrentPlayerHealth();
+        int missingHealth = maxHealth - currentHealth;
+        int amountToHeal = 10;
+
+        if (missingHealth < 10)
         {
-            amountToHeal = 10;
+            amountToHeal = missingHealth;
         }
+
+        if (amountToHeal <= 0)
+        {
+            Debug.Log("HealPotion: Spieler ist fast voll, keine Heilung nötig.");
+            RemovePotionFromInventory(weaponInfo, emptySprite, go);
+            return;
+        }
+
         PlayerHealth.Instance.HealPlayer(amountToHeal);
         Debug.Log("HealPotion aktiviert: Spieler geheilt um " + amountToHeal + " HP.");
+
         RemovePotionFromInventory(weaponInfo, emptySprite, go);
     }
 
@@ -108,7 +117,6 @@ public class PotionEffectManager : MonoBehaviour
         {
             if (slot.GetWeaponInfo() == weaponInfo)
             {
-                // Timer ausblenden, fertig
                 slot.setTimerInvisible();
             }
         }
@@ -117,14 +125,12 @@ public class PotionEffectManager : MonoBehaviour
 
     private void RemovePotionFromInventory(WeaponInfo weaponInfo, Sprite emptySprite, GameObject go)
     {
-        // Suche alle InventorySlots (auch inaktive)
         InventorySlot[] inventorySlots = FindObjectsOfType<InventorySlot>(true);
 
         foreach (InventorySlot slot in inventorySlots)
         {
             if (slot.GetWeaponInfo() == weaponInfo)
             {
-                // Aktualisiere den StackCount
                 if (slot.getStackCount().text != "1")
                 {
                     int newValue = int.Parse(slot.getStackCount().text) - 1;
@@ -145,7 +151,6 @@ public class PotionEffectManager : MonoBehaviour
                     slot.setStackCountInvisible();
                 }
 
-                // Ändere das angezeigte Bild im Slot
                 Transform itemChild = slot.transform.Find("Item");
                 if (itemChild != null)
                 {
