@@ -52,3 +52,4 @@ Verstanden, ich bin direkt hinter dir! #speaker:Yatik #layout:right #portrait:gh
 -> END
 
 
+

@@ -24,9 +24,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject darkBackground;
 
     [SerializeField] private GameObject pauseMenuCanvas;
+
+    [Header("Ghost")]
+    [SerializeField] private bool ghostShouldisappearAfterDialogue = true;
    //public GameObject pauseMenu; // Dein Pausemenü-Canvas
 
-    
+    public bool ghostDisappear = false;
 
     private Animator layoutAnimator;
 
@@ -173,7 +176,10 @@ public class DialogueManager : MonoBehaviour
         UICanvas.SetActive(true);
         ActiveWeapon.SetActive(true);
 
-        
+        if (ghostShouldisappearAfterDialogue) { 
+        ghostDisappear = true;
+        }
+
         pauseMenuCanvas.SetActive(false);
         pauseMenuCanvas.SetActive(true);
     }
