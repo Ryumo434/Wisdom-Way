@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class ButtonUI : MonoBehaviour
@@ -10,31 +11,7 @@ public class ButtonUI : MonoBehaviour
     [SerializeField] private string newGameLevel;
     public void NewGameButton()
     {
-       DontDestroyOnLoad(gameObject);
-        StartCoroutine(FadeOutAndLoadScene(newGameLevel));
-        //SceneManager.LoadScene(newGameLevel);
-        //SceneManager.LoadScene(newGameLevel);
-    }
-
-    //Methode um die Musik langsam aus faden zu lassen  -Nasser
-    
-    private IEnumerator FadeOutAndLoadScene(string sceneName)
-    {
-        
-        float startVolume = backgroundMusic.volume;
-
-        // Verringere die Lautstärke allmählich
-        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
-        {
-            backgroundMusic.volume = Mathf.Lerp(startVolume, 0, t / fadeDuration);
-            yield return null;
-        }
-
-        // Sobald die Musik ausgeblendet ist, stoppe die Musik
-        backgroundMusic.volume = 0;
-        backgroundMusic.Stop();
-
-        // Wechsle die Szene
-       SceneManager.LoadScene(sceneName);
+        DontDestroyOnLoad(gameObject);
+        GameManager.Instance.LoadInitialGame();
     }
 }

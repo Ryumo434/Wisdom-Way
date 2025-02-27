@@ -31,6 +31,7 @@ TagManager:
   - UICanvas
   - ActiveWeapon
   - PauseMenuCanvas
+  - Inventory
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,12 @@ public class InventorySlot : MonoBehaviour
         weaponInfo = null;
     }
 
+    public string getItemName()
+    {
+        return weaponInfo != null ? weaponInfo.name : "EMPTY_SLOT";
+    }
+
+
     // ----- Stack Counter -----
 
     public TextMeshProUGUI getStackCount()

@@ -80009,7 +80009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0014ab495199b0c40828c72f61397b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 20
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
   currentHealth: 0
@@ -81534,7 +81534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 932876306}
-  inventoryEmpty: {fileID: 21300000, guid: a8b20d367a3514b47890de333724c68e, type: 3}
 --- !u!224 &1800539450
 RectTransform:
   m_ObjectHideFlags: 0
