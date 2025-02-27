@@ -93,13 +93,13 @@ public class QuizManagerTMP : MonoBehaviour
     }
 
     void LoadQuestion(int index)
-        {
-            questionText.text = quizData[index, 0];
-            buttonTextA.text = "A: " + quizData[index, 1];
-            buttonTextB.text = "B: " + quizData[index, 2];
-            buttonTextC.text = "C: " + quizData[index, 3];
-            buttonTextD.text = "D: " + quizData[index, 4];
-        }
+    {
+        questionText.text = quizData[index, 0];
+        buttonTextA.text = "A: " + quizData[index, 1];
+        buttonTextB.text = "B: " + quizData[index, 2];
+        buttonTextC.text = "C: " + quizData[index, 3];
+        buttonTextD.text = "D: " + quizData[index, 4];
+    }
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -108,7 +108,7 @@ public class QuizManagerTMP : MonoBehaviour
             {
                 Debug.Log("Player hat Trigger betreten: " + gameObject.name);
                 isQuizActive = true;
-                // ?berpr?fen, welcher Trigger das Quiz ausl?st
+
                 if (gameObject.name == "MathQuiz")
                 {
                     quizData = mathQuizData;
@@ -133,7 +133,7 @@ public class QuizManagerTMP : MonoBehaviour
                 if (quizData != null && quizData.GetLength(0) > 0)
                 {
                     quizPanel.SetActive(true);
-                    StartCoroutine(FadeInButtons());
+                    StartCoroutine(FadeInAndPause());
                     currentQuestionIndex = 0;
                     LoadQuestion(currentQuestionIndex);
                     playerController.isQuizPlaying = true;
@@ -172,7 +172,7 @@ public class QuizManagerTMP : MonoBehaviour
 
                 if (health == null)
                 {
-                    FindPlayerHealth(); // Versucht, PlayerHealth erneut zu finden
+                    FindPlayerHealth();
                 }
 
                 if (health != null)
@@ -196,7 +196,14 @@ public class QuizManagerTMP : MonoBehaviour
                 barrier.SetActive(false);
                 playerController.isQuizPlaying = false;
                 wallController.OpenWall();
+                Time.timeScale = 1f;
             }
+        }
+
+        private IEnumerator FadeInAndPause()
+        {
+            yield return StartCoroutine(FadeInButtons());
+            Time.timeScale = 0f;
         }
 
         private IEnumerator FadeInButtons()
