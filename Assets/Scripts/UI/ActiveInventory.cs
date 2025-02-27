@@ -177,4 +177,9 @@ public class ActiveInventory : Singleton<ActiveInventory>
         }
 
     }
+
+    public static ActiveInventory GetInstance()
+    {
+        return Instance;
+    }
 }

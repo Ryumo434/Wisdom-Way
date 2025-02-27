@@ -7,10 +7,17 @@ using UnityEngine.SceneManagement;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject ui;
-    [SerializeField] private GameObject eText;
+    //[SerializeField] private GameObject eText;
+    [SerializeField] private GameObject visualCue;
 
     private bool isPlayerInTrigger = false;
     private bool isShopActive = true;
+
+
+    private void Awake()
+    {
+        visualCue.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -80,8 +87,8 @@ public class Shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
-            if (eText != null)
-                eText.SetActive(true);
+            if (visualCue != null)
+                visualCue.SetActive(true);
         }
     }
 
@@ -92,8 +99,8 @@ public class Shop : MonoBehaviour
             isPlayerInTrigger = false;
             if (ui != null)
                 ui.SetActive(false);
-            if (eText != null)
-                eText.SetActive(false);
+            if (visualCue != null)
+                visualCue.SetActive(false);
         }
     }
 }

@@ -25,6 +25,8 @@ public class PauseMenuScript : MonoBehaviour
 
     private void Awake()
     {
+        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(true);
         inventory = ActiveInventory.Instance;
     }
 
