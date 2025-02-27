@@ -22,12 +22,15 @@ public class PauseMenuScript : MonoBehaviour
 
     public static PauseMenuScript Instance;
     private ActiveInventory inventory;
+    private GameObject activeInventory;
 
     private void Awake()
     {
         this.gameObject.SetActive(false);
         this.gameObject.SetActive(true);
-        inventory = ActiveInventory.Instance;
+        //inventory = ActiveInventory.Instance;
+        activeInventory = GameObject.FindWithTag("Inventory");
+        inventory = activeInventory.GetComponent<ActiveInventory>();
     }
 
     void Update()
