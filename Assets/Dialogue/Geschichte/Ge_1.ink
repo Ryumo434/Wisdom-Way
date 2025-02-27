@@ -19,25 +19,22 @@ Sehr gut!#speaker:Yatik #layout:right #portrait:ghost_neutral
 ->Fragen
 
 === Fragen ===
-
-
 Hast du sonst noch Fragen an mich?#speaker:Yatik #layout:right #portrait:ghost_neutral
  +[Erzähle mir vom Turm] Yatik erzähle mir bitte etwas vom Turm. #speaker:Taleb #layout:left #portrait:player_neutral
     Was hat es mit all diesen Relikten hier auf sich?
     ->Turm
     
-    
  +[Die Monster] Yatik was hat es mit den Kreaturen hier auf sich? #speaker:Taleb #layout:left #portrait:player_neutral
     ->Monster
     
  + [Ich habe keine Fragen] Nein Yatik, machen wir uns auf dem Weg! #speaker:Taleb #layout:left #portrait:player_neutral
-    
+ 
     In Ordnung, ich bin stets in deiner Nähe Taleb! #speaker:Yatik #layout:right #portrait:ghost_neutral
     ->END
     
     
 === Turm ===
-Der Turm besteht insgesamt aus 5 Ebenen.#speaker:Yatik #layout:right #portrait:ghost_neutral
+Der Turm besteht insgesamt aus 5 Ebenen.#speaker:Yatik #layout:right #portrait:ghost_teaches
 Die ersten 4 Ebenen beinhalten das gesammelte Wissen und die Kultur der Menschen.
 Wir beide befinden uns Gerade in der ersten Ebenen:
 Ebene der Geschichte.
@@ -58,8 +55,14 @@ Das erzähle ich dir in den höheren Ebenen. #speaker:Yatik #layout:right #portr
 ->Fragen
 
 ===Monster===
-Die Kreaturen hier wurden vom bösen Weisen geschaffen. #speaker:Yatik #layout:right #portrait:ghost_neutral
+Die Kreaturen hier wurden vom bösen Weisen geschaffen. #speaker:Yatik #layout:right #portrait:ghost_teaches
 Ihre Aufgabe besteht darin jegliche Angreifer vom Turm fernzuhalten.
+Auch gibt es verschiedene Arten von Monster..
+Die blauen Schleime haben einen moderaten Schaden und Geschwindigkeit.
+Dagegen sind grüne Schleime ziemlich schnell. Bleib also wachsam.
+Zuletzt gibt es da noch die dunklen Schleime diese sind am tödlichsten.
+Zwar sind sie recht langsam, richten jedoch einen ungeheuren Schaden an. Halte dich also von Ihnen fern!
+
 
 ->Fragen
 
