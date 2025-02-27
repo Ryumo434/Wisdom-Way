@@ -81534,6 +81534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 932876306}
+  inventoryEmpty: {fileID: 21300000, guid: a8b20d367a3514b47890de333724c68e, type: 3}
 --- !u!224 &1800539450
 RectTransform:
   m_ObjectHideFlags: 0
