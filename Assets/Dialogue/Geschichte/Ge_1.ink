@@ -36,7 +36,7 @@ Hast du sonst noch Fragen an mich?#speaker:Yatik #layout:right #portrait:ghost_n
 === Turm ===
 Der Turm besteht insgesamt aus 5 Ebenen.#speaker:Yatik #layout:right #portrait:ghost_teaches
 Die ersten 4 Ebenen beinhalten das gesammelte Wissen und die Kultur der Menschen.
-Wir beide befinden uns Gerade in der ersten Ebenen:
+Wir beide befinden uns Gerade in der ersten Ebene.
 Ebene der Geschichte.
 Ein Ort an dem das historische Wissen der Menschheit versammelt ist.
 
