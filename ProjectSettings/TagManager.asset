@@ -32,6 +32,7 @@ TagManager:
   - ActiveWeapon
   - PauseMenuCanvas
   - Inventory
+  - ControlsPanel
   layers:
   - Default
   - TransparentFX
