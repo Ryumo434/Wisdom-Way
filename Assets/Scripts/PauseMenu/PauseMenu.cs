@@ -19,6 +19,7 @@ public class PauseMenuScript : MonoBehaviour
     bool gamePaused = false;
 
     [SerializeField] GameObject pauseMenu;
+    private GameObject ControlsPanel;
 
     public static PauseMenuScript Instance;
     private ActiveInventory inventory;
@@ -31,6 +32,12 @@ public class PauseMenuScript : MonoBehaviour
         //inventory = ActiveInventory.Instance;
         activeInventory = GameObject.FindWithTag("Inventory");
         inventory = activeInventory.GetComponent<ActiveInventory>();
+        //ControlsPanel = GameObject.Find("ControlsPanel");
+        ControlsPanel = this.transform.GetChild(0).gameObject;
+
+        if(ControlsPanel == null){
+            Debug.Log("Controlspanel nicht gefunden");
+        }
     }
 
     void Update()
@@ -87,14 +94,17 @@ public class PauseMenuScript : MonoBehaviour
 
     }
 
-    public void Options()
-    {
 
+    public void Controls()
+    {
+        pauseMenu.SetActive(false);
+        ControlsPanel.SetActive(true);
     }
 
-    public void SaveGame()
+    public void CloseControls()
     {
-
+        pauseMenu.SetActive(true);
+        ControlsPanel.SetActive(false);
     }
 
     public void reactivatePauseMenu()
@@ -102,6 +112,5 @@ public class PauseMenuScript : MonoBehaviour
         this.gameObject.SetActive(false);
         this.gameObject.SetActive(true);
     }
-
 
 }
