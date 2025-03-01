@@ -8,13 +8,22 @@ public class StrengthPotion : MonoBehaviour
     [SerializeField] private Sprite emptySprite;
     public static bool hasStrength;
 
+    private PotionEffectManager effectManager;
+    private GameObject potionEffectGameObject;
+
+    private void Awake()
+    {
+        potionEffectGameObject = GameObject.FindWithTag("PotionEffectManager");
+        effectManager = potionEffectGameObject.GetComponent<PotionEffectManager>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (weaponInfo.effect == "strength" && !InventoryModeManager.InventoryIsOpen)
             {
-                PotionEffectManager.Instance.StartStrengthPotionEffect(weaponInfo, 5.0f, emptySprite, gameObject);
+                effectManager.StartStrengthPotionEffect(weaponInfo, 5.0f, emptySprite, gameObject);
             }
         }
     }

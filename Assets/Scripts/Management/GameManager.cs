@@ -43,9 +43,8 @@ public class GameManager : MonoBehaviour
             if (slot != null)
             {
                 string itemName = slot.getItemName();
-                string stackCount = slot.getStackCount().text; // Sicherstellen, dass der StackCount korrekt gelesen wird
+                string stackCount = slot.getStackCount().text; 
 
-                // Prüfen, ob ein ItemName oder StackCount null oder leer ist
                 if (string.IsNullOrEmpty(itemName))
                 {
                     Debug.LogWarning($"[SaveGame] Leerer Item-Name im Slot {i}");

@@ -33,6 +33,7 @@ TagManager:
   - PauseMenuCanvas
   - Inventory
   - ControlsPanel
+  - PotionEffectManager
   layers:
   - Default
   - TransparentFX

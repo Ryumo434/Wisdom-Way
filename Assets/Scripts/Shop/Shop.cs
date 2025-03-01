@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private GameObject ui;
-    //[SerializeField] private GameObject eText;
+    private GameObject ui;
     [SerializeField] private GameObject visualCue;
 
     private bool isPlayerInTrigger = false;

@@ -7,18 +7,6 @@ public class PotionEffectManager : MonoBehaviour
 {
     public static PotionEffectManager Instance { get; private set; }
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
 
     public void StartStrengthPotionEffect(WeaponInfo weaponInfo, float duration, Sprite emptySprite, GameObject go)
     {
