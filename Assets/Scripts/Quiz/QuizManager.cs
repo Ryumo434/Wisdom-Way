@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class QuizManagerTMP : MonoBehaviour
 {
@@ -30,15 +31,6 @@ public class QuizManagerTMP : MonoBehaviour
 
     // Verschiedene Fragensets
     // {"Frage", "Antwort 1", "Antwort 2", "Antwort 3", "Antwort 4", "Index der richtigen Antwort"}
-    private string[,] mathQuizData = new string[,]
-    {
-        {"Was ist 5 + 7?", "10", "12", "14", "16"},
-        {"Wie lautet die Quadratwurzel von 64?", "6", "7", "8", "9"},
-        {"Wie viele Seiten hat ein W?rfel?", "4", "5", "6", "8"},
-        {"Was ist das Ergebnis von 9 * 9?", "72", "81", "90", "99"},
-        {"Was ist Pi (auf 2 Nachkommastellen)?", "3.12", "3.14", "3.16", "3.18"}
-    };
-
     private string[,] historyQuizData = new string[,]
     {
         {"Wer war der berühmte Pharao, dessen Grab im Tal der Könige entdeckt wurde?", "Ramses II", "Cheops", "Tutanchamun", "Echnaton", "3"},
@@ -51,15 +43,6 @@ public class QuizManagerTMP : MonoBehaviour
         {"Welches antike Volk baute die berühmten Pyramiden von Gizeh?", "Die Römer", "Die Griechen", "Die Ägypter", "Die Mesopotamier", "3"},
         {"Wer war der Gründer des Osmanischen Reiches?", "Mehmed II", "Selim I", "Süleyman der Prächtige", "Osman I", "4"},
         {"Welches Dokument gilt als ein Grundstein der modernen Demokratie?", "Bill of Rights", "Magna Carta", "Vertrag von Versailles", "Habeas Corpus", "2"}
-    };
-
-    private string[,] scienceQuizData = new string[,]
-    {
-        {"Was ist die chemische Formel von Wasser?", "H2O", "CO2", "O2", "NaCl"},
-        {"Wie viele Planeten gibt es im Sonnensystem?", "7", "8", "9", "10"},
-        {"Was ist die schwerste nat?rliche Substanz auf der Erde?", "Gold", "Silber", "Eisen", "Uran"},
-        {"Was ist das gr??te Organ des menschlichen K?rpers?", "Herz", "Leber", "Lunge", "Haut"},
-        {"Welches Gas ist am h?ufigsten in der Erdatmosph?re?", "Sauerstoff", "Stickstoff", "Kohlenstoffdioxid", "Wasserstoff"}
     };
 
     private string[,] ArtQuizData = new string[,]
@@ -109,17 +92,7 @@ public class QuizManagerTMP : MonoBehaviour
                 Debug.Log("Player hat Trigger betreten: " + gameObject.name);
                 isQuizActive = true;
 
-                if (gameObject.name == "MathQuiz")
-                {
-                    quizData = mathQuizData;
-                    Debug.Log("Math Quiz geladen: " + quizData.Length + " Fragen");
-                }
-                else if (gameObject.name == "ScienceQuiz")
-                {
-                    quizData = scienceQuizData;
-                    Debug.Log("Science Quiz geladen: " + quizData.Length + " Fragen");
-                }
-                else if (gameObject.name == "HistoryQuiz")
+                if (gameObject.name == "HistoryQuiz")
                 {
                     quizData = historyQuizData;
                     Debug.Log("History Quiz geladen: " + quizData.Length + " Fragen");
@@ -195,7 +168,19 @@ public class QuizManagerTMP : MonoBehaviour
                 quizPanel.SetActive(false);
                 barrier.SetActive(false);
                 playerController.isQuizPlaying = false;
-                wallController.OpenWall();
+
+                if (SceneManager.GetActiveScene().name == "Dungeon_GeE1")
+                {
+                    if (wallController != null)
+                    {
+                        wallController.OpenWall();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("WallController ist nicht gesetzt, aber die Szene ist Dungeon_Ge E1!");
+                    }
+                }
+
                 Time.timeScale = 1f;
             }
         }
@@ -254,7 +239,7 @@ public class QuizManagerTMP : MonoBehaviour
         {
             if (health == null)
             {
-                health = FindObjectOfType<PlayerHealth>(); // Sucht das PlayerHealth-Objekt neu
+                health = FindObjectOfType<PlayerHealth>();
                 if (health == null)
                 {
                     Debug.LogError("PlayerHealth-Objekt wurde nicht gefunden!");
