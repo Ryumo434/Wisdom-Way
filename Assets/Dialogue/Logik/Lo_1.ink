@@ -9,10 +9,15 @@ Hier scheint es viele Mechanismen zu geben, wo befinden wir uns?
 
 Das hier ist die Ebene der Logik.#speaker:Yatik #layout:right #portrait:ghost_neutral
 Sie prüft die Menschen auf ihr logisches Verständnis und zwingt einen über Grenzen hinaus zu denken.
-Nur Menschen mit schneller kognitiver- und Anpassungsfähigkeit bestehen diese Ebene.
+Nur Menschen mit schnellen kognitiven Fähigkeit bestehen diese Ebene.
 Diesmal bleibe ich hier Taleb und kann dir bei den Rätsel helfen.
 Es liegt aber auch bei dir, ob du es alleine versuchen möchtest.
 ->Fragen
+
+
+
+
+
 ===Fragen===
 +[Helfen lassen] Ich danke dir Yatik.#speaker:Taleb #layout:left #portrait:player_neutral
 Lass es uns zusammen machen.
@@ -23,6 +28,12 @@ Gut.#speaker:Yatik #layout:right #portrait:ghost_neutral
 
 In Ordnung, ich bin hier wenn du dich umentscheiden solltest. #speaker:Yatik #layout:right #portrait:ghost_neutral
 ->END
+
+
+
+
+
+
 
 ===Hilfe===
 Bei welchen Mechanismen soll ich dir helfen?#speaker:Yatik #layout:right #portrait:ghost_neutral
