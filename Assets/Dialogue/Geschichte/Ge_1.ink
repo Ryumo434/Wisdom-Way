@@ -2,7 +2,7 @@ Hey Taleb, willkommen im Turm! #speaker:Yatik #layout:right #portrait:ghost_neut
 du hast erzählt, dass dir Erinnerung fehlen.
 Ich hab mit meinen Fähigkeiten ein Riss im Raum geschaffen.
 Schau er befindet sich links von mir!
-Berührst du diesen Riss kannst du deine bisherigen Errinerungen in diesem Riss hinterliegen.
+Berührst du diesen Riss kannst du deine bisherigen Errinerungen in diesem Riss hinterlegen.
 So sind sogar deine Fortschritte nach deinem Tot geschützt und du erwachst im Riss und kannst weiterkämpfen.
 Aber vorsicht! berührst du den Riss einmal und hinterlegst deine Errinerungen darin verschwindet er endgültig.
 Ich werde jedoch im weiteren Verlauf des Turmes weitere für dich erschaffen.
