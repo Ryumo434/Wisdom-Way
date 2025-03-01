@@ -7,40 +7,16 @@ public class KeyUsage : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private KeyController keyController;
-    [SerializeField] private Image eImage;
+    [SerializeField] private GameObject eImage;
 
     private bool isPlayerInTrigger = false;
     private GameObject itemGameObject;
 
-    // Start is called before the first frame update
     void Start()
     {
-        GameObject inventory3 = GameObject.Find("Inventory (3)");
-
-        if (inventory3 != null)
-        {
-            Transform item = inventory3.transform.Find("Item");
-
-            if (item != null)
-            {
-                itemGameObject = item.gameObject;
-                itemGameObject.SetActive(false);
-                Debug.Log("Item gefunden: " + item.gameObject.name);
-            }
-            else
-            {
-                Debug.LogError("Item wurde nicht unter Inventory (3) gefunden.");
-            }
-        }
-        else
-        {
-            Debug.LogError("Inventory (3) wurde nicht gefunden.");
-        }
-
         keyController.door.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (prefab.name == "getKey")
@@ -48,13 +24,21 @@ public class KeyUsage : MonoBehaviour
             if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
             {
                 keyController.playerHasKey = true;
-                itemGameObject.SetActive(true);
             }
+        }
+
+        if (keyController.playerHasKey)
+        {
+            eImage.SetActive(false);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (!keyController.playerHasKey && prefab.name != "useKey")
+        {
+            eImage.SetActive(true);
+        }
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
@@ -62,13 +46,13 @@ public class KeyUsage : MonoBehaviour
             {
                 keyController.door.SetActive(false);
                 eImage.gameObject.SetActive(true);
-                itemGameObject.SetActive(false);
             }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
+        eImage.SetActive(false);
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;

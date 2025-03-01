@@ -6,7 +6,6 @@ public class LeverQuiz : MonoBehaviour
 {
     [SerializeField] private LeverChecker checker;
     [SerializeField] private SpriteRenderer leverSprite;
-    [SerializeField] private GameObject canvas;
     public Sprite leverUPSprite;
     public Sprite leverDOWNSprite;
     public int arrayIndex;
@@ -14,13 +13,6 @@ public class LeverQuiz : MonoBehaviour
     private bool isPlayerInTrigger = false;
     private bool isLeverUp = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        canvas.SetActive(false);
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
@@ -45,7 +37,6 @@ public class LeverQuiz : MonoBehaviour
         Debug.Log("trigger enter");
         if (other.CompareTag("Player"))
         {
-            canvas.SetActive(true);
             isPlayerInTrigger = true;
         }
     }
@@ -54,7 +45,6 @@ public class LeverQuiz : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            canvas.SetActive(false);
             isPlayerInTrigger = false;
         }
     }
