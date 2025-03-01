@@ -15277,7 +15277,7 @@ GameObject:
   - component: {fileID: 534380954}
   m_Layer: 5
   m_Name: Active Inventory
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54067,7 +54067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293.7, y: -153.79999}
+  m_AnchoredPosition: {x: -293.7, y: -215.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179828873
@@ -60255,6 +60255,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7301913820609702935, guid: eb87eb4d20b3a324fb78337264915982, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5588427
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301913820609702935, guid: eb87eb4d20b3a324fb78337264915982, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7633915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301913820609702935, guid: eb87eb4d20b3a324fb78337264915982, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0511384
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301913820609702935, guid: eb87eb4d20b3a324fb78337264915982, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.61830425
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64472,7 +64488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293.7, y: -153.79999}
+  m_AnchoredPosition: {x: -293.7, y: -184.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662841647
@@ -65539,7 +65555,7 @@ Transform:
   m_GameObject: {fileID: 1709360202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.909079, y: 17.37271, z: 0.053459167}
+  m_LocalPosition: {x: 8.90036, y: 17.37256, z: 0.053459167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67485,7 +67501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293.7, y: -90}
+  m_AnchoredPosition: {x: -293.7, y: -92}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &783999600377751003
@@ -68103,7 +68119,7 @@ MonoBehaviour:
   ActiveWeapon: {fileID: 0}
   darkBackground: {fileID: 6301784313529740727}
   pauseMenuCanvas: {fileID: 0}
-  ghostShouldisappearAfterDialogue: 1
+  ghostShouldisappearAfterDialogue: 0
   ghostDisappear: 0
   choices:
   - {fileID: 4601160091462832490}
