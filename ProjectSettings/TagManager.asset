@@ -34,6 +34,8 @@ TagManager:
   - Inventory
   - ControlsPanel
   - PotionEffectManager
+  - Boss
+  - Ghost
   layers:
   - Default
   - TransparentFX

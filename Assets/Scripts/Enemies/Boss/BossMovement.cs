@@ -22,6 +22,7 @@ public class BossMovement : MonoBehaviour
     BossHealth bossHealth;
 
     GameObject areaExit;
+    GameObject finalGhost;
 
    // private BoxCollider2D boxCollider2D;
 
@@ -36,6 +37,7 @@ public class BossMovement : MonoBehaviour
         bossHealth = GetComponent<BossHealth>();
 
         areaExit = GameObject.Find("AreaExit");
+        finalGhost = GameObject.FindWithTag("Ghost");
 
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -52,6 +54,7 @@ public class BossMovement : MonoBehaviour
         //boxCollider2D = GetComponent<BoxCollider2D>();
 
         areaExit.SetActive(false);
+        finalGhost.SetActive(false);
 
 
     }
@@ -61,6 +64,7 @@ public class BossMovement : MonoBehaviour
 
         if (bossHealth.bossIsDead) {
             areaExit.SetActive(true);
+            finalGhost.SetActive(true);
             return; 
         }
         

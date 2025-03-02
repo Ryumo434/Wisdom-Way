@@ -50,16 +50,16 @@ Jedoch überlebten einige Menschen.
 Konnten sie sich wie ich noch an was erinnern?#speaker:Taleb #layout:left #portrait:player_confused
 
 Nein, der Weise nahm diese Menschen gefangen und sie befinden sich in einem Zustand des Komas.#speaker:Yatik #layout:right #portrait:ghost_teaches
-Denn der Weise entzieht ihnen durchgehend durch seine alleinige Existenz ihr Wissen.
+Denn der Weise entzieht ihnen durchgehend durch die alleinige Existenz seine Zauberstabes ihr Wissen.
 
 Aber warum wurde bei ihnen das Wissen nicht auf einmal enztogen, wie bei den anderen Menschen?#speaker:Taleb #layout:left #portrait:player_confused
 
 Diese sind besonders intelligente Menschen mit einer Natürlichen Begabung.#speaker:Yatik #layout:right #portrait:ghost_teaches
 Auch sind unter ihnen welche mit eisernem Willen welche sich gegen den Zauber wehren.
 Aber wenn wir uns nicht beeilen werden auch diese Mneschen sterben.
-Die bloße Existenz des Weisen erhält den Zauber aufrecht.
+Die bloße Existenz des Zauberstabs vom Weise erhält den Zauber aufrecht.
 
-Ich verstehe umso mehr müssen wir uns beeilen ihn schnellstmöglich zu besiegen.#speaker:Taleb #layout:left #portrait:player_angry
+Ich verstehe umso mehr müssen wir uns beeilen, um ihn schnellstmöglich zu besiegen!#speaker:Taleb #layout:left #portrait:player_angry
 Genug geredet.
 Lass uns keine Zeit verlieren!
 
