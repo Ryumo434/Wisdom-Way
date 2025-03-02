@@ -108,7 +108,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
 
         yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
         //string currentScene;
         //currentScene = SceneManager.GetActiveScene().name;

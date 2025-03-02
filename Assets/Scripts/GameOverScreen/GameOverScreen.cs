@@ -5,9 +5,23 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
+    [SerializeField] private GameObject GameOverCanvas;
     public GameObject gameOverScreen;
     public Button restartButton;
     public Button mainMenuButton;
+    private GameObject player;
+
+    private ActiveInventory inventory;
+    private GameObject activeInventory;
+
+    private void Awake()
+    {
+        GameOverCanvas.SetActive(false);
+        GameOverCanvas.SetActive(true);
+        player = GameObject.FindWithTag("Player");
+        activeInventory = GameObject.FindWithTag("Inventory");
+        inventory = activeInventory.GetComponent<ActiveInventory>();
+    }
 
     private void Start()
     {
@@ -28,6 +42,7 @@ public class GameOverManager : MonoBehaviour
         {
             Debug.Log(" Spieler ist tot, Game Over Screen wird angezeigt.");
             ShowGameOverScreen();
+            
         }
     }
 
@@ -44,12 +59,11 @@ public class GameOverManager : MonoBehaviour
     }
 
 
-
-
     public void LoadGame()
     {
         if (GameManager.Instance != null)
         {
+            Destroy(player);
             GameManager.Instance.LoadGame();
         }
         else
@@ -60,7 +74,9 @@ public class GameOverManager : MonoBehaviour
 
 
     public void LoadMainMenu()
-    {    
+    {
+        inventory.ClearInventory();
+        Destroy(player);
         SceneManager.LoadScene("Menu"); 
     }
 
