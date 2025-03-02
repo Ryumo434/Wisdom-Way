@@ -38191,7 +38191,7 @@ GameObject:
   - component: {fileID: 503741703}
   m_Layer: 5
   m_Name: GameOverCanvas
-  m_TagString: Untagged
+  m_TagString: GameOverCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42572,7 +42572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &903321673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42609,7 +42609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.7411765}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -46810,9 +46810,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4804910134478428521}
-        m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
-        m_MethodName: MainMenu
+      - m_Target: {fileID: 503741703}
+        m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -47872,7 +47872,7 @@ GameObject:
   - component: {fileID: 1219338793}
   - component: {fileID: 1219338792}
   m_Layer: 0
-  m_Name: RestartButton
+  m_Name: LoadGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47944,7 +47944,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 503741703}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -81721,7 +81721,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: Load Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27b5ae9cb6f814bf18b902aedfe87c8f, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: 27b5ae9cb6f814bf18b902aedfe87c8f, type: 2}
@@ -84617,17 +84617,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54012f704dcbb7c4d86501dba2a28b6e, type: 3}
---- !u!114 &4804910134478428521 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3608675652077110568, guid: dcdbd920f1b260f49af2d14aaa945697, type: 3}
-  m_PrefabInstance: {fileID: 4312663340900996129}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8493333606275831333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ca091bd7fefe44b968250b323a739f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!223 &5014586216407858930
 Canvas:
   m_ObjectHideFlags: 0
@@ -85652,11 +85641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.327076
+      value: 2.3251033
       objectReference: {fileID: 0}
     - target: {fileID: 5041484658683350769, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8023295
+      value: -1.8023591
       objectReference: {fileID: 0}
     - target: {fileID: 5742782774263472378, guid: daec84bc45d21694f990a4334cf350a4, type: 3}
       propertyPath: m_ChildCameras.Array.size

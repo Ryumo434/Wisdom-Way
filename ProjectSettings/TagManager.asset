@@ -34,6 +34,7 @@ TagManager:
   - Inventory
   - ControlsPanel
   - PotionEffectManager
+  - GameOverCanvas
   layers:
   - Default
   - TransparentFX
