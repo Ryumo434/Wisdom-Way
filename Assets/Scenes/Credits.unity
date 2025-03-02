@@ -360,7 +360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.010057, y: -507}
+  m_AnchoredPosition: {x: -0.010057, y: -29}
   m_SizeDelta: {x: 1215.9329, y: 2178.3103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033660520
@@ -393,8 +393,8 @@ MonoBehaviour:
     Dank f\xFCrs Spielen!\n\nFolge uns auf Social Media:\n\nTwitter: @WisWay\nInstagram:
     @WisWay\n\n\xA9 2024 WisWay-Team. Alle Rechte vorbehalten."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb74b91f4759c914dafbda62d9df1d46, type: 2}
+  m_sharedMaterial: {fileID: 6780404067476171405, guid: fb74b91f4759c914dafbda62d9df1d46, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -481,12 +481,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsText: {fileID: 1033660520}
-  scrollSpeed: 20
-  typeSpeed: 0.1
+  scrollSpeed: 10
+  typeSpeed: 0.09
   fadePanel: {fileID: 1064328575}
   fadeSpeed: 1
   nextSceneName: Menu
-  endScrollPositionY: 1050
+  endScrollPositionY: 800
 --- !u!1 &1064328571
 GameObject:
   m_ObjectHideFlags: 0
