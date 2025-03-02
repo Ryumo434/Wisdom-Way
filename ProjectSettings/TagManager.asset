@@ -36,6 +36,7 @@ TagManager:
   - PotionEffectManager
   - Boss
   - Ghost
+  - GameOverCanvas
   layers:
   - Default
   - TransparentFX
