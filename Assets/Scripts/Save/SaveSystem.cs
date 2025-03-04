@@ -6,7 +6,6 @@ public static class SaveSystem
     private static string savePath = Application.persistentDataPath + "/playerSave.json";
     private static string initialPath = Application.persistentDataPath + "/initialSave.json";
 
-
     public static void Save(PlayerData data)
     {
         string json = JsonUtility.ToJson(data);
@@ -32,16 +31,19 @@ public static class SaveSystem
 
     public static PlayerData LoadInitial()
     {
-        if (File.Exists(initialPath))
+        Debug.Log(initialPath);
+        if (!File.Exists(initialPath))
         {
-            string json = File.ReadAllText(initialPath);
-            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
-            return data;
+            Debug.Log("SaveSystem: InitialSave.json nicht gefunden. Erstelle Standardwerte...");
+
+            string defaultJson = "{\"position\":{\"x\":4.05,\"y\":4.75},\"sceneName\":\"WisWay\",\"score\":0,\"health\":20,\"inventoryItems\":[{\"name\":\"Sword\",\"stackCount\":\"1\"},{\"name\":\"EMPTY_SLOT\",\"stackCount\":\"0\"},{\"name\":\"EMPTY_SLOT\",\"stackCount\":\"0\"},{\"name\":\"EMPTY_SLOT\",\"stackCount\":\"0\"},{\"name\":\"EMPTY_SLOT\",\"stackCount\":\"0\"}]}";
+
+            File.WriteAllText(initialPath, defaultJson);
+            Debug.Log("SaveSystem: InitialSave.json wurde mit Standardwerten erstellt.");
         }
-        else
-        {
-            Debug.LogWarning("SaveSystem: Kein gespeicherter Spielstand gefunden!");
-            return null;
-        }
+        string json = File.ReadAllText(initialPath);
+        PlayerData data = JsonUtility.FromJson<PlayerData>(json);
+        return data;
     }
 }
+
