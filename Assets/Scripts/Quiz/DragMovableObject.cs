@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class DragMovableObject : MonoBehaviour
 {
     [SerializeField] private GameObject PressE;
+    [SerializeField] private GameObject NameText;
     [SerializeField] private GameObject hotbar;
     [SerializeField] private GameObject weapon;
     [SerializeField] private Transform movableObject;
@@ -16,6 +17,10 @@ public class DragMovableObject : MonoBehaviour
 
     void Start()
     {
+        if (this.name == "RobertKoch" || this.name == "IsaacNewton" || this.name == "JohnRockefeller")
+        {
+            NameText.SetActive(false);
+        }
         hotbar = GameObject.Find("Active Inventory");
         weapon = GameObject.Find("Active Weapon");
         rb = GetComponent<Rigidbody2D>();
@@ -93,7 +98,11 @@ public class DragMovableObject : MonoBehaviour
         {
             isPlayerInTrigger = true;
 
-            
+            if (this.name == "RobertKoch" || this.name == "IsaacNewton" || this.name == "JohnRockefeller")
+            {
+                NameText.SetActive(true);
+            }
+
             if (PressE != null) PressE.SetActive(true);
         }
     }
@@ -104,7 +113,11 @@ public class DragMovableObject : MonoBehaviour
         {
             isPlayerInTrigger = false;
 
-            
+            if (this.name == "RobertKoch" || this.name == "IsaacNewton" || this.name == "JohnRockefeller")
+            {
+                NameText.SetActive(false);
+            }
+
             if (PressE != null) PressE.SetActive(false);
         }
     }
