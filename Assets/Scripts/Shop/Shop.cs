@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject visualCue;
 
     private bool isPlayerInTrigger = false;
-    private bool isShopActive = true;
+    private bool isShopActive = false;
 
 
     private void Awake()
@@ -73,11 +73,11 @@ public class Shop : MonoBehaviour
         isShopActive = !isShopActive;
         if (isShopActive)
         {
-            ui.SetActive(false);
+            ui.SetActive(true);
         }
         else
         {
-            ui.SetActive(true);
+            ui.SetActive(false);
         }
     }
 

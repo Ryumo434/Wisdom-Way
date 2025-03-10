@@ -19,6 +19,7 @@ public class TriggerQuestion : MonoBehaviour
 
     private void Start()
     {
+        PressEMonaLisa.SetActive(false);
       // Finde das Root-Objekt "Player"
         GameObject player = GameObject.Find("Player");
 

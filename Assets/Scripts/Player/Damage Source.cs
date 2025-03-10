@@ -22,7 +22,7 @@ public class DamageSource : MonoBehaviour
             // checken ob player den Stärke effekt hat.
             if (StrengthPotion.hasStrength)
             {
-                enemyHealth?.TakeDamage(damageAmount + 1000);
+                enemyHealth?.TakeDamage(damageAmount + 4);
             }
             else
             {

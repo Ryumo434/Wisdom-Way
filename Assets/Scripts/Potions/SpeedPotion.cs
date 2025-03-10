@@ -11,6 +11,8 @@ public class SpeedPotion : MonoBehaviour
     private PotionEffectManager effectManager;
     private GameObject potionEffectGameObject;
 
+    public static bool hasSpeed;
+
     private void Awake()
     {
         potionEffectGameObject = GameObject.FindWithTag("PotionEffectManager");

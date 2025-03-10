@@ -5,8 +5,8 @@ using UnityEngine;
 public class DynamicCoin : MonoBehaviour
 {
     public GameObject coinPrefab;
-    public float bobbingAmplitude = 0.5f; // Wie weit die Münze sich auf- und abwärts bewegt
-    public float bobbingFrequency = 2f;  // Wie schnell die Bewegung erfolgt
+    public float bobbingAmplitude = 0.5f;
+    public float bobbingFrequency = 2f;
 
     private Vector3 startPosition;
 

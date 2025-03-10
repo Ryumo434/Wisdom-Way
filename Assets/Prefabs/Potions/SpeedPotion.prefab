@@ -99,4 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: 0f546ed7506f94f1a897900bc437627d, type: 2}
   emptySprite: {fileID: 21300000, guid: a8b20d367a3514b47890de333724c68e, type: 3}
-  timerText: {fileID: 0}
+  duration: 42
+  speedMultiplier: 1.75

@@ -147,7 +147,13 @@ public class PlayerController : Singleton<PlayerController>
         float dashTime = .2f;
         float dashCD = .25f;
         yield return new WaitForSeconds(dashTime);
-        moveSpeed = startingMoveSpeed;
+        if (SpeedPotion.hasSpeed)
+        {
+            moveSpeed = startingMoveSpeed * 2;
+        } else
+        {
+            moveSpeed = startingMoveSpeed;
+        }
         myTrailRenderer.emitting = false;
         yield return new WaitForSeconds(dashCD);
         isDashing = false;

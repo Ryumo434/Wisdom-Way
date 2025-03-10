@@ -6,7 +6,7 @@ public class addCoin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ScoreManager.instance.AddScore(100);
+            ScoreManager.instance.AddScore(1);
             Destroy(gameObject);
         }
     }

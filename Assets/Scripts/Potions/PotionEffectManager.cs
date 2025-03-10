@@ -39,6 +39,7 @@ public class PotionEffectManager : MonoBehaviour
 
     private IEnumerator SpeedPotionEffectCoroutine(WeaponInfo weaponInfo, float duration, float speedMultiplier, Sprite emptySprite, GameObject go)
     {
+        SpeedPotion.hasSpeed = true;
         PlayerController.Instance.setMoveSpeed(speedMultiplier);
         Debug.Log("SpeedPotion aktiviert: Geschwindigkeit erhöht!");
 
@@ -51,6 +52,7 @@ public class PotionEffectManager : MonoBehaviour
         }
 
         PlayerController.Instance.setMoveSpeed(1.0f);
+        SpeedPotion.hasSpeed = false;
         Debug.Log("SpeedPotion Effekt abgelaufen: Geschwindigkeit zurückgesetzt.");
         HidePotionTimer(weaponInfo);
         RemovePotionFromInventory(weaponInfo, emptySprite, go);

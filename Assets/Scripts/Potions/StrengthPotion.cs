@@ -23,7 +23,7 @@ public class StrengthPotion : MonoBehaviour
         {
             if (weaponInfo.effect == "strength" && !InventoryModeManager.InventoryIsOpen)
             {
-                effectManager.StartStrengthPotionEffect(weaponInfo, 5.0f, emptySprite, gameObject);
+                effectManager.StartStrengthPotionEffect(weaponInfo, 11.0f, emptySprite, gameObject);
             }
         }
     }
