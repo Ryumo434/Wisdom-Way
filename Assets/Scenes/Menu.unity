@@ -80621,7 +80621,7 @@ MonoBehaviour:
   shopItemPrefab: {fileID: 6785026757306434325, guid: 91d14a32d5c3ae94b8be909cf77ba493, type: 3}
   shopInventory:
   - Name: Sofortheilung
-    Price: 40
+    Price: 20
     Icon: {fileID: 21300000, guid: 60169eacc525e437d91a345c88c143b1, type: 3}
     Description: potion
     Strength: 0
@@ -80635,21 +80635,21 @@ MonoBehaviour:
     Effect: speed
     weaponInfo: {fileID: 11400000, guid: 0f546ed7506f94f1a897900bc437627d, type: 2}
   - Name: Bogen
-    Price: 80
+    Price: 60
     Icon: {fileID: 21300000, guid: e4dd3f7b7ea5f184980dc74b2cfb174a, type: 3}
     Description: weapon
     Strength: 0
     Effect: 
     weaponInfo: {fileID: 11400000, guid: d6f0b1f70081b2549a8c8bbe20bbc16f, type: 2}
   - Name: "St\xE4rke Trank"
-    Price: 50
+    Price: 40
     Icon: {fileID: 21300000, guid: 04b6a4550efda466bab2e305823c3275, type: 3}
     Description: potion
     Strength: 0
     Effect: strength
     weaponInfo: {fileID: 11400000, guid: 817c2c60bfb174d4dbc704e9fa9c9caf, type: 2}
   - Name: Zauberstab
-    Price: 100
+    Price: 70
     Icon: {fileID: 21300000, guid: 706e01ae4b06f5b42bfe217c40861ba2, type: 3}
     Description: weapon
     Strength: 0
