@@ -48,10 +48,10 @@ public class QuizManagerTMP : MonoBehaviour
     private string[,] ArtQuizData = new string[,]
     {
         {"Ich schnitt mir ein Ohr ab, doch meine Bilder sind weltberühmt. Wer bin ich?", "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Gustav Klimt", "1"},
-        {"Ich erscheine oft in Kunstwerken, stehe für Frieden. Was bin ich?", "Taube", "Waschbär", "Schlange", "Eule","4"},
-        {"Welche Kunstrichtung ist für ihre intensiven Farbflächen und geometrischen Formen bekannt?", "Kubismus", "Impressionismus", "Romantik", "Barock","2"},
-        {"Welche Statue der Antike ist bekannt dafür, dass ihr die Arme fehlen?", "Venus von Milo", "David von Michelangelo", "Nike von Samothrake", "Der Denker","2"},
-        {"Welcher Künstler ist als Mitbegründer der Pop-Art bekannt?", "Andy Warhol", "Salvador Dalí", "Rembrandt", "Claude Monet","1"}
+        {"Ich erscheine oft in Kunstwerken, stehe für Frieden. Was bin ich?", "Eule", "Waschbär", "Schlange", "Taube","4"},
+        {"Welche Kunstrichtung ist für ihre intensiven Farbflächen und geometrischen Formen bekannt?", "Impressionismus", "Kubismus", "Romantik", "Barock","2"},
+        {"Welche Statue der Antike ist bekannt dafür, dass ihr die Arme fehlen?", "Venus von Milo", "David von Michelangelo", "Nike von Samothrake", "Der Denker","1"},
+        {"Welcher Künstler ist als Mitbegründer der Pop-Art bekannt?", "Rembrandt", "Salvador Dalí", "Andy Warhol", "Claude Monet","3"}
     };
 
     void Start()
