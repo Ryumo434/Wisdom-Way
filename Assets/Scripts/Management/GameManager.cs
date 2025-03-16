@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         {
             LoadGame();
         }
-    }
+    }*/
 
     public void SaveGame()
     {
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         PlayerData data = new PlayerData(playerPosition, currentScene, currentScore, currentHealth, inventoryItems);
 
         SaveSystem.Save(data);
-        Debug.Log($"GameManager: Spielstand gespeichert! Inventar: {inventoryItems.Count} Einträge.");
+        Debug.Log($"GameManager: Spielstand gespeichert! Inventar: {inventoryItems.Count} Eintrï¿½ge.");
     }
 
     public void LoadInitialGame()
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
         if (data != null)
         {
-            Debug.Log($"GameManager: Geladene Daten - Scene: {data.sceneName}, Inventar: {data.inventoryItems.Count} Einträge");
+            Debug.Log($"GameManager: Geladene Daten - Scene: {data.sceneName}, Inventar: {data.inventoryItems.Count} Eintrï¿½ge");
             foreach (var item in data.inventoryItems)
             {
                 Debug.Log($"Item geladen: {item.name}, StackCount: {item.stackCount}");
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
         if (data != null)
         {
-            Debug.Log($"GameManager: Geladene Daten - Scene: {data.sceneName}, Inventar: {data.inventoryItems.Count} Einträge");
+            Debug.Log($"GameManager: Geladene Daten - Scene: {data.sceneName}, Inventar: {data.inventoryItems.Count} Eintrï¿½ge");
             foreach (var item in data.inventoryItems)
             {
                 Debug.Log($"Item geladen: {item.name}, StackCount: {item.stackCount}");
