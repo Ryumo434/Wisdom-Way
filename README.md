@@ -8,6 +8,8 @@ Your mission is to defeat the wizard at the top of the tower.
 The tower consists of five layers, each representing a different area of knowledge.
 On your journey to the top, you will face monsters, puzzles, and challenges.
 
+![Gameplay Demo](Images/WisWayVideo.gif)
+
 ## Features
 
 - Player movement: run, dash, and attack
