@@ -10,6 +10,14 @@ On your journey to the top, you will face monsters, puzzles, and challenges.
 
 ![Gameplay Demo](Images/WisWayVideo.gif)
 
+## Setup & Run
+
+To run the project locally:
+
+```bash
+git clone https://github.com/Ryumo434/Wisdom-Way.git
+```
+
 ## Features
 
 - Player movement: run, dash, and attack
